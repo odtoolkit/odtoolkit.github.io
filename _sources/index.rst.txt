@@ -1,0 +1,40 @@
+.. ODToolkit documentation master file, created by
+   sphinx-quickstart on Fri Feb  8 03:00:21 2019.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+***********************************************
+Welcome to the ODToolkit API Documentation Page
+***********************************************
+
+``ODToolkit`` is a Python package that offers open-source implementation of various occupancy detection models and
+allows for comprehensive evaluation of these models on publicly available data sets collected from residential and
+commercial buildings. ODToolkit's data processing and evaluation pipeline is shown below.
+
+.. image:: graphics/odtk-flow.*
+    :align: center
+
+Pre-request: `Python 3.4+ <https://www.python.org/downloads/>`_.
+
+.. toctree::
+    :caption: ODToolkit Documentation
+    :maxdepth: 2
+
+    readme
+    installing
+    modules
+    changelog
+
+.. toctree::
+    :caption: Demo Documentation
+    :maxdepth: 2
+
+    function
+    experiment
+    customize
+
+.. toctree::
+    :caption: Credits
+    :maxdepth: 2
+
+    dependencies

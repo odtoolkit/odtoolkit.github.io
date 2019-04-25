@@ -1,0 +1,102 @@
+odtk.model package
+==================
+
+Submodules
+----------
+
+odtk.model.gaussian\_process\_classifier module
+-----------------------------------------------
+
+.. automodule:: odtk.model.gaussian_process_classifier
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.model.gaussian\_process\_regression module
+-----------------------------------------------
+
+.. automodule:: odtk.model.gaussian_process_regression
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.model.hidden\_markov\_model module
+---------------------------------------
+
+.. automodule:: odtk.model.hidden_markov_model
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.model.hmm\_core module
+---------------------------
+
+.. automodule:: odtk.model.hmm_core
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.model.nn module
+--------------------
+
+.. automodule:: odtk.model.nn
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.model.particle\_filtering module
+-------------------------------------
+
+.. automodule:: odtk.model.particle_filtering
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.model.random\_forest module
+--------------------------------
+
+.. automodule:: odtk.model.random_forest
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.model.rnn module
+---------------------
+
+.. automodule:: odtk.model.rnn
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.model.snmf module
+----------------------
+
+.. automodule:: odtk.model.snmf
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.model.superclass module
+----------------------------
+
+.. automodule:: odtk.model.superclass
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.model.support\_vector\_machine module
+------------------------------------------
+
+.. automodule:: odtk.model.support_vector_machine
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: odtk.model
+    :members:
+    :undoc-members:
+    :show-inheritance:

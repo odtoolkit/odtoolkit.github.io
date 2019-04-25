@@ -1,0 +1,27 @@
+*****************
+API documentation
+*****************
+
+
+.. toctree::
+   :maxdepth: 4
+
+Subpackages
+===========
+
+.. toctree::
+
+    odtk.data
+    odtk.evaluation
+    odtk.model
+    odtk.plot
+    odtk.preprocessing
+    odtk.stats
+
+odtk.easy\_experiment module
+============================
+
+.. automodule:: odtk.easy_experiment
+    :members:
+    :undoc-members:
+    :show-inheritance:

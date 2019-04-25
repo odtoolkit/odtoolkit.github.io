@@ -1,0 +1,67 @@
+************
+Dependencies
+************
+
+ODToolkit is built on top of several Python packages. The packages used to develop this toolkit are listed below.
+
++--------------+----------------------------+----------------+------------------+
+| Package Name | Usage in ODToolkit         | Latest Version | Required Version |
++==============+============================+================+==================+
+| Matplotlib_  | Plotting evaluation score  | |matplotlib|   | 3.0.2            |
++--------------+----------------------------+----------------+------------------+
+| Pandas_      | Data preprocessing         | |pandas|       | 0.23.4           |
++--------------+----------------------------+----------------+------------------+
+| Numpy_       | Main data structure        | |numpy|        | 1.16.0           |
++--------------+----------------------------+----------------+------------------+
+| Scipy_       | Built-in models            | |scipy|        | 1.0.0            |
++--------------+----------------------------+----------------+------------------+
+| Keras_       | Built-in models            | |keras|        | 2.2.4            |
++--------------+----------------------------+----------------+------------------+
+| Levenshtein_ | Name ontology              | |levenshtein|  | 0.12.0           |
++--------------+----------------------------+----------------+------------------+
+| Dateutil_    | Formatting raw data        | |dateutil|     | 2.8.0            |
++--------------+----------------------------+----------------+------------------+
+| Seaborn_     | Plotting estimation result | |seaborn|      | 0.9.0            |
++--------------+----------------------------+----------------+------------------+
+| Scikit_      | Built-in models            | |scikit|       | 0.20.3           |
++--------------+----------------------------+----------------+------------------+
+
+.. _Matplotlib: https://matplotlib.org/
+.. _Pandas: http://pandas.pydata.org/
+.. _Numpy: https://www.numpy.org/
+.. _Scipy: https://www.scipy.org/
+.. _Keras: https://keras.io/
+.. _Levenshtein: https://github.com/ztane/python-Levenshtein
+.. _Dateutil: https://dateutil.readthedocs.io/en/stable/
+.. _Seaborn: https://seaborn.pydata.org/
+.. _Scikit: https://scikit-learn.org/stable/
+
+.. only:: html
+
+    .. |matplotlib| image:: https://badge.fury.io/py/matplotlib.svg
+        :target: https://badge.fury.io/py/matplotlib
+
+    .. |pandas| image:: https://badge.fury.io/py/pandas.svg
+        :target: https://badge.fury.io/py/pandas
+
+    .. |numpy| image:: https://badge.fury.io/py/numpy.svg
+        :target: https://badge.fury.io/py/numpy
+
+    .. |scipy| image:: https://badge.fury.io/py/scipy.svg
+        :target: https://badge.fury.io/py/scipy
+
+    .. |keras| image:: https://badge.fury.io/py/Keras.svg
+        :target: https://badge.fury.io/py/Keras
+
+    .. |levenshtein| image:: https://badge.fury.io/py/python-Levenshtein.svg
+        :target: https://badge.fury.io/py/python-Levenshtein
+
+    .. |dateutil| image:: https://badge.fury.io/py/python-dateutil.svg
+        :target: https://badge.fury.io/py/python-dateutil
+
+    .. |seaborn| image:: https://badge.fury.io/py/seaborn.svg
+        :target: https://badge.fury.io/py/seaborn
+
+    .. |scikit| image:: https://badge.fury.io/py/scikit-learn.svg
+        :target: https://badge.fury.io/py/scikit-learn
+

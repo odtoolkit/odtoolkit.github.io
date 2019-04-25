@@ -1,0 +1,70 @@
+odtk.evaluation package
+=======================
+
+Submodules
+----------
+
+odtk.evaluation.f\_score module
+-------------------------------
+
+.. automodule:: odtk.evaluation.f_score
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.evaluation.mae module
+--------------------------
+
+.. automodule:: odtk.evaluation.mae
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.evaluation.mape module
+---------------------------
+
+.. automodule:: odtk.evaluation.mape
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.evaluation.mase module
+---------------------------
+
+.. automodule:: odtk.evaluation.mase
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.evaluation.nrmse module
+----------------------------
+
+.. automodule:: odtk.evaluation.nrmse
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.evaluation.rmse module
+---------------------------
+
+.. automodule:: odtk.evaluation.rmse
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.evaluation.superclass module
+---------------------------------
+
+.. automodule:: odtk.evaluation.superclass
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: odtk.evaluation
+    :members:
+    :undoc-members:
+    :show-inheritance:

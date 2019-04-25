@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>odtk.preprocessing package &mdash; ODToolkit 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="odtk.stats package" href="odtk.stats.html" />
+    <link rel="prev" title="odtk.plot package" href="odtk.plot.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ODToolkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">ODToolkit Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="odtk.data.html">odtk.data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odtk.evaluation.html">odtk.evaluation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odtk.model.html">odtk.model package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odtk.plot.html">odtk.plot package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">odtk.preprocessing package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.preprocessing.auto_clean">odtk.preprocessing.auto_clean module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.preprocessing.change">odtk.preprocessing.change module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.preprocessing.downsample">odtk.preprocessing.downsample module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.preprocessing.fill">odtk.preprocessing.fill module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.preprocessing.ontology">odtk.preprocessing.ontology module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.preprocessing.outlier">odtk.preprocessing.outlier module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.preprocessing.upsample">odtk.preprocessing.upsample module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.preprocessing">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="odtk.stats.html">odtk.stats package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-odtk.easy_experiment">odtk.easy_experiment module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Sample Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customize.html">Extending the Toolkit</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ODToolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">API documentation</a> &raquo;</li>
+        
+      <li>odtk.preprocessing package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/odtk.preprocessing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="odtk-preprocessing-package">
+<h1>odtk.preprocessing package<a class="headerlink" href="#odtk-preprocessing-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-odtk.preprocessing.auto_clean">
+<span id="odtk-preprocessing-auto-clean-module"></span><h2>odtk.preprocessing.auto_clean module<a class="headerlink" href="#module-odtk.preprocessing.auto_clean" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="odtk.preprocessing.auto_clean.auto_clean">
+<code class="descclassname">odtk.preprocessing.auto_clean.</code><code class="descname">auto_clean</code><span class="sig-paren">(</span><em>dataset</em>, <em>target_frequency</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/preprocessing/auto_clean.html#auto_clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.preprocessing.auto_clean.auto_clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>The full preprocessing for the given odtk.data.dataset.Dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dataset</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – Dataset object that wants to perform preprocessing</li>
+<li><strong>target_frequency</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – sampling frequency in second that the dataset wants to become</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.preprocessing.change">
+<span id="odtk-preprocessing-change-module"></span><h2>odtk.preprocessing.change module<a class="headerlink" href="#module-odtk.preprocessing.change" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="odtk.preprocessing.change.change_to_binary">
+<code class="descclassname">odtk.preprocessing.change.</code><code class="descname">change_to_binary</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/preprocessing/change.html#change_to_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.preprocessing.change.change_to_binary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the occupancy data in odtk.data.dataset.Dataset to binary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – Dataset object that wants to change the occupancy encoding method</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="odtk.preprocessing.change.change_to_label">
+<code class="descclassname">odtk.preprocessing.change.</code><code class="descname">change_to_label</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/preprocessing/change.html#change_to_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.preprocessing.change.change_to_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the occupancy data in odtk.data.dataset.Dataset to label encoding</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – Dataset object that wants to change the occupancy encoding method</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="odtk.preprocessing.change.change_to_one_hot">
+<code class="descclassname">odtk.preprocessing.change.</code><code class="descname">change_to_one_hot</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/preprocessing/change.html#change_to_one_hot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.preprocessing.change.change_to_one_hot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the occupancy data in odtk.data.dataset.Dataset to one hot encoding</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – Dataset object that wants to change the occupancy encoding method</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.preprocessing.downsample">
+<span id="odtk-preprocessing-downsample-module"></span><h2>odtk.preprocessing.downsample module<a class="headerlink" href="#module-odtk.preprocessing.downsample" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="odtk.preprocessing.downsample.downsample">
+<code class="descclassname">odtk.preprocessing.downsample.</code><code class="descname">downsample</code><span class="sig-paren">(</span><em>dataset</em>, <em>target_frequency</em>, <em>algorithm='mean'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/preprocessing/downsample.html#downsample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.preprocessing.downsample.downsample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downsampling the sampling frequency (decrease the number of rows) of given odtk.data.dataset.Dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dataset</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – Dataset object that wants to downsample</li>
+<li><strong>target_frequency</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – sampling frequency in second that the dataset wants to become</li>
+<li><strong>algorithm</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – downsampling algorithm. Only <code class="docutils literal notranslate"><span class="pre">'mean'</span></code> is available for now</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.preprocessing.fill">
+<span id="odtk-preprocessing-fill-module"></span><h2>odtk.preprocessing.fill module<a class="headerlink" href="#module-odtk.preprocessing.fill" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="odtk.preprocessing.fill.fill">
+<code class="descclassname">odtk.preprocessing.fill.</code><code class="descname">fill</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/preprocessing/fill.html#fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.preprocessing.fill.fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill all nan value in the sensor data for given odtk.data.dataset.Dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – Dataset object that wants to fill in missing values</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.preprocessing.ontology">
+<span id="odtk-preprocessing-ontology-module"></span><h2>odtk.preprocessing.ontology module<a class="headerlink" href="#module-odtk.preprocessing.ontology" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="odtk.preprocessing.ontology.ontology">
+<code class="descclassname">odtk.preprocessing.ontology.</code><code class="descname">ontology</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/preprocessing/ontology.html#ontology"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.preprocessing.ontology.ontology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the name of features to standard glossary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dataset</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – Dataset object or list of features’ name that wants to map to standard glossary</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)">list</a>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)">str</a>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Edited feature_list list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.preprocessing.outlier">
+<span id="odtk-preprocessing-outlier-module"></span><h2>odtk.preprocessing.outlier module<a class="headerlink" href="#module-odtk.preprocessing.outlier" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="odtk.preprocessing.outlier.remove_outlier">
+<code class="descclassname">odtk.preprocessing.outlier.</code><code class="descname">remove_outlier</code><span class="sig-paren">(</span><em>dataset</em>, <em>auto_fill=True</em>, <em>ratio=1.5</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/preprocessing/outlier.html#remove_outlier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.preprocessing.outlier.remove_outlier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove potential outliers using IQR, and fill with numpy.nan. Outliers are the value that
+less than value at the first quantile - ratio * IOR or
+greater than value at the third quantile + ratio * IOR
+in its corresponding column</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dataset</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – Dataset object that wants to remove outliers</li>
+<li><strong>auto_fill</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – whether automatically fill the outliers or leave it nan</li>
+<li><strong>ratio</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – IQR ratio in order to mark value as an outlier</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.preprocessing.upsample">
+<span id="odtk-preprocessing-upsample-module"></span><h2>odtk.preprocessing.upsample module<a class="headerlink" href="#module-odtk.preprocessing.upsample" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="odtk.preprocessing.upsample.upsample">
+<code class="descclassname">odtk.preprocessing.upsample.</code><code class="descname">upsample</code><span class="sig-paren">(</span><em>dataset</em>, <em>target_frequency</em>, <em>algorithm='linear'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/preprocessing/upsample.html#upsample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.preprocessing.upsample.upsample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upsampling the sampling frequency (increase the number of rows) of given odtk.data.dataset.Dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dataset</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – Dataset object that wants to upsample</li>
+<li><strong>target_frequency</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – sampling frequency in second that the dataset wants to become</li>
+<li><strong>algorithm</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – upsampling algorithm. Only <code class="docutils literal notranslate"><span class="pre">'linear'</span></code> is available for now</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.preprocessing">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-odtk.preprocessing" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="odtk.stats.html" class="btn btn-neutral float-right" title="odtk.stats package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="odtk.plot.html" class="btn btn-neutral" title="odtk.plot package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, ODToolkit Authors
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

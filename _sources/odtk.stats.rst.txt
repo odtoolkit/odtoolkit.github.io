@@ -1,0 +1,62 @@
+odtk.stats package
+==================
+
+Submodules
+----------
+
+odtk.stats.analysis module
+--------------------------
+
+.. automodule:: odtk.stats.analysis
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.stats.dropout\_rate module
+-------------------------------
+
+.. automodule:: odtk.stats.dropout_rate
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.stats.frequency module
+---------------------------
+
+.. automodule:: odtk.stats.frequency
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.stats.gap\_detect module
+-----------------------------
+
+.. automodule:: odtk.stats.gap_detect
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.stats.occupancy\_evaluation module
+---------------------------------------
+
+.. automodule:: odtk.stats.occupancy_evaluation
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtk.stats.uptime module
+------------------------
+
+.. automodule:: odtk.stats.uptime
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: odtk.stats
+    :members:
+    :undoc-members:
+    :show-inheritance:

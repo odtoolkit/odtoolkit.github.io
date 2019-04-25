@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sample Use Cases &mdash; ODToolkit 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Extending the Toolkit" href="customize.html" />
+    <link rel="prev" title="odtk.stats package" href="sample.odtk.stats.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ODToolkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">ODToolkit Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="function.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sample Use Cases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#plotting-the-correlation-matrix">Plotting the correlation matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sample-code">Sample code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#result">Result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluating-a-specific-model-on-a-given-data-set">Evaluating a specific model on a given data set</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Sample code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluating-multiple-models-on-multiple-data-sets">Evaluating multiple models on multiple data sets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Sample code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Result</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="customize.html">Extending the Toolkit</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ODToolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Sample Use Cases</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/experiment.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sample-use-cases">
+<h1>Sample Use Cases<a class="headerlink" href="#sample-use-cases" title="Permalink to this headline">¶</a></h1>
+<p>In this section we provide multiple code snippets to show how ODToolkit can be used to carry out different experiments.</p>
+<div class="section" id="plotting-the-correlation-matrix">
+<h2>Plotting the correlation matrix<a class="headerlink" href="#plotting-the-correlation-matrix" title="Permalink to this headline">¶</a></h2>
+<p>The correlation matrix is a graph that represents the correlation between different pairs of features when the room
+is unoccupied and when it is vacant. The graphs located on the main diagonal represents the probability distribution
+function of each feature in the data set.</p>
+<div class="section" id="sample-code">
+<h3>Sample code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtk</span>
+
+<span class="c1"># Load a sample data set from the package, and remove its time feature</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;umons-all&quot;</span><span class="p">)</span>
+<span class="n">name_for_time_column</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">feature_mapping</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">time_column_index</span><span class="p">]</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">remove_feature</span><span class="p">(</span><span class="n">name_for_time_column</span><span class="p">)</span>
+
+<span class="c1"># Plot the correlation graph</span>
+<span class="n">odtk</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_feature_correlation</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="result">
+<h3>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/correlation.png" class="align-center" src="_images/correlation.png" />
+</div>
+</div>
+<div class="section" id="evaluating-a-specific-model-on-a-given-data-set">
+<h2>Evaluating a specific model on a given data set<a class="headerlink" href="#evaluating-a-specific-model-on-a-given-data-set" title="Permalink to this headline">¶</a></h2>
+<p>Here we utilize a given data set to evaluate a specific model in terms of its ability to estimate the binary
+occupancy state of a room. We adopt a subset of the evaluation metrics to visualize the result.</p>
+<div class="section" id="id1">
+<h3>Sample code<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtk</span>
+
+<span class="c1"># Load a sample data set from the package</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">([</span><span class="s2">&quot;umons-all&quot;</span><span class="p">])</span>
+
+<span class="c1"># Use Random Forest model to perform occupancy estimation</span>
+<span class="c1"># Use all binary evaluation metrics to evaluate the model</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">odtk</span><span class="o">.</span><span class="n">easy_set_experiment</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
+                                           <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">],</span>
+                                           <span class="n">evaluation_metrics</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Plot the scores in a bar chart</span>
+<span class="n">odtk</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
+                      <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
+                      <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">,</span>
+                      <span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;one_dataset_one_model_all_metrics&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id2">
+<h3>Result<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/one_dataset_one_model_all_metrics.png" class="align-center" src="_images/one_dataset_one_model_all_metrics.png" />
+</div>
+</div>
+<div class="section" id="evaluating-multiple-models-on-multiple-data-sets">
+<h2>Evaluating multiple models on multiple data sets<a class="headerlink" href="#evaluating-multiple-models-on-multiple-data-sets" title="Permalink to this headline">¶</a></h2>
+<p>We can also use several data sets to evaluate the performance of different models when estimating the binary
+occupancy state of a room. We choose the F1 Score to show the result.</p>
+<div class="section" id="id3">
+<h3>Sample code<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtk</span>
+
+<span class="c1"># Load two sample data sets from the package</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">([</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span> <span class="s2">&quot;sdu-all&quot;</span><span class="p">])</span>
+
+<span class="c1"># Use two models to perform occupancy estimation</span>
+<span class="c1"># Use all binary evaluation metrics to evaluate the model</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">odtk</span><span class="o">.</span><span class="n">easy_set_experiment</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
+                                           <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">,</span> <span class="s2">&quot;NN&quot;</span><span class="p">],</span>
+                                           <span class="n">evaluation_metrics</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                                           <span class="n">thread_num</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Plot the scores in a bar chart</span>
+<span class="n">odtk</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
+                      <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;F1Score&quot;</span><span class="p">,</span>
+                      <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">,</span>
+                      <span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;one_dataset_one_model_all_metrics&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id4">
+<h3>Result<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/mul_data_mul_model.png" class="align-center" src="_images/mul_data_mul_model.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="customize.html" class="btn btn-neutral float-right" title="Extending the Toolkit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sample.odtk.stats.html" class="btn btn-neutral" title="odtk.stats package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, ODToolkit Authors
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

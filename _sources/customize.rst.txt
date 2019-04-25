@@ -1,0 +1,297 @@
+*********************
+Extending the Toolkit
+*********************
+
+In this section we illustrate how the user can extend ODToolkit by adding a new data set, a new occupancy
+estimation model, and a new evaluation metrics to the toolkit.
+
+Adding a new data set
+=====================
+
+We assume that a data set is a collection of comma separated (csv) files where each file contains data pertaining to
+a single room within a building. The columns of each file represent different features and its rows correspond to
+successive timestamps. The labelled occupancy data should be the last column of the csv file (if applicable).
+
+
+Sample code
+-----------
+.. code-block:: python
+    :linenos:
+
+    import odtk
+
+    # Load the raw csv file and transform to odtk.data.dataset.Dataset()
+    dataset = odtk.data.import_data("./data-room-1.csv",
+                                    time_column_index=1,
+                                    room_name="User room 1",
+                                    tz=-2)
+    # Add more rooms into the same data set
+    dataset += odtk.data.import_data("./data-room-2.csv",
+                                     time_column_index=1,
+                                     room_name="User room 2",
+                                     tz=-2)
+
+    # Preprocess the data set
+    odtk.preprocessing.auto_clean(dataset, target_frequency=60)
+    # After preprocessing, put the data set into specific folder for data sets
+    odtk.data.save_dataset(dataset, "./odtk/data/binary_dataset/user_room")
+
+Once the data set is added to the toolkit, you may ask the toolkit to load the data as follows:
+
+.. code-block:: python
+
+   dataset = odtk.data.load_sample("user_room")
+
+Analyzing a data set and using it to evaluate a model
+-----------------------------------------------------
+
+.. code-block:: python
+    :linenos:
+
+    import odtk
+
+    # Load a user-defined data set from the package, and remove its time feature
+    dataset = odtk.data.load_sample(["user_room"])
+    time_column_name = dataset["user_room"].feature_mapping[dataset["user_room"].time_column_index]
+    dataset["user_room"].remove_feature(time_column_name)
+
+    # Plot the correlation graph
+    odtk.plot.plot_feature_correlation(dataset["user_room"])
+
+    # Use Random Forest model to perform occupancy estimation
+    # Use all binary evaluation metrics to evaluate the model
+    result = odtk.evaluation.Result()
+    result.set_result(odtk.easy_set_experiment(dataset,
+                                               models=["RandomForest"],
+                                               evaluation_metrics="all")[0])
+
+    # Plot the scores in a bar chart
+    odtk.plot.plot_result(result,
+                          dataset="user_room",
+                          threshold="<= 1")
+
+Adding a new model
+==================
+
+To add a new occupancy estimation model to ODToolkit, you must put its code under the folder ``./odtk/model/``.
+
+Template
+--------
+
+.. code-block:: python
+    :linenos:
+
+    #!/usr/bin/env python3
+    # -*- coding: utf-8 -*-
+    # If you want to put your model into the ODToolkit folder, use this
+    from .superclass import *
+    # If you want to put your model into your own folder, use this
+    from odtk.model.superclass import *
+
+    # Sample for supervised-learning model
+    class YourModelName(NormalModel):
+        def __init__(self,
+                     name_for_train_dataset,
+                     name_for_test_dataset):
+            # all changeable parameters
+            self.name_for_train_dataset = name_for_train_dataset
+            self.name_for_test_dataset = name_for_test_dataset
+
+            # ... Any other parameters defines here
+
+        # the model must have a method called run, and return the predicted result
+        def run(self):
+            # Your model goes here
+            # Use odtk.data.dataset.Dataset() as data type
+
+            # ...
+
+            # Result must be a numpy.ndarray with shape of (num_of_rows, 1)
+            return predict_occupancy
+
+    # Sample for domain-adaptive semi-supervised learning model
+    class YourModelName(DomainAdaptiveModel):
+        def __init__(self,
+                     name_for_source_dataset,
+                     name_for_target_retrain_dataset, # This could be None
+                     name_for_target_test_dataset):
+            # all changeable parameters
+            self.name_for_source_dataset = name_for_source_dataset
+            self.name_for_target_retrain_dataset = name_for_target_retrain_dataset
+            self.name_for_target_test_dataset = name_for_target_test_dataset
+
+            # ... Any other parameters defines here
+
+        # the model must have a method called run, and return the predicted result
+        def run(self):
+            # Your model goes here
+            # Use odtk.data.dataset.Dataset() as data type
+
+            # ...
+
+            # Result must be a numpy.ndarray with shape of (num_of_rows, 1)
+            return predict_occupancy
+
+Applying and evaluating the model
+---------------------------------
+
+To run experiments quickly using the default parameter setting:
+
+.. code-block:: python
+    :linenos:
+
+    import odtk
+
+    # Load a sample data set from the package
+    dataset = odtk.data.load_sample(["umons-all"])
+
+    # Use new model to perform occupancy estimation
+    # Use all binary evaluation metrics to evaluate the model
+    result = odtk.evaluation.Result()
+    result.set_result(odtk.easy_set_experiment(dataset,
+                                               models=["YourModelName"],
+                                               evaluation_metrics="all")[0])
+
+    # Plot the scores in a bar chart
+    odtk.plot.plot_result(result,
+                          dataset="umons-all",
+                          threshold="<= 1")
+
+To change the default parameters:
+
+.. code-block:: python
+    :linenos:
+
+    import odtk
+
+    # Load a sample data set from the package
+    dataset = odtk.data.load_sample("umons-all")
+    # Create train / test sets
+    train, test = dataset.split(0.8)
+
+    # Select models you want to use
+    model_set = odtk.model.NormalModel(train, test, thread_num=1)
+    model_set.add_model(["YourModelName"])
+
+    # Edit the settings of your model
+    your_model = model_set.models["YourModelName"]
+    your_model.alpha = 0.5
+    # Run model to predict occupancy level
+    model_set_results = model_set.run_all_model()
+
+    # Evaluate the result
+    metrics = odtk.evaluation.BinaryEvaluation(
+                              model_set_results["YourModelName"], test.occupancy)
+    evaluation_score = dict()
+    metrics.get_all_metrics()
+    evaluation_score["YourModelName"] = metrics.run_all_metrics()
+
+    # Plot the result
+    result = odtk.evaluation.Result()
+    result.set_result({"umons-all": evaluation_score})
+    # Plot the scores in a bar chart
+    odtk.plot.plot_result(result,
+                          dataset="umons-all",
+                          threshold="<= 1")
+
+Adding a new evaluation metric
+==============================
+
+The procedure to add a new metric is the same as adding a new model.
+
+Template
+--------
+
+.. code-block:: python
+    :linenos:
+
+    #!/usr/bin/env python3
+    # -*- coding: utf-8 -*-
+    # If you want to put your model into the ODToolkit folder, use this
+    from .superclass import *
+    # If you want to put your model into your own folder, use this
+    from odtk.evaluation.superclass import *
+
+    # If evaluate occupancy count estimation, use OccupancyEvaluation as superclass
+    # If evaluate binary estimation, use BinaryEvaluation as superclass
+    class YourMetricName(OccupancyEvaluation):
+        def __init__(self,
+                     name_for_predict_result,
+                     name_for_ground_truth):
+            # all changeable parameters
+            self.name_for_predict_result = name_for_predict_result
+            self.name_for_ground_truth = name_for_ground_truth
+
+            # ... Any other parameters defines here
+
+        # the model must have a method called run, and return the score
+        def run(self):
+            # Your model goes here
+            # Use two (x, 1) numpy.ndarrays as data type
+
+            # ...
+
+            # Result must be one value
+            return score
+
+Using the new metric to evaluate models
+---------------------------------------
+
+To evaluate a model using the new metric:
+
+.. code-block:: python
+   :linenos:
+
+   import odtk
+
+   # Load a sample data set from the package
+   dataset = odtk.data.load_sample(["umons-all"])
+
+   # Use RandomForest model to perform occupancy estimation
+   # Use all binary evaluation metrics to evaluate the model
+   result = odtk.evaluation.Result()
+   result.set_result(odtk.easy_set_experiment(dataset,
+                                              models=["RandomForest"],
+                                              evaluation_metrics=["YourMetricName"])[0])
+
+   # Plot the scores in a bar chart
+   odtk.plot.plot_result(result,
+                         dataset="umons-all",
+                         threshold="<= 1")
+
+To change the default parameters:
+
+.. code-block:: python
+   :linenos:
+
+   import odtk
+
+   # Load a sample data set from the package
+   dataset = odtk.data.load_sample("umons-all")
+   # Create train / test sets
+   train, test = dataset.split(0.8)
+
+   # Select models you want to use
+   model_set = odtk.model.NormalModel(train, test, thread_num=1)
+   model_set.add_model(["RandomForest"])
+
+   # Run model to predict occupancy level
+   model_set_results = model_set.run_all_model()
+
+   # Evaluate the result
+   metrics = odtk.evaluation.BinaryEvaluation(
+                             model_set_results["RandomForest"], test.occupancy)
+   evaluation_score = dict()
+   metrics.add_metrics(["YourMetricName"])
+   # Change your metric
+   your_metric = metrics.metrics["YourMetricName"]
+   your_metric.alpha = 0.5
+   evaluation_score["RandomForest"] = metrics.run_all_metrics()
+
+   # Plot the result
+   result = odtk.evaluation.Result()
+   result.set_result({"umons-all": evaluation_score})
+   # Plot the scores in a bar chart
+   odtk.plot.plot_result(result,
+                         dataset="umons-all",
+                         threshold="<= 1")

@@ -1,0 +1,42 @@
+************
+Installation
+************
+
+Requirements
+============
+
+``ODToolkit`` is open-source software that includes several Python packages. It currently
+supports `Python 3.4+ <https://www.python.org/downloads/>`_.
+All dependencies are listed in :ref:`dependencies:Dependencies`.
+
+Installing ODToolkit
+====================
+
+Via Pip
+-------
+
+Unavailable at the moment.
+
+Via Git or Download
+-------------------
+
+If you want the latest version, you can clone our `GitHub repository <https://github.com/sustainable-computing/ODToolkit/>`_.
+
+1. Install Git on your computer::
+
+    $ sudo apt-get install git
+
+2. Check and clone the latest version of ODToolkit::
+
+    $ git clone https://github.com/sustainable-computing/ODToolkit.git
+
+3. Install the dependencies::
+
+    $ cd ./ODToolkit/
+    $ pip3 install -r requirements.txt
+
+Code
+====
+
+The source code and reported issues can be found in
+our `GitHub repository <https://github.com/sustainable-computing/ODToolkit/>`_.

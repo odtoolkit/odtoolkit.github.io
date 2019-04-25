@@ -1,0 +1,973 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>odtk.model package &mdash; ODToolkit 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="odtk.plot package" href="odtk.plot.html" />
+    <link rel="prev" title="odtk.evaluation package" href="odtk.evaluation.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ODToolkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">ODToolkit Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="odtk.data.html">odtk.data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odtk.evaluation.html">odtk.evaluation package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">odtk.model package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.model.gaussian_process_classifier">odtk.model.gaussian_process_classifier module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.model.gaussian_process_regression">odtk.model.gaussian_process_regression module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.model.hidden_markov_model">odtk.model.hidden_markov_model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.model.hmm_core">odtk.model.hmm_core module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.model.nn">odtk.model.nn module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.model.particle_filtering">odtk.model.particle_filtering module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.model.random_forest">odtk.model.random_forest module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.model.rnn">odtk.model.rnn module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.model.snmf">odtk.model.snmf module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.model.superclass">odtk.model.superclass module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.model.support_vector_machine">odtk.model.support_vector_machine module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtk.model">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="odtk.plot.html">odtk.plot package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odtk.preprocessing.html">odtk.preprocessing package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odtk.stats.html">odtk.stats package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-odtk.easy_experiment">odtk.easy_experiment module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Sample Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customize.html">Extending the Toolkit</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ODToolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">API documentation</a> &raquo;</li>
+        
+      <li>odtk.model package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/odtk.model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="odtk-model-package">
+<h1>odtk.model package<a class="headerlink" href="#odtk-model-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-odtk.model.gaussian_process_classifier">
+<span id="odtk-model-gaussian-process-classifier-module"></span><h2>odtk.model.gaussian_process_classifier module<a class="headerlink" href="#module-odtk.model.gaussian_process_classifier" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="odtk.model.gaussian_process_classifier.GPC">
+<em class="property">class </em><code class="descclassname">odtk.model.gaussian_process_classifier.</code><code class="descname">GPC</code><span class="sig-paren">(</span><em>train</em>, <em>test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/gaussian_process_classifier.html#GPC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.gaussian_process_classifier.GPC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.NormalModel" title="odtk.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.GaussianProcessClassifier.html">Gaussian Process Classifier</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>train</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</li>
+<li><strong>test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.gaussian_process_classifier.GPC.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/gaussian_process_classifier.html#GPC.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.gaussian_process_classifier.GPC.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.model.gaussian_process_regression">
+<span id="odtk-model-gaussian-process-regression-module"></span><h2>odtk.model.gaussian_process_regression module<a class="headerlink" href="#module-odtk.model.gaussian_process_regression" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="odtk.model.gaussian_process_regression.GPR">
+<em class="property">class </em><code class="descclassname">odtk.model.gaussian_process_regression.</code><code class="descname">GPR</code><span class="sig-paren">(</span><em>train</em>, <em>test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/gaussian_process_regression.html#GPR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.gaussian_process_regression.GPR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.NormalModel" title="odtk.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.GaussianProcessRegressor.html">Gaussian Process Regressor</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>train</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</li>
+<li><strong>test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.gaussian_process_regression.GPR.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/gaussian_process_regression.html#GPR.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.gaussian_process_regression.GPR.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.model.hidden_markov_model">
+<span id="odtk-model-hidden-markov-model-module"></span><h2>odtk.model.hidden_markov_model module<a class="headerlink" href="#module-odtk.model.hidden_markov_model" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="odtk.model.hidden_markov_model.HMM">
+<em class="property">class </em><code class="descclassname">odtk.model.hidden_markov_model.</code><code class="descname">HMM</code><span class="sig-paren">(</span><em>train</em>, <em>test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hidden_markov_model.html#HMM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hidden_markov_model.HMM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.NormalModel" title="odtk.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://en.wikipedia.org/wiki/Hidden_Markov_model">Midden Markov Model</a>
+model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>train</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</li>
+<li><strong>test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</li>
+<li><strong>number_of_hidden_states</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the number of maximum occupancy level</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.hidden_markov_model.HMM.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hidden_markov_model.html#HMM.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hidden_markov_model.HMM.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="odtk.model.hidden_markov_model.HMM_DA">
+<em class="property">class </em><code class="descclassname">odtk.model.hidden_markov_model.</code><code class="descname">HMM_DA</code><span class="sig-paren">(</span><em>source</em>, <em>target_retrain</em>, <em>target_test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hidden_markov_model.html#HMM_DA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hidden_markov_model.HMM_DA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.DomainAdaptiveModel" title="odtk.model.superclass.DomainAdaptiveModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.DomainAdaptiveModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://en.wikipedia.org/wiki/Hidden_Markov_model">Midden Markov Model</a>
+model to predict the occupancy level</p>
+<p>This is a domain-adaptive semi-supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>source</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the source domain with full knowledge for training the model</li>
+<li><strong>target_retrain</strong> (<code class="docutils literal notranslate"><span class="pre">None</span></code> or odtk.data.dataset.Dataset) – the labelled ground truth Dataset in the target domain for re-training the model</li>
+<li><strong>target_test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset in the rest of the target domain for testing by using sensor data only</li>
+<li><strong>number_of_hidden_states</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the number of maximum occupancy level</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.hidden_markov_model.HMM_DA.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hidden_markov_model.html#HMM_DA.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hidden_markov_model.HMM_DA.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.model.hmm_core">
+<span id="odtk-model-hmm-core-module"></span><h2>odtk.model.hmm_core module<a class="headerlink" href="#module-odtk.model.hmm_core" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="odtk.model.hmm_core.EmissionModel">
+<em class="property">class </em><code class="descclassname">odtk.model.hmm_core.</code><code class="descname">EmissionModel</code><span class="sig-paren">(</span><em>meta={}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hmm_core.html#EmissionModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hmm_core.EmissionModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="odtk.model.hmm_core.EmissionModel.get_prob">
+<code class="descname">get_prob</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hmm_core.html#EmissionModel.get_prob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hmm_core.EmissionModel.get_prob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get probability</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="odtk.model.hmm_core.EmissionModel.learn">
+<code class="descname">learn</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hmm_core.html#EmissionModel.learn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hmm_core.EmissionModel.learn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Learn parameters</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="odtk.model.hmm_core.Gaussian">
+<em class="property">class </em><code class="descclassname">odtk.model.hmm_core.</code><code class="descname">Gaussian</code><span class="sig-paren">(</span><em>meta={}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hmm_core.html#Gaussian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hmm_core.Gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.hmm_core.EmissionModel" title="odtk.model.hmm_core.EmissionModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.hmm_core.EmissionModel</span></code></a></p>
+<dl class="method">
+<dt id="odtk.model.hmm_core.Gaussian.get_prob">
+<code class="descname">get_prob</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hmm_core.html#Gaussian.get_prob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hmm_core.Gaussian.get_prob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get probability</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="odtk.model.hmm_core.Gaussian.learn">
+<code class="descname">learn</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hmm_core.html#Gaussian.learn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hmm_core.Gaussian.learn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Learn parameters</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="odtk.model.hmm_core.HMM_Core">
+<em class="property">class </em><code class="descclassname">odtk.model.hmm_core.</code><code class="descname">HMM_Core</code><span class="sig-paren">(</span><em>number_of_hidden_states=2</em>, <em>emission_model=&lt;class 'odtk.model.hmm_core.Gaussian'&gt;</em>, <em>emission_params={}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hmm_core.html#HMM_Core"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hmm_core.HMM_Core" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="odtk.model.hmm_core.HMM_Core.learn">
+<code class="descname">learn</code><span class="sig-paren">(</span><em>hidden_seq</em>, <em>emission_seq</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hmm_core.html#HMM_Core.learn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hmm_core.HMM_Core.learn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="odtk.model.hmm_core.HMM_Core.pf_predict">
+<code class="descname">pf_predict</code><span class="sig-paren">(</span><em>emission_seq</em>, <em>number_of_particles=50</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hmm_core.html#HMM_Core.pf_predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hmm_core.HMM_Core.pf_predict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="odtk.model.hmm_core.HMM_Core.prior">
+<code class="descname">prior</code><span class="sig-paren">(</span><em>hmm</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hmm_core.html#HMM_Core.prior"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hmm_core.HMM_Core.prior" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="odtk.model.hmm_core.HMM_Core.viterbi_predict">
+<code class="descname">viterbi_predict</code><span class="sig-paren">(</span><em>emission_seq</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/hmm_core.html#HMM_Core.viterbi_predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.hmm_core.HMM_Core.viterbi_predict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.model.nn">
+<span id="odtk-model-nn-module"></span><h2>odtk.model.nn module<a class="headerlink" href="#module-odtk.model.nn" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="odtk.model.nn.NN">
+<em class="property">class </em><code class="descclassname">odtk.model.nn.</code><code class="descname">NN</code><span class="sig-paren">(</span><em>train</em>, <em>test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/nn.html#NN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.nn.NN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.NormalModel" title="odtk.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html">Multi-layer Perception Classifier</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>train</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</li>
+<li><strong>test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</li>
+<li><strong>solver</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – the solver for weight optimization. Choice of <code class="docutils literal notranslate"><span class="pre">'lbfgs'</span></code>, <code class="docutils literal notranslate"><span class="pre">'sgd'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'adam'</span></code></li>
+<li><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – l2 penalty (regularization term) parameter</li>
+<li><strong>batch_size</strong> (int or <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>) – size of minibatches for stochastic optimizers</li>
+<li><strong>activation</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – activation function for the hidden layer.
+Choice of <code class="docutils literal notranslate"><span class="pre">'identity'</span></code>, <code class="docutils literal notranslate"><span class="pre">'logistic'</span></code>, <code class="docutils literal notranslate"><span class="pre">'tanh'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'relu'</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.nn.NN.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/nn.html#NN.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.nn.NN.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.model.particle_filtering">
+<span id="odtk-model-particle-filtering-module"></span><h2>odtk.model.particle_filtering module<a class="headerlink" href="#module-odtk.model.particle_filtering" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="odtk.model.particle_filtering.PF">
+<em class="property">class </em><code class="descclassname">odtk.model.particle_filtering.</code><code class="descname">PF</code><span class="sig-paren">(</span><em>train</em>, <em>test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/particle_filtering.html#PF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.particle_filtering.PF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.NormalModel" title="odtk.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://en.wikipedia.org/wiki/Particle_filter">Particle Filtering</a>
+model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>train</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</li>
+<li><strong>test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</li>
+<li><strong>number_of_hidden_states</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the number of maximum occupancy level</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.particle_filtering.PF.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/particle_filtering.html#PF.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.particle_filtering.PF.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="odtk.model.particle_filtering.PF_DA">
+<em class="property">class </em><code class="descclassname">odtk.model.particle_filtering.</code><code class="descname">PF_DA</code><span class="sig-paren">(</span><em>source</em>, <em>target_retrain</em>, <em>target_test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/particle_filtering.html#PF_DA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.particle_filtering.PF_DA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.DomainAdaptiveModel" title="odtk.model.superclass.DomainAdaptiveModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.DomainAdaptiveModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://en.wikipedia.org/wiki/Particle_filter">Particle Filtering</a>
+model to predict the occupancy level</p>
+<p>This is a domain-adaptive semi-supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>source</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the source domain with full knowledge for training the model</li>
+<li><strong>target_retrain</strong> (<code class="docutils literal notranslate"><span class="pre">None</span></code> or odtk.data.dataset.Dataset) – the labelled ground truth Dataset in the target domain for re-training the model</li>
+<li><strong>target_test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset in the rest of the target domain for testing by using sensor data only</li>
+<li><strong>number_of_hidden_states</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the number of maximum occupancy level</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.particle_filtering.PF_DA.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/particle_filtering.html#PF_DA.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.particle_filtering.PF_DA.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.model.random_forest">
+<span id="odtk-model-random-forest-module"></span><h2>odtk.model.random_forest module<a class="headerlink" href="#module-odtk.model.random_forest" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="odtk.model.random_forest.RandomForest">
+<em class="property">class </em><code class="descclassname">odtk.model.random_forest.</code><code class="descname">RandomForest</code><span class="sig-paren">(</span><em>train</em>, <em>test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/random_forest.html#RandomForest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.random_forest.RandomForest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.NormalModel" title="odtk.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>train</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</li>
+<li><strong>test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</li>
+<li><strong>estimator</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – number of estimators in Random Forest</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.random_forest.RandomForest.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/random_forest.html#RandomForest.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.random_forest.RandomForest.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.model.rnn">
+<span id="odtk-model-rnn-module"></span><h2>odtk.model.rnn module<a class="headerlink" href="#module-odtk.model.rnn" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="odtk.model.rnn.DALSTM">
+<em class="property">class </em><code class="descclassname">odtk.model.rnn.</code><code class="descname">DALSTM</code><span class="sig-paren">(</span><em>source</em>, <em>target_retrain</em>, <em>target_test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/rnn.html#DALSTM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.rnn.DALSTM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.DomainAdaptiveModel" title="odtk.model.superclass.DomainAdaptiveModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.DomainAdaptiveModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://keras.io/layers/recurrent/">Long Short Term Memory</a> model to predict the occupancy level</p>
+<p>This is a domain-adaptive semi-supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>source</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the source domain with full knowledge for training the model</li>
+<li><strong>target_retrain</strong> (<code class="docutils literal notranslate"><span class="pre">None</span></code> or odtk.data.dataset.Dataset) – the labelled ground truth Dataset in the target domain for re-training the model</li>
+<li><strong>target_test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset in the rest of the target domain for testing by using sensor data only</li>
+<li><strong>hm_epochs</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – maximum number of epoches</li>
+<li><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – size of minibatches for stochastic optimizers</li>
+<li><strong>cell</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – number of LSTM cells in the hidden layer</li>
+<li><strong>learn_rate</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – the initial learning rate used. It controls the step-size in updating the weights</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.rnn.DALSTM.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/rnn.html#DALSTM.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.rnn.DALSTM.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="odtk.model.rnn.LSTM">
+<em class="property">class </em><code class="descclassname">odtk.model.rnn.</code><code class="descname">LSTM</code><span class="sig-paren">(</span><em>train</em>, <em>test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/rnn.html#LSTM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.rnn.LSTM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.NormalModel" title="odtk.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://keras.io/layers/recurrent/">Long Short Term Memory</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>train</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</li>
+<li><strong>test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</li>
+<li><strong>hm_epochs</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – maximum number of epoches</li>
+<li><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – size of minibatches for stochastic optimizers</li>
+<li><strong>cell</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – number of LSTM cells in the hidden layer</li>
+<li><strong>learn_rate</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – the initial learning rate used. It controls the step-size in updating the weights</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.rnn.LSTM.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/rnn.html#LSTM.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.rnn.LSTM.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.model.snmf">
+<span id="odtk-model-snmf-module"></span><h2>odtk.model.snmf module<a class="headerlink" href="#module-odtk.model.snmf" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="odtk.model.snmf.NMF">
+<em class="property">class </em><code class="descclassname">odtk.model.snmf.</code><code class="descname">NMF</code><span class="sig-paren">(</span><em>train</em>, <em>test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/snmf.html#NMF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.snmf.NMF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.NormalModel" title="odtk.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="http://membres-timc.imag.fr/Olivier.Francois/snmf/index.htm">Sparse Non-negative Matrix Factorization</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>train</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</li>
+<li><strong>test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</li>
+<li><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – constant that multiplies the regularization terms</li>
+<li><strong>beta</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – constant that multiplies the regularization terms</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.snmf.NMF.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/snmf.html#NMF.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.snmf.NMF.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.model.superclass">
+<span id="odtk-model-superclass-module"></span><h2>odtk.model.superclass module<a class="headerlink" href="#module-odtk.model.superclass" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="odtk.model.superclass.DomainAdaptiveModel">
+<em class="property">class </em><code class="descclassname">odtk.model.superclass.</code><code class="descname">DomainAdaptiveModel</code><span class="sig-paren">(</span><em>source</em>, <em>target_retrain</em>, <em>target_test</em>, <em>thread_num=4</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/superclass.html#DomainAdaptiveModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.superclass.DomainAdaptiveModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Use all domain-adaptive semi-supervised learning model to train and test the given Datasets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>source</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the source domain with full knowledge for training the model</li>
+<li><strong>target_retrain</strong> (<code class="docutils literal notranslate"><span class="pre">None</span></code> or odtk.data.dataset.Dataset) – the labelled ground truth Dataset in the target domain for re-training the model</li>
+<li><strong>target_test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset in the rest of the target domain for testing by using sensor data only</li>
+<li><strong>thread_num</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the maximum number of threads can use to speed up</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">odtk.evaluation.superclass.DomainAdaptiveModel</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.superclass.DomainAdaptiveModel.add_model">
+<code class="descname">add_model</code><span class="sig-paren">(</span><em>list_of_model</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/superclass.html#DomainAdaptiveModel.add_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.superclass.DomainAdaptiveModel.add_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add one or multiple models into the modelling queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>list_of_model</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple models that additionally add to the modelling queue</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="odtk.model.superclass.DomainAdaptiveModel.get_all_model">
+<code class="descname">get_all_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/superclass.html#DomainAdaptiveModel.get_all_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.superclass.DomainAdaptiveModel.get_all_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all subclasses</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="odtk.model.superclass.DomainAdaptiveModel.remove_model">
+<code class="descname">remove_model</code><span class="sig-paren">(</span><em>list_of_model</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/superclass.html#DomainAdaptiveModel.remove_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.superclass.DomainAdaptiveModel.remove_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove one or multiple mdoels from the modelling queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>list_of_model</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple models that want to remove from the modelling queue</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="odtk.model.superclass.DomainAdaptiveModel.run_all_model">
+<code class="descname">run_all_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/superclass.html#DomainAdaptiveModel.run_all_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.superclass.DomainAdaptiveModel.run_all_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run all models that currently in the queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)">dict</a>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)">str</a>, <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the predicted occupancy level data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="odtk.model.superclass.NormalModel">
+<em class="property">class </em><code class="descclassname">odtk.model.superclass.</code><code class="descname">NormalModel</code><span class="sig-paren">(</span><em>train</em>, <em>test</em>, <em>thread_num=4</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/superclass.html#NormalModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.superclass.NormalModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Use all normal supervised learning model to train and test the given Datasets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>train</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</li>
+<li><strong>test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</li>
+<li><strong>thread_num</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the maximum number of threads can use to speed up</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#odtk.model.superclass.NormalModel" title="odtk.model.superclass.NormalModel">odtk.model.superclass.NormalModel</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.superclass.NormalModel.add_model">
+<code class="descname">add_model</code><span class="sig-paren">(</span><em>list_of_model</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/superclass.html#NormalModel.add_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.superclass.NormalModel.add_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add one or multiple models into the modelling queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>list_of_model</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple models that additionally add to the modelling queue</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="odtk.model.superclass.NormalModel.get_all_model">
+<code class="descname">get_all_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/superclass.html#NormalModel.get_all_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.superclass.NormalModel.get_all_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all subclasses</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="odtk.model.superclass.NormalModel.remove_model">
+<code class="descname">remove_model</code><span class="sig-paren">(</span><em>list_of_model</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/superclass.html#NormalModel.remove_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.superclass.NormalModel.remove_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove one or multiple mdoels from the modelling queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>list_of_model</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple models that want to remove from the modelling queue</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="odtk.model.superclass.NormalModel.run_all_model">
+<code class="descname">run_all_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/superclass.html#NormalModel.run_all_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.superclass.NormalModel.run_all_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run all models that currently in the queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)">dict</a>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)">str</a>, <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the predicted occupancy level data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.model.support_vector_machine">
+<span id="odtk-model-support-vector-machine-module"></span><h2>odtk.model.support_vector_machine module<a class="headerlink" href="#module-odtk.model.support_vector_machine" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="odtk.model.support_vector_machine.SVM">
+<em class="property">class </em><code class="descclassname">odtk.model.support_vector_machine.</code><code class="descname">SVM</code><span class="sig-paren">(</span><em>train</em>, <em>test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/support_vector_machine.html#SVM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.support_vector_machine.SVM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.NormalModel" title="odtk.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html">Support Vector Machine</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>train</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</li>
+<li><strong>test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</li>
+<li><strong>gamma</strong> (float or <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>) – kernel coefficient for <code class="docutils literal notranslate"><span class="pre">'rbf'</span></code>, <code class="docutils literal notranslate"><span class="pre">'poly'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'sigmoid'</span></code></li>
+<li><strong>kernel</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – specifies the kernel type to be used in the algorithm.
+It must be one of <code class="docutils literal notranslate"><span class="pre">'linear'</span></code>, <code class="docutils literal notranslate"><span class="pre">'poly'</span></code>, <code class="docutils literal notranslate"><span class="pre">'rbf'</span></code>, <code class="docutils literal notranslate"><span class="pre">'sigmoid'</span></code>, <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code></li>
+<li><strong>penalty_error</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – penalty parameter C of the error term.</li>
+<li><strong>n_estimators</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – estimators used for predictions.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.support_vector_machine.SVM.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/support_vector_machine.html#SVM.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.support_vector_machine.SVM.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="odtk.model.support_vector_machine.SVR">
+<em class="property">class </em><code class="descclassname">odtk.model.support_vector_machine.</code><code class="descname">SVR</code><span class="sig-paren">(</span><em>train</em>, <em>test</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/support_vector_machine.html#SVR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.support_vector_machine.SVR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtk.model.superclass.NormalModel" title="odtk.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtk.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVR.html">Support Vector Regression</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>train</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</li>
+<li><strong>test</strong> (<a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</li>
+<li><strong>gamma</strong> (float or <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>) – kernel coefficient for <code class="docutils literal notranslate"><span class="pre">'rbf'</span></code>, <code class="docutils literal notranslate"><span class="pre">'poly'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'sigmoid'</span></code></li>
+<li><strong>kernel</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – specifies the kernel type to be used in the algorithm.
+It must be one of <code class="docutils literal notranslate"><span class="pre">'linear'</span></code>, <code class="docutils literal notranslate"><span class="pre">'poly'</span></code>, <code class="docutils literal notranslate"><span class="pre">'rbf'</span></code>, <code class="docutils literal notranslate"><span class="pre">'sigmoid'</span></code>, <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code></li>
+<li><strong>penalty_error</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – penalty parameter C of the error term.</li>
+<li><strong>n_estimators</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – estimators used for predictions.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Predicted occupancy level corresponding to the test Dataset</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="odtk.model.support_vector_machine.SVR.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/model/support_vector_machine.html#SVR.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.model.support_vector_machine.SVR.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtk.model">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-odtk.model" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="odtk.plot.html" class="btn btn-neutral float-right" title="odtk.plot package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="odtk.evaluation.html" class="btn btn-neutral" title="odtk.evaluation package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, ODToolkit Authors
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

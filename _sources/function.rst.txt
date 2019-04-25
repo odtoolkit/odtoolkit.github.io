@@ -1,0 +1,69 @@
+********
+Examples
+********
+
+.. toctree::
+   :maxdepth: 5
+
+Subpackages
+===========
+
+.. toctree::
+
+   sample.odtk.data
+   sample.odtk.evaluation
+   sample.odtk.model
+   sample.odtk.preprocessing
+   sample.odtk.stats
+
+
+odtk.easy\_experiment module
+============================
+.. py:function:: odtk.easy_experiment.easy_experiment(source, target_test, target_retrain=None, domain_adaptive=False, models='all', binary_evaluation=True, evaluation_metrics='all', thread_num=4, remove_time=True, plot=False)
+    :noindex:
+
+    :func:`~odtk.easy_experiment.easy_experiment` function allows the user to quickly estimate the occupancy state
+    of a room leveraging the specified models and evaluation metrics. Refer to the sample code
+    for :func:`~odtk.easy_experiment.easy_set_experiment` for more details.
+
+.. py:function:: odtk.easy_experiment.easy_set_experiment(source_set, target_test_set=None, split_percentage=0.8, target_retrain=None, domain_adaptive=False, models='all', binary_evaluation=True, evaluation_metrics='all', thread_num=4, remove_time=True, plot=False)
+    :noindex:
+
+    :func:`~odtk.easy_experiment.easy_set_experiment` function allows the user to quickly perform occupancy estimation
+    on multiple data sets using the specified models and evaluation metrics. We recommend the
+    use of :func:`~odtk.easy_experiment.easy_set_experiment` instead of :func:`~odtk.easy_experiment.easy_experiment`
+    to get the formatted return value for :class:`~odtk.evaluation.superclass.Result`, which is essential for plotting.
+
+    .. note::
+
+        Always pass a ``list`` as the argument of :func:`~odtk.data.load_sample` function when
+        using :func:`~odtk.easy_experiment.easy_set_experiment` to obtain a dictionary that maps data set names
+        to :class:`~odtk.data.dataset.Dataset` objects.
+
+    .. code-block:: python
+        :linenos:
+
+        import odtk
+        import pprint
+
+        # Load and separate the train and test data set
+        data = odtk.data.load_sample(["umons-all", "aifb-all"])
+
+        # Perform occupancy estimation
+        score, predict_result = odtk.easy_set_experiment(data, models=["RandomForest"])
+
+        pprint(score)
+        pprint(predict_result)
+
+        # Make the scores ready to plot
+        result = odtk.evaluation.Result()
+        result.set_result(score)
+
+        # If you somehow want to use "easy_experiment", here is the code
+        train, test = data["umons-all"].split(0.8)
+
+        # Perform occupancy estimation
+        score, predict_result = odtk.easy_experiment(train, test, models=["RandomForest"])
+
+        pprint(score)
+        pprint(predict_result)
