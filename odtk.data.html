@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,43 +11,47 @@
   
 
   
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="odtk.evaluation package" href="odtk.evaluation.html" />
     <link rel="prev" title="API documentation" href="modules.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home"> ODToolkit
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ODToolkit
           
 
           
@@ -71,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -86,11 +90,11 @@
 <li class="toctree-l2 current"><a class="reference internal" href="modules.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">odtk.data package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-odtk.data.dataset">odtk.data.dataset module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-odtk.data.import_data">odtk.data.import_data module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-odtk.data.io">odtk.data.io module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-odtk.data.load_sample">odtk.data.load_sample module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-odtk.data">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#odtk-data-dataset-module">odtk.data.dataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#odtk-data-import-data-module">odtk.data.import_data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#odtk-data-io-module">odtk.data.io module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#odtk-data-load-sample-module">odtk.data.load_sample module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-contents">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="odtk.evaluation.html">odtk.evaluation package</a></li>
@@ -100,7 +104,7 @@
 <li class="toctree-l3"><a class="reference internal" href="odtk.stats.html">odtk.stats package</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules.html#module-odtk.easy_experiment">odtk.easy_experiment module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#odtk-easy-experiment-module">odtk.easy_experiment module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
@@ -119,6 +123,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -157,7 +162,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="modules.html">API documentation</a> &raquo;</li>
         
@@ -185,446 +190,20 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-odtk.data.dataset">
-<span id="odtk-data-dataset-module"></span><h2>odtk.data.dataset module<a class="headerlink" href="#module-odtk.data.dataset" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="odtk.data.dataset.Dataset">
-<em class="property">class </em><code class="descclassname">odtk.data.dataset.</code><code class="descname">Dataset</code><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Core data set format. The standard data structure for occupancy and sensor data.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">All attributes are copies of the original values, therefore the changes will only be seen
-if user use methods to update values of <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+<div class="section" id="odtk-data-dataset-module">
+<h2>odtk.data.dataset module<a class="headerlink" href="#odtk-data-dataset-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first simple">
-<li><strong>time_column_index</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the timestamp column in <code class="docutils literal notranslate"><span class="pre">self.data</span></code></li>
-<li><strong>binary</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – indicate the occupancy data in <code class="docutils literal notranslate"><span class="pre">self</span></code> has binary encoding or not</li>
-<li><strong>labelled</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – indicate whether the occupancy data in <code class="docutils literal notranslate"><span class="pre">self</span></code> is available or not</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Parameter:</th><td class="field-body"><p class="first">None</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset">odtk.data.dataset.Dataset</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="odtk.data.dataset.Dataset.add_room">
-<code class="descname">add_room</code><span class="sig-paren">(</span><em>data</em>, <em>occupancy=None</em>, <em>room_name=None</em>, <em>header=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset.add_room"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset.add_room" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a new room to <code class="docutils literal notranslate"><span class="pre">self</span></code>. <code class="docutils literal notranslate"><span class="pre">self.data</span></code> can automatically expand.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – sensor data from the new room</li>
-<li><strong>occupancy</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><em>None</em></a><em> or </em><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – occupancy data from the new room. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then fill with <code class="docutils literal notranslate"><span class="pre">numpy.nan</span></code></li>
-<li><strong>room_name</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><em>None</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – the name of the new room. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then assign a unique index</li>
-<li><strong>header</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – Indicate whether the new room have a header on the first row</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="odtk.data.dataset.Dataset.change_feature_mapping">
-<code class="descname">change_feature_mapping</code><span class="sig-paren">(</span><em>feature_mapping</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset.change_feature_mapping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset.change_feature_mapping" title="Permalink to this definition">¶</a></dt>
-<dd><p>Replace the <em>feature_mapping</em> within <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_mapping</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)"><em>dict</em></a>) – new feature mapping rule with bidirectional dict</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="odtk.data.dataset.Dataset.change_feature_name">
-<code class="descname">change_feature_name</code><span class="sig-paren">(</span><em>old</em>, <em>new</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset.change_feature_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset.change_feature_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Replace one feature’s name.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>old</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – original name for the feature in <code class="docutils literal notranslate"><span class="pre">self</span></code></li>
-<li><strong>new</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – new name name for the feature in <code class="docutils literal notranslate"><span class="pre">self</span></code></li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="odtk.data.dataset.Dataset.change_occupancy">
-<code class="descname">change_occupancy</code><span class="sig-paren">(</span><em>occupancy</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset.change_occupancy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset.change_occupancy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Replace the data of <code class="docutils literal notranslate"><span class="pre">self.occupancy</span></code>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>occupancy</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – new occupancy data have same number of rows with original occupancy data</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="odtk.data.dataset.Dataset.change_room_mapping">
-<code class="descname">change_room_mapping</code><span class="sig-paren">(</span><em>room</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset.change_room_mapping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset.change_room_mapping" title="Permalink to this definition">¶</a></dt>
-<dd><p>Replace the <em>room_mapping</em> within <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>room</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)"><em>dict</em></a>) – new room mapping rule with bidirectional dict</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="odtk.data.dataset.Dataset.change_values">
-<code class="descname">change_values</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset.change_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset.change_values" title="Permalink to this definition">¶</a></dt>
-<dd><p>Replace the sensor data of <code class="docutils literal notranslate"><span class="pre">self.data</span></code>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)"><em>numpy.ndarray</em></a>) – new sensor data have same shape with original sensor data</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="odtk.data.dataset.Dataset.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset.copy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make a copy of <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body">None</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset">odtk.data.dataset.Dataset</a></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A same copy of <code class="docutils literal notranslate"><span class="pre">self</span></code>, with different addresses for all values</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="odtk.data.dataset.Dataset.data">
-<code class="descname">data</code><a class="headerlink" href="#odtk.data.dataset.Dataset.data" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a copy of the sensor data in numpy.ndarray</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="odtk.data.dataset.Dataset.feature_list">
-<code class="descname">feature_list</code><a class="headerlink" href="#odtk.data.dataset.Dataset.feature_list" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)">list</a>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)">str</a>)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list contains all feature names</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="odtk.data.dataset.Dataset.feature_mapping">
-<code class="descname">feature_mapping</code><a class="headerlink" href="#odtk.data.dataset.Dataset.feature_mapping" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)">dict</a></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a bidirectional dictionary map feature names with corresponding column index</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="odtk.data.dataset.Dataset.occupancy">
-<code class="descname">occupancy</code><a class="headerlink" href="#odtk.data.dataset.Dataset.occupancy" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.16)">numpy.ndarray</a></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a copy of the occupancy data in numpy.ndarray</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="odtk.data.dataset.Dataset.pop_room">
-<code class="descname">pop_room</code><span class="sig-paren">(</span><em>room_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset.pop_room"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset.pop_room" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove a room from <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>room_name</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – name of the room need to be removed</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset">odtk.data.dataset.Dataset</a></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">removed Dataset</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="odtk.data.dataset.Dataset.remove_feature">
-<code class="descname">remove_feature</code><span class="sig-paren">(</span><em>features</em>, <em>error=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset.remove_feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset.remove_feature" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove one or multiple features from the <code class="docutils literal notranslate"><span class="pre">self.data</span></code>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>features</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple features that need to be removed</li>
-<li><strong>error</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – whether throw an error if a name of feature is not available in <code class="docutils literal notranslate"><span class="pre">self</span></code></li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="odtk.data.dataset.Dataset.room_list">
-<code class="descname">room_list</code><a class="headerlink" href="#odtk.data.dataset.Dataset.room_list" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)">list</a>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)">str</a>)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a list contains all room names</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="odtk.data.dataset.Dataset.room_mapping">
-<code class="descname">room_mapping</code><a class="headerlink" href="#odtk.data.dataset.Dataset.room_mapping" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)">dict</a></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a bidirectional dictionary map room names with corresponding row index tuple (start, end)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="odtk.data.dataset.Dataset.select_feature">
-<code class="descname">select_feature</code><span class="sig-paren">(</span><em>features</em>, <em>error=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset.select_feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset.select_feature" title="Permalink to this definition">¶</a></dt>
-<dd><p>Select one or multiple features from the <code class="docutils literal notranslate"><span class="pre">self.data</span></code>, remove rest features.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>features</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple features that need to be selected</li>
-<li><strong>error</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – whether throw an error if any one of the name in parameter is not available in <code class="docutils literal notranslate"><span class="pre">self</span></code></li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="odtk.data.dataset.Dataset.set_feature_name">
-<code class="descname">set_feature_name</code><span class="sig-paren">(</span><em>feature_list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset.set_feature_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset.set_feature_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Replace all features’ name in given order.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>feature_list</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a>) – new feature name list have length same as number of columns of <code class="docutils literal notranslate"><span class="pre">self.data</span></code></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="odtk.data.dataset.Dataset.split">
-<code class="descname">split</code><span class="sig-paren">(</span><em>percentage</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/dataset.html#Dataset.split"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.dataset.Dataset.split" title="Permalink to this definition">¶</a></dt>
-<dd><p>Separate <code class="docutils literal notranslate"><span class="pre">self</span></code> into two smaller <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> objects by given split point.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>percentage</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – percentage of the row in the first part</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="odtk-data-import-data-module">
+<h2>odtk.data.import_data module<a class="headerlink" href="#odtk-data-import-data-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-odtk.data.import_data">
-<span id="odtk-data-import-data-module"></span><h2>odtk.data.import_data module<a class="headerlink" href="#module-odtk.data.import_data" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="odtk.data.import_data.import_data">
-<code class="descclassname">odtk.data.import_data.</code><code class="descname">import_data</code><span class="sig-paren">(</span><em>file_name</em>, <em>time_column_index=None</em>, <em>mode='csv'</em>, <em>header=True</em>, <em>room_name=None</em>, <em>tz=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/import_data.html#import_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.import_data.import_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load raw data from the disk.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>file_name</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – the name of the raw data file</li>
-<li><strong>time_column_index</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the column index for the timestamp in given raw data file</li>
-<li><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – the format for raw data. Currently only support <code class="docutils literal notranslate"><span class="pre">csv</span></code></li>
-<li><strong>header</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – indicate whether the raw data contains a header on the first row. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, then assign unique
-index for each column</li>
-<li><strong>room_name</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><em>None</em></a>) – the name of the room. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, then assign unique number for the room</li>
-<li><strong>tz</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the time zone offset that need to fix in the raw data file</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset">odtk.data.dataset.Dataset</a></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The structured data set with one raw input data</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+<div class="section" id="odtk-data-io-module">
+<h2>odtk.data.io module<a class="headerlink" href="#odtk-data-io-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-odtk.data.io">
-<span id="odtk-data-io-module"></span><h2>odtk.data.io module<a class="headerlink" href="#module-odtk.data.io" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="odtk.data.io.read_dataset">
-<code class="descclassname">odtk.data.io.</code><code class="descname">read_dataset</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/io.html#read_dataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.io.read_dataset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a odtk.data.dataset.Dataset object from local disk binary file</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_name</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – name of the binary file</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset">odtk.data.dataset.Dataset</a></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dataset object that load from a binary file</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="odtk.data.io.save_dataset">
-<code class="descclassname">odtk.data.io.</code><code class="descname">save_dataset</code><span class="sig-paren">(</span><em>dataset</em>, <em>file_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/io.html#save_dataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.io.save_dataset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save a odtk.data.dataset.Dataset object to local disk as a binary file</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dataset</strong> (<a class="reference internal" href="#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><em>odtk.data.dataset.Dataset</em></a>) – Dataset object that want to save to local disk as a binary file</li>
-<li><strong>file_name</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – name of the binary file</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+<div class="section" id="odtk-data-load-sample-module">
+<h2>odtk.data.load_sample module<a class="headerlink" href="#odtk-data-load-sample-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-odtk.data.load_sample">
-<span id="odtk-data-load-sample-module"></span><h2>odtk.data.load_sample module<a class="headerlink" href="#module-odtk.data.load_sample" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="odtk.data.load_sample.load_sample">
-<code class="descclassname">odtk.data.load_sample.</code><code class="descname">load_sample</code><span class="sig-paren">(</span><em>sample_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtk/data/load_sample.html#load_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtk.data.load_sample.load_sample" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load one or more odtk.data.dataset.Dataset object from the sample folder</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sample_name</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – name(s) of the binary file in binary_dataset</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset">odtk.data.dataset.Dataset</a> or <a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)">dict</a>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)">str</a>, <a class="reference internal" href="#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset">odtk.data.dataset.Dataset</a>)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Dataset object(s) that load from a binary file. If a list of name is provided, then a dictionary
-with their name as key and corresponding Dataset is returned</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
-<div class="section" id="module-odtk.data">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-odtk.data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -639,7 +218,7 @@ with their name as key and corresponding Dataset is returned</td>
         <a href="odtk.evaluation.html" class="btn btn-neutral float-right" title="odtk.evaluation package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="modules.html" class="btn btn-neutral" title="API documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="API documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -648,11 +227,19 @@ with their name as key and corresponding Dataset is returned</td>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, ODToolkit Authors
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -664,27 +251,16 @@ with their name as key and corresponding Dataset is returned</td>
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

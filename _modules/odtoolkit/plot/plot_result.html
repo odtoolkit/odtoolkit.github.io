@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>odtoolkit.plot.plot_result &mdash; ODToolkit 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> ODToolkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">ODToolkit Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../function.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../experiment.html">Sample Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../customize.html">Extending the Toolkit</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dependencies.html">Dependencies</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ODToolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>odtoolkit.plot.plot_result</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for odtoolkit.plot.plot_result</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<div class="viewcode-block" id="plot_result"><a class="viewcode-back" href="../../../odtoolkit.plot.html#odtoolkit.plot.plot_result.plot_result">[docs]</a><span class="k">def</span> <span class="nf">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
+                <span class="n">threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">group_by</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">dataset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">metric</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">fixed_category</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+                <span class="n">x_label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="n">y_label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="n">y_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">add_label</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                <span class="n">file_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">bar_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">add_line</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot the 2D result bar plot for the experimental result. The dimension with only one selected name</span>
+<span class="sd">    is the dimension to flat</span>
+
+<span class="sd">    :parameter result: the 3D result from the experiments</span>
+<span class="sd">    :type result: odtoolkit.evaluation.superclass.Result</span>
+
+<span class="sd">    :parameter threshold: maximum score show in this figure</span>
+<span class="sd">    :type threshold: float</span>
+
+<span class="sd">    :parameter group_by: indicate using which dimension as the x-axis. Selection of ``0`` and ``1``</span>
+<span class="sd">    :type group_by: int</span>
+
+<span class="sd">    :parameter dataset: select the name of datasets want to present in this figure</span>
+<span class="sd">    :type dataset: str or list(str)</span>
+
+<span class="sd">    :parameter model: select the name of models want to present in this figure</span>
+<span class="sd">    :type model: str or list(str)</span>
+
+<span class="sd">    :parameter metric: select the name of metrics want to present in this figure</span>
+<span class="sd">    :type metric: str or list(str)</span>
+
+<span class="sd">    :parameter fixed_category: find which asix only have one value in order to create 2D result. If ``&#39;auto&#39;`` then</span>
+<span class="sd">                               it will automatically find the dimension with only one value. Value must be ``&#39;auto&#39;``,</span>
+<span class="sd">                               ``&#39;dataset&#39;``, ``&#39;model&#39;``, or ``&#39;metric&#39;``</span>
+<span class="sd">    :type fixed_category: str</span>
+
+<span class="sd">    :parameter y_range: the range of the y-axis. If ``None``, then use best fit range</span>
+<span class="sd">    :type y_range: ``None`` or list(float)</span>
+
+<span class="sd">    :parameter x_label: text label on x_axis</span>
+<span class="sd">    :type x_label: str</span>
+
+<span class="sd">    :parameter y_label: text label on y_axis</span>
+<span class="sd">    :type y_label: str</span>
+
+<span class="sd">    :parameter add_label: decide whether add labels to the x-axis</span>
+<span class="sd">    :type add_label: bool</span>
+
+<span class="sd">    :parameter font_size: the font size for all elements in the figure</span>
+<span class="sd">    :type add_label: float</span>
+
+<span class="sd">    :parameter bar_size: the width of the bar</span>
+<span class="sd">    :type bar_size: float</span>
+
+<span class="sd">    :parameter add_line: decide whether add trend line on histogram</span>
+<span class="sd">    :type add_line: bool</span>
+
+<span class="sd">    :parameter file_name: the file name of function&#39;s figure.</span>
+<span class="sd">                          if None, then do not write figure to a file.</span>
+<span class="sd">                          Otherwise, write figure to file_name</span>
+<span class="sd">    :type file_name: str</span>
+
+<span class="sd">    :parameter \*\*kwarg: other arguments for the matplotlib.pyplot.bar</span>
+
+<span class="sd">    :return: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">arange</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="n">font_size</span><span class="p">})</span>
+
+    <span class="k">def</span> <span class="nf">autolabel</span><span class="p">(</span><span class="n">rects</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Attach a text label above each bar displaying its height</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">rects</span><span class="p">:</span>
+            <span class="n">height</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.01</span> <span class="o">*</span> <span class="n">height</span><span class="p">,</span>
+                    <span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">height</span><span class="p">,</span>
+                    <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">dataset</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">metric</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;You have to set one value&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">group_by</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;group_by can only be 0 or 1&quot;</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">,</span> <span class="n">fixed</span><span class="o">=</span><span class="n">fixed_category</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">group_by</span><span class="p">:</span>
+        <span class="n">x_labels</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">legends</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x_labels</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">legends</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">threshold</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">valid</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">valid</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;result[2]&quot;</span> <span class="o">+</span> <span class="n">threshold</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">legends</span> <span class="o">=</span> <span class="p">[</span><span class="n">legends</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">legends</span><span class="p">))</span> <span class="k">if</span> <span class="n">valid</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+
+    <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">][:,</span> <span class="n">valid</span><span class="p">]</span>
+
+    <span class="n">w</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">legends</span><span class="p">)</span> <span class="o">+</span> <span class="n">bar_size</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_labels</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">hatches</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">]</span>
+    <span class="n">markers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">legends</span><span class="p">)):</span>
+
+        <span class="k">if</span> <span class="n">add_line</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">][:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">legends</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                           <span class="n">marker</span><span class="o">=</span><span class="n">markers</span><span class="p">[</span><span class="n">i</span><span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">markers</span><span class="p">)],</span>
+                           <span class="n">ms</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+                           <span class="n">markeredgecolor</span><span class="o">=</span><span class="s2">&quot;#000000ff&quot;</span><span class="p">,</span>
+                           <span class="n">markerfacecolor</span><span class="o">=</span><span class="s2">&quot;#00000000&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bars</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">][:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">legends</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hatch</span><span class="o">=</span><span class="n">hatches</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">hatches</span><span class="p">)],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">add_label</span><span class="p">:</span>
+                <span class="n">autolabel</span><span class="p">(</span><span class="n">bars</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="n">w</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">x_label</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">y_label</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">y_range</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">y_range</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">add_line</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_labels</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">legends</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">w</span><span class="p">,</span> <span class="n">x_labels</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">file_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, ODToolkit Authors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

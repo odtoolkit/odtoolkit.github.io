@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>odtoolkit.model package &mdash; ODToolkit 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="odtoolkit.preprocessing package" href="sample.odtoolkit.preprocessing.html" />
+    <link rel="prev" title="odtoolkit.evaluation package" href="sample.odtoolkit.evaluation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ODToolkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">ODToolkit Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">API documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="function.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="function.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sample.odtoolkit.data.html">odtoolkit.data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sample.odtoolkit.evaluation.html">odtoolkit.evaluation package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">odtoolkit.model package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#odtoolkit-model-superclass-module">odtoolkit.model.superclass module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sample.odtoolkit.preprocessing.html">odtoolkit.preprocessing package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sample.odtoolkit.stats.html">odtoolkit.stats package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#odtoolkit-easy-experiment-module">odtoolkit.easy_experiment module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Sample Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customize.html">Extending the Toolkit</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ODToolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="function.html">Examples</a> &raquo;</li>
+        
+      <li>odtoolkit.model package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/sample.odtoolkit.model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="odtoolkit-model-package">
+<h1>odtoolkit.model package<a class="headerlink" href="#odtoolkit-model-package" title="Permalink to this headline">¶</a></h1>
+<p>This package contains classes that pertain to the occupancy estimation models.
+All user-defined models should be put here.</p>
+<div class="section" id="odtoolkit-model-superclass-module">
+<h2>odtoolkit.model.superclass module<a class="headerlink" href="#odtoolkit-model-superclass-module" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.superclass.</code><code class="sig-name descname">NormalModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">test</span></em>, <em class="sig-param"><span class="n">thread_num</span><span class="o">=</span><span class="default_value">4</span></em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.superclass.</code><code class="sig-name descname">DomainAdaptiveModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em>, <em class="sig-param"><span class="n">target_retrain</span></em>, <em class="sig-param"><span class="n">target_test</span></em>, <em class="sig-param"><span class="n">thread_num</span><span class="o">=</span><span class="default_value">4</span></em><span class="sig-paren">)</span></dt>
+<dd><p><a class="reference internal" href="odtoolkit.model.html#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">NormalModel</span></code></a> and <a class="reference internal" href="odtoolkit.model.html#odtoolkit.model.superclass.DomainAdaptiveModel" title="odtoolkit.model.superclass.DomainAdaptiveModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainAdaptiveModel</span></code></a>
+are the superclasses for all occupancy estimation models. <a class="reference internal" href="odtoolkit.model.html#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">NormalModel</span></code></a> is the
+superclass for models that are designed for estimating binary occupancy states. In
+contrast, <a class="reference internal" href="odtoolkit.model.html#odtoolkit.model.superclass.DomainAdaptiveModel" title="odtoolkit.model.superclass.DomainAdaptiveModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DomainAdaptiveModel</span></code></a> is the superclass for models that
+are designed for estimating occupancy counts. They both have four methods:</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">get_all_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">add_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_model</span></em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">remove_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_model</span></em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">run_all_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>These methods can be used to return estimations and allow the user to modify settings for a
+specific model at any time.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtoolkit</span>
+
+<span class="c1"># Load a sample data set from the package</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;umons-all&quot;</span><span class="p">)</span>
+<span class="c1"># Create train / test sets</span>
+<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="c1"># ===== Sample Start Here =====</span>
+<span class="c1"># Select models you want to use</span>
+<span class="n">model_set</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">NormalModel</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">thread_num</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">model_set</span><span class="o">.</span><span class="n">add_model</span><span class="p">([</span><span class="s2">&quot;YourModelName&quot;</span><span class="p">])</span>
+
+<span class="c1"># Edit the settings of your model</span>
+<span class="n">your_model</span> <span class="o">=</span> <span class="n">model_set</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="s2">&quot;YourModelName&quot;</span><span class="p">]</span>
+<span class="n">your_model</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="c1"># Run model to predict occupancy level</span>
+<span class="n">model_set_results</span> <span class="o">=</span> <span class="n">model_set</span><span class="o">.</span><span class="n">run_all_model</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">model_set_results</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sample.odtoolkit.preprocessing.html" class="btn btn-neutral float-right" title="odtoolkit.preprocessing package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sample.odtoolkit.evaluation.html" class="btn btn-neutral float-left" title="odtoolkit.evaluation package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, ODToolkit Authors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

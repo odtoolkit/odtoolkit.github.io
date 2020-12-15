@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,43 +11,47 @@
   
 
   
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="odtk.evaluation package" href="sample.odtk.evaluation.html" />
     <link rel="prev" title="Examples" href="function.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home"> ODToolkit
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ODToolkit
           
 
           
@@ -71,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -116,6 +120,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -154,7 +159,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="function.html">Examples</a> &raquo;</li>
         
@@ -182,40 +187,40 @@
 <p>This package contains multiple functions and one class related to read and write operations.</p>
 <div class="section" id="odtk-data-dataset-module">
 <h2>odtk.data.dataset module<a class="headerlink" href="#odtk-data-dataset-module" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt>
-<em class="property">class </em><code class="descclassname">odtk.data.dataset.</code><code class="descname">Dataset</code></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset" title="odtk.data.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a> class is the standard data structure for data sets.</p>
+<em class="property">class </em><code class="sig-prename descclassname">odtk.data.dataset.</code><code class="sig-name descname">Dataset</code></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code> class is the standard data structure for data sets.</p>
 <p>Sample code for loading built-in data in class <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_built_in</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;lbl-all&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">dataset_built_in</span><span class="p">)</span>
 <span class="go">&lt;class &#39;odtk.data.dataset.Dataset&#39;&gt;</span>
 </pre></div>
 </div>
 <p>Sample code for creating a new <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">dataset_new</span><span class="p">)</span>
 <span class="go">&lt;class &#39;odtk.data.dataset.Dataset&#39;&gt;</span>
 </pre></div>
 </div>
 <p>Sample code for importing data to a new <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_import</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">import_data</span><span class="p">(</span><span class="s2">&quot;Your-data-file.csv&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">room_name</span><span class="o">=</span><span class="s2">&quot;Your-room&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">dataset_import</span><span class="p">)</span>
 <span class="go">&lt;class &#39;odtk.data.dataset.Dataset&#39;&gt;</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">add_room</code><span class="sig-paren">(</span><em>data</em>, <em>occupancy=None</em>, <em>room_name=None</em>, <em>header=True</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset.add_room" title="odtk.data.dataset.Dataset.add_room"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_room()</span></code></a> allows user to add a single room to <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code>
+<code class="sig-name descname">add_room</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">occupancy</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">room_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">header</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_room()</span></code> allows user to add a single room to <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code>
 object. If no <strong>occupancy</strong> data, ODToolkit will assign <code class="docutils literal notranslate"><span class="pre">numpy.NaN</span></code> values to the room.
 If <strong>room_name</strong> is not given, ODToolkit will assign the room name to the first available
 natural number. If <strong>header</strong> is not provided, ODToolkit will assume the name for each column is a sequence of
 positive integer.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">occ</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">add_room</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">occupancy</span><span class="o">=</span><span class="n">occ</span><span class="p">,</span> <span class="n">room_name</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name 1&quot;</span><span class="p">,</span> <span class="s2">&quot;name 2&quot;</span><span class="p">])</span>
@@ -228,12 +233,12 @@ positive integer.:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">change_feature_mapping</code><span class="sig-paren">(</span><em>feature_mapping</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset.change_feature_mapping" title="odtk.data.dataset.Dataset.change_feature_mapping"><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_feature_mapping()</span></code></a> method enables the user to completely change
+<code class="sig-name descname">change_feature_mapping</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">feature_mapping</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_feature_mapping()</span></code> method enables the user to completely change
 the header. The new header must be a bidirectional dictionary.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">feature_list</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">feature_list</span>
 <span class="go">[&#39;name 1&#39;, &#39;name 2&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">change_feature_mapping</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;New 1&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;New 2&quot;</span><span class="p">,</span> <span class="s2">&quot;New 1&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;New 2&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">feature_list</span>
@@ -242,12 +247,12 @@ the header. The new header must be a bidirectional dictionary.:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">change_feature_name</code><span class="sig-paren">(</span><em>old</em>, <em>new</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset.change_feature_name" title="odtk.data.dataset.Dataset.change_feature_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_feature_name()</span></code></a> method changes the name of one feature in
+<code class="sig-name descname">change_feature_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">old</span></em>, <em class="sig-param"><span class="n">new</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_feature_name()</span></code> method changes the name of one feature in
 the header list.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">feature_list</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">feature_list</span>
 <span class="go">[&#39;New 1&#39;, &#39;New 2&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">change_feature_name</span><span class="p">(</span><span class="s2">&quot;New 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Old 1&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">feature_list</span>
@@ -256,12 +261,12 @@ the header list.:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">set_feature_name</code><span class="sig-paren">(</span><em>feature_list</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset.set_feature_name" title="odtk.data.dataset.Dataset.set_feature_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_feature_name()</span></code></a> method modifies the name of every feature without
+<code class="sig-name descname">set_feature_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">feature_list</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_feature_name()</span></code> method modifies the name of every feature without
 using a bidirectional dictionary.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">feature_list</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">feature_list</span>
 <span class="go">[&#39;Old 1&#39;, &#39;New 2&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">set_feature_name</span><span class="p">([</span><span class="s2">&quot;New 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Old 2&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">feature_list</span>
@@ -270,11 +275,11 @@ using a bidirectional dictionary.:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">change_occupancy</code><span class="sig-paren">(</span><em>occupancy</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset.change_occupancy" title="odtk.data.dataset.Dataset.change_occupancy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_occupancy()</span></code></a> method updates the occupancy states completely.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">occupancy</span>
+<code class="sig-name descname">change_occupancy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">occupancy</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_occupancy()</span></code> method updates the occupancy states completely.:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">occupancy</span>
 <span class="go">array([[0.],</span>
 <span class="go">       [2.]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">change_occupancy</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">8</span><span class="p">],[</span><span class="mi">1</span><span class="p">]]))</span>
@@ -285,12 +290,12 @@ using a bidirectional dictionary.:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">change_room_mapping</code><span class="sig-paren">(</span><em>room</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset.change_room_mapping" title="odtk.data.dataset.Dataset.change_room_mapping"><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_room_mapping()</span></code></a> method updates the room mapping.
+<code class="sig-name descname">change_room_mapping</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">room</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_room_mapping()</span></code> method updates the room mapping.
 The new mapping must be a bidirectional dictionary.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">room_list</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">room_list</span>
 <span class="go">[&#39;test&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">change_room_mapping</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;Room 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Room 1&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">room_list</span>
@@ -299,11 +304,11 @@ The new mapping must be a bidirectional dictionary.:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">change_values</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset.change_values" title="odtk.data.dataset.Dataset.change_values"><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_values()</span></code></a> method updates all sensor values in the data set.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">data</span>
+<code class="sig-name descname">change_values</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_values()</span></code> method updates all sensor values in the data set.:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">data</span>
 <span class="go">array([[1., 2.],</span>
 <span class="go">       [3., 4.]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_new</span><span class="o">.</span><span class="n">change_values</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]))</span>
@@ -314,12 +319,12 @@ The new mapping must be a bidirectional dictionary.:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">remove_feature</code><span class="sig-paren">(</span><em>features</em>, <em>error=True</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset.remove_feature" title="odtk.data.dataset.Dataset.remove_feature"><code class="xref py py-meth docutils literal notranslate"><span class="pre">remove_feature()</span></code></a> method removes one feature or a list of features from
+<code class="sig-name descname">remove_feature</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">features</span></em>, <em class="sig-param"><span class="n">error</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">remove_feature()</span></code> method removes one feature or a list of features from
 the whole data set.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">feature_list</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">feature_list</span>
 <span class="go">[&#39;time&#39;, &#39;indoor-temp&#39;, &#39;indoor-humidity&#39;, &#39;indoor-flow&#39;, &#39;indoor-radiant&#39;, &#39;indoor-lumen&#39;, &#39;indoor-co2&#39;, &#39;outdoor-temp&#39;, &#39;outdoor-humidity&#39;, &#39;ourdoor-flow&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">remove_feature</span><span class="p">(</span><span class="s2">&quot;indoor-temp&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">feature_list</span>
@@ -339,18 +344,18 @@ the whole data set.:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">select_feature</code><span class="sig-paren">(</span><em>features</em>, <em>error=True</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset.select_feature" title="odtk.data.dataset.Dataset.select_feature"><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_feature()</span></code></a> method selects one feature or a list of features in the
-data set similar to <a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset.remove_feature" title="odtk.data.dataset.Dataset.remove_feature"><code class="xref py py-func docutils literal notranslate"><span class="pre">remove_feature()</span></code></a>.</p>
+<code class="sig-name descname">select_feature</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">features</span></em>, <em class="sig-param"><span class="n">error</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">select_feature()</span></code> method selects one feature or a list of features in the
+data set similar to <code class="xref py py-func docutils literal notranslate"><span class="pre">remove_feature()</span></code>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">split</code><span class="sig-paren">(</span><em>percentage</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.dataset.Dataset.split" title="odtk.data.dataset.Dataset.split"><code class="xref py py-meth docutils literal notranslate"><span class="pre">split()</span></code></a> method separates the data set into two data sets given a split point.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">room_list</span>
+<code class="sig-name descname">split</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">percentage</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">split()</span></code> method separates the data set into two data sets given a split point.:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">room_list</span>
 <span class="go">[&#39;data_1&#39;, &#39;data_2&#39;, &#39;data_3&#39;, &#39;data_4&#39;, &#39;data_5&#39;, &#39;data_6&#39;, &#39;data_7&#39;, &#39;data_8&#39;, &#39;data_9&#39;, &#39;data_10&#39;, &#39;data_11&#39;, &#39;data_12&#39;, &#39;data_13&#39;, &#39;data_14&#39;, &#39;data_15&#39;, &#39;data_16&#39;, &#39;data_17&#39;, &#39;data_18&#39;, &#39;data_19&#39;, &#39;data_20&#39;, &#39;data_21&#39;, &#39;data_22&#39;, &#39;data_23&#39;, &#39;data_24&#39;]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset1</span><span class="p">,</span> <span class="n">dataset2</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset1</span><span class="o">.</span><span class="n">room_list</span>
@@ -366,12 +371,12 @@ data set similar to <a class="reference internal" href="odtk.data.html#odtk.data
 </div>
 <div class="section" id="odtk-data-import-data-module">
 <h2>odtk.data.import_data module<a class="headerlink" href="#odtk-data-import-data-module" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.data.import_data.</code><code class="descname">import_data</code><span class="sig-paren">(</span><em>file_name</em>, <em>time_column_index=None</em>, <em>mode='csv'</em>, <em>header=True</em>, <em>room_name=None</em>, <em>tz=0</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.import_data.import_data" title="odtk.data.import_data.import_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">import_data()</span></code></a> function reads a raw data set. It is assumed that each row represents
+<code class="sig-prename descclassname">odtk.data.import_data.</code><code class="sig-name descname">import_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">time_column_index</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'csv'</span></em>, <em class="sig-param"><span class="n">header</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">room_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tz</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">import_data()</span></code> function reads a raw data set. It is assumed that each row represents
 a data point and each column represents a feature. Features must be numerical values.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">import_data</span><span class="p">(</span><span class="s2">&quot;Your-data-file.csv&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">room_name</span><span class="o">=</span><span class="s2">&quot;Your-room&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
 <span class="go">&lt;class &#39;odtk.data.dataset.Dataset&#39;&gt;</span>
@@ -382,17 +387,17 @@ a data point and each column represents a feature. Features must be numerical va
 </div>
 <div class="section" id="odtk-data-io-module">
 <h2>odtk.data.io module<a class="headerlink" href="#odtk-data-io-module" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.data.io.</code><code class="descname">read_dataset</code><span class="sig-paren">(</span><em>file_name</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">odtk.data.io.</code><code class="sig-name descname">read_dataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span></em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.data.io.</code><code class="descname">save_dataset</code><span class="sig-paren">(</span><em>dataset</em>, <em>file_name</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.io.read_dataset" title="odtk.data.io.read_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_dataset()</span></code></a> and <a class="reference internal" href="odtk.data.html#odtk.data.io.save_dataset" title="odtk.data.io.save_dataset"><code class="xref py py-func docutils literal notranslate"><span class="pre">save_dataset()</span></code></a> functions
+<code class="sig-prename descclassname">odtk.data.io.</code><code class="sig-name descname">save_dataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">file_name</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">read_dataset()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">save_dataset()</span></code> functions
 dump <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> to a binary file stored on the disk.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;lbl-all&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">save_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="s2">&quot;temp&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset_2</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">read_dataset</span><span class="p">(</span><span class="s2">&quot;temp&quot;</span><span class="p">)</span>
@@ -403,13 +408,13 @@ dump <code class="docutils literal notranslate"><span class="pre">odtk.data.data
 </div>
 <div class="section" id="odtk-data-load-sample-module">
 <h2>odtk.data.load_sample module<a class="headerlink" href="#odtk-data-load-sample-module" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.data.load_sample.</code><code class="descname">load_sample</code><span class="sig-paren">(</span><em>sample_name</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.data.html#odtk.data.load_sample.load_sample" title="odtk.data.load_sample.load_sample"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_sample()</span></code></a> function can load binary file from <code class="docutils literal notranslate"><span class="pre">odtk/data/binary_dataset/</span></code>.
+<code class="sig-prename descclassname">odtk.data.load_sample.</code><code class="sig-name descname">load_sample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample_name</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">load_sample()</span></code> function can load binary file from <code class="docutils literal notranslate"><span class="pre">odtk/data/binary_dataset/</span></code>.
 Use <code class="docutils literal notranslate"><span class="pre">'-'</span></code> to represent the directory, e.g., to load data named <strong>odtk/data/binary_dataset/sdu/all</strong>,
 the <strong>sample_name</strong> should be set to <strong>‘sdu-all’</strong>.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;lbl-all&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -429,7 +434,7 @@ the <strong>sample_name</strong> should be set to <strong>‘sdu-all’</strong>
         <a href="sample.odtk.evaluation.html" class="btn btn-neutral float-right" title="odtk.evaluation package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="function.html" class="btn btn-neutral" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="function.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -438,11 +443,19 @@ the <strong>sample_name</strong> should be set to <strong>‘sdu-all’</strong>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, ODToolkit Authors
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -454,27 +467,16 @@ the <strong>sample_name</strong> should be set to <strong>‘sdu-all’</strong>
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

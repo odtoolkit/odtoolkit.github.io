@@ -1,0 +1,70 @@
+odtoolkit.evaluation package
+============================
+
+Submodules
+----------
+
+odtoolkit.evaluation.f\_score module
+------------------------------------
+
+.. automodule:: odtoolkit.evaluation.f_score
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.evaluation.mae module
+-------------------------------
+
+.. automodule:: odtoolkit.evaluation.mae
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.evaluation.mape module
+--------------------------------
+
+.. automodule:: odtoolkit.evaluation.mape
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.evaluation.mase module
+--------------------------------
+
+.. automodule:: odtoolkit.evaluation.mase
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.evaluation.nrmse module
+---------------------------------
+
+.. automodule:: odtoolkit.evaluation.nrmse
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.evaluation.rmse module
+--------------------------------
+
+.. automodule:: odtoolkit.evaluation.rmse
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.evaluation.superclass module
+--------------------------------------
+
+.. automodule:: odtoolkit.evaluation.superclass
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: odtoolkit.evaluation
+    :members:
+    :undoc-members:
+    :show-inheritance:

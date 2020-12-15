@@ -1,0 +1,901 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>odtoolkit.model package &mdash; ODToolkit 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="odtoolkit.plot package" href="odtoolkit.plot.html" />
+    <link rel="prev" title="odtoolkit.evaluation package" href="odtoolkit.evaluation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ODToolkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">ODToolkit Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="odtoolkit.data.html">odtoolkit.data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odtoolkit.evaluation.html">odtoolkit.evaluation package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">odtoolkit.model package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.model.gaussian_process_classifier">odtoolkit.model.gaussian_process_classifier module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.model.gaussian_process_regression">odtoolkit.model.gaussian_process_regression module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.model.hidden_markov_model">odtoolkit.model.hidden_markov_model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.model.hmm_core">odtoolkit.model.hmm_core module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.model.nn">odtoolkit.model.nn module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.model.particle_filtering">odtoolkit.model.particle_filtering module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.model.random_forest">odtoolkit.model.random_forest module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.model.rnn">odtoolkit.model.rnn module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.model.snmf">odtoolkit.model.snmf module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.model.superclass">odtoolkit.model.superclass module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.model.support_vector_machine">odtoolkit.model.support_vector_machine module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.model">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="odtoolkit.plot.html">odtoolkit.plot package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odtoolkit.preprocessing.html">odtoolkit.preprocessing package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odtoolkit.stats.html">odtoolkit.stats package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-odtoolkit.easy_experiment">odtoolkit.easy_experiment module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Sample Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customize.html">Extending the Toolkit</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ODToolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">API documentation</a> &raquo;</li>
+        
+      <li>odtoolkit.model package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/odtoolkit.model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="odtoolkit-model-package">
+<h1>odtoolkit.model package<a class="headerlink" href="#odtoolkit-model-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-odtoolkit.model.gaussian_process_classifier">
+<span id="odtoolkit-model-gaussian-process-classifier-module"></span><h2>odtoolkit.model.gaussian_process_classifier module<a class="headerlink" href="#module-odtoolkit.model.gaussian_process_classifier" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.model.gaussian_process_classifier.GPC">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.gaussian_process_classifier.</code><code class="sig-name descname">GPC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/gaussian_process_classifier.html#GPC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.gaussian_process_classifier.GPC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.GaussianProcessClassifier.html">Gaussian Process Classifier</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</p></li>
+<li><p><strong>test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.gaussian_process_classifier.GPC.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/gaussian_process_classifier.html#GPC.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.gaussian_process_classifier.GPC.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.model.gaussian_process_regression">
+<span id="odtoolkit-model-gaussian-process-regression-module"></span><h2>odtoolkit.model.gaussian_process_regression module<a class="headerlink" href="#module-odtoolkit.model.gaussian_process_regression" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.model.gaussian_process_regression.GPR">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.gaussian_process_regression.</code><code class="sig-name descname">GPR</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/gaussian_process_regression.html#GPR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.gaussian_process_regression.GPR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.GaussianProcessRegressor.html">Gaussian Process Regressor</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</p></li>
+<li><p><strong>test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.gaussian_process_regression.GPR.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/gaussian_process_regression.html#GPR.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.gaussian_process_regression.GPR.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.model.hidden_markov_model">
+<span id="odtoolkit-model-hidden-markov-model-module"></span><h2>odtoolkit.model.hidden_markov_model module<a class="headerlink" href="#module-odtoolkit.model.hidden_markov_model" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.model.hidden_markov_model.HMM">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.hidden_markov_model.</code><code class="sig-name descname">HMM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hidden_markov_model.html#HMM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hidden_markov_model.HMM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://en.wikipedia.org/wiki/Hidden_Markov_model">Midden Markov Model</a>
+model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</p></li>
+<li><p><strong>test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</p></li>
+<li><p><strong>number_of_hidden_states</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the number of maximum occupancy level</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.hidden_markov_model.HMM.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hidden_markov_model.html#HMM.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hidden_markov_model.HMM.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.model.hidden_markov_model.HMM_DA">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.hidden_markov_model.</code><code class="sig-name descname">HMM_DA</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em>, <em class="sig-param"><span class="n">target_retrain</span></em>, <em class="sig-param"><span class="n">target_test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hidden_markov_model.html#HMM_DA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hidden_markov_model.HMM_DA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.DomainAdaptiveModel" title="odtoolkit.model.superclass.DomainAdaptiveModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.DomainAdaptiveModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://en.wikipedia.org/wiki/Hidden_Markov_model">Midden Markov Model</a>
+model to predict the occupancy level</p>
+<p>This is a domain-adaptive semi-supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the source domain with full knowledge for training the model</p></li>
+<li><p><strong>target_retrain</strong> (<code class="docutils literal notranslate"><span class="pre">None</span></code> or odtoolkit.data.dataset.Dataset) – the labelled ground truth Dataset in the target domain for re-training the model</p></li>
+<li><p><strong>target_test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset in the rest of the target domain for testing by using sensor data only</p></li>
+<li><p><strong>number_of_hidden_states</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the number of maximum occupancy level</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.hidden_markov_model.HMM_DA.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hidden_markov_model.html#HMM_DA.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hidden_markov_model.HMM_DA.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.model.hmm_core">
+<span id="odtoolkit-model-hmm-core-module"></span><h2>odtoolkit.model.hmm_core module<a class="headerlink" href="#module-odtoolkit.model.hmm_core" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.model.hmm_core.EmissionModel">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.hmm_core.</code><code class="sig-name descname">EmissionModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">meta</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hmm_core.html#EmissionModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hmm_core.EmissionModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt id="odtoolkit.model.hmm_core.EmissionModel.get_prob">
+<code class="sig-name descname">get_prob</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hmm_core.html#EmissionModel.get_prob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hmm_core.EmissionModel.get_prob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get probability</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.model.hmm_core.EmissionModel.learn">
+<code class="sig-name descname">learn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hmm_core.html#EmissionModel.learn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hmm_core.EmissionModel.learn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Learn parameters</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.model.hmm_core.Gaussian">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.hmm_core.</code><code class="sig-name descname">Gaussian</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">meta</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hmm_core.html#Gaussian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hmm_core.Gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.hmm_core.EmissionModel" title="odtoolkit.model.hmm_core.EmissionModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.hmm_core.EmissionModel</span></code></a></p>
+<dl class="py method">
+<dt id="odtoolkit.model.hmm_core.Gaussian.get_prob">
+<code class="sig-name descname">get_prob</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hmm_core.html#Gaussian.get_prob"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hmm_core.Gaussian.get_prob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get probability</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.model.hmm_core.Gaussian.learn">
+<code class="sig-name descname">learn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hmm_core.html#Gaussian.learn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hmm_core.Gaussian.learn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Learn parameters</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.model.hmm_core.HMM_Core">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.hmm_core.</code><code class="sig-name descname">HMM_Core</code><span class="sig-paren">(</span><em class="sig-param">number_of_hidden_states=2</em>, <em class="sig-param">emission_model=&lt;class 'odtoolkit.model.hmm_core.Gaussian'&gt;</em>, <em class="sig-param">emission_params={}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hmm_core.html#HMM_Core"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hmm_core.HMM_Core" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt id="odtoolkit.model.hmm_core.HMM_Core.learn">
+<code class="sig-name descname">learn</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hidden_seq</span></em>, <em class="sig-param"><span class="n">emission_seq</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hmm_core.html#HMM_Core.learn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hmm_core.HMM_Core.learn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.model.hmm_core.HMM_Core.pf_predict">
+<code class="sig-name descname">pf_predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">emission_seq</span></em>, <em class="sig-param"><span class="n">number_of_particles</span><span class="o">=</span><span class="default_value">50</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hmm_core.html#HMM_Core.pf_predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hmm_core.HMM_Core.pf_predict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.model.hmm_core.HMM_Core.prior">
+<code class="sig-name descname">prior</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hmm</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hmm_core.html#HMM_Core.prior"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hmm_core.HMM_Core.prior" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.model.hmm_core.HMM_Core.viterbi_predict">
+<code class="sig-name descname">viterbi_predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">emission_seq</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/hmm_core.html#HMM_Core.viterbi_predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.hmm_core.HMM_Core.viterbi_predict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.model.nn">
+<span id="odtoolkit-model-nn-module"></span><h2>odtoolkit.model.nn module<a class="headerlink" href="#module-odtoolkit.model.nn" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.model.nn.NN">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.nn.</code><code class="sig-name descname">NN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/nn.html#NN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.nn.NN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html">Multi-layer Perception Classifier</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</p></li>
+<li><p><strong>test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</p></li>
+<li><p><strong>solver</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – the solver for weight optimization. Choice of <code class="docutils literal notranslate"><span class="pre">'lbfgs'</span></code>, <code class="docutils literal notranslate"><span class="pre">'sgd'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'adam'</span></code></p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – l2 penalty (regularization term) parameter</p></li>
+<li><p><strong>batch_size</strong> (int or <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>) – size of minibatches for stochastic optimizers</p></li>
+<li><p><strong>activation</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – activation function for the hidden layer.
+Choice of <code class="docutils literal notranslate"><span class="pre">'identity'</span></code>, <code class="docutils literal notranslate"><span class="pre">'logistic'</span></code>, <code class="docutils literal notranslate"><span class="pre">'tanh'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'relu'</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.nn.NN.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/nn.html#NN.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.nn.NN.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.model.particle_filtering">
+<span id="odtoolkit-model-particle-filtering-module"></span><h2>odtoolkit.model.particle_filtering module<a class="headerlink" href="#module-odtoolkit.model.particle_filtering" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.model.particle_filtering.PF">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.particle_filtering.</code><code class="sig-name descname">PF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/particle_filtering.html#PF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.particle_filtering.PF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://en.wikipedia.org/wiki/Particle_filter">Particle Filtering</a>
+model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</p></li>
+<li><p><strong>test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</p></li>
+<li><p><strong>number_of_hidden_states</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the number of maximum occupancy level</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.particle_filtering.PF.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/particle_filtering.html#PF.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.particle_filtering.PF.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.model.particle_filtering.PF_DA">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.particle_filtering.</code><code class="sig-name descname">PF_DA</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em>, <em class="sig-param"><span class="n">target_retrain</span></em>, <em class="sig-param"><span class="n">target_test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/particle_filtering.html#PF_DA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.particle_filtering.PF_DA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.DomainAdaptiveModel" title="odtoolkit.model.superclass.DomainAdaptiveModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.DomainAdaptiveModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://en.wikipedia.org/wiki/Particle_filter">Particle Filtering</a>
+model to predict the occupancy level</p>
+<p>This is a domain-adaptive semi-supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the source domain with full knowledge for training the model</p></li>
+<li><p><strong>target_retrain</strong> (<code class="docutils literal notranslate"><span class="pre">None</span></code> or odtoolkit.data.dataset.Dataset) – the labelled ground truth Dataset in the target domain for re-training the model</p></li>
+<li><p><strong>target_test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset in the rest of the target domain for testing by using sensor data only</p></li>
+<li><p><strong>number_of_hidden_states</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the number of maximum occupancy level</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.particle_filtering.PF_DA.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/particle_filtering.html#PF_DA.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.particle_filtering.PF_DA.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.model.random_forest">
+<span id="odtoolkit-model-random-forest-module"></span><h2>odtoolkit.model.random_forest module<a class="headerlink" href="#module-odtoolkit.model.random_forest" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.model.random_forest.RandomForest">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.random_forest.</code><code class="sig-name descname">RandomForest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/random_forest.html#RandomForest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.random_forest.RandomForest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</p></li>
+<li><p><strong>test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</p></li>
+<li><p><strong>estimator</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – number of estimators in Random Forest</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.random_forest.RandomForest.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/random_forest.html#RandomForest.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.random_forest.RandomForest.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.model.rnn">
+<span id="odtoolkit-model-rnn-module"></span><h2>odtoolkit.model.rnn module<a class="headerlink" href="#module-odtoolkit.model.rnn" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.model.rnn.DALSTM">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.rnn.</code><code class="sig-name descname">DALSTM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em>, <em class="sig-param"><span class="n">target_retrain</span></em>, <em class="sig-param"><span class="n">target_test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/rnn.html#DALSTM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.rnn.DALSTM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.DomainAdaptiveModel" title="odtoolkit.model.superclass.DomainAdaptiveModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.DomainAdaptiveModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://keras.io/layers/recurrent/">Long Short Term Memory</a> model to predict the occupancy level</p>
+<p>This is a domain-adaptive semi-supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the source domain with full knowledge for training the model</p></li>
+<li><p><strong>target_retrain</strong> (<code class="docutils literal notranslate"><span class="pre">None</span></code> or odtoolkit.data.dataset.Dataset) – the labelled ground truth Dataset in the target domain for re-training the model</p></li>
+<li><p><strong>target_test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset in the rest of the target domain for testing by using sensor data only</p></li>
+<li><p><strong>hm_epochs</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – maximum number of epoches</p></li>
+<li><p><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – size of minibatches for stochastic optimizers</p></li>
+<li><p><strong>cell</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – number of LSTM cells in the hidden layer</p></li>
+<li><p><strong>learn_rate</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – the initial learning rate used. It controls the step-size in updating the weights</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.rnn.DALSTM.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/rnn.html#DALSTM.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.rnn.DALSTM.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.model.rnn.LSTM">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.rnn.</code><code class="sig-name descname">LSTM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/rnn.html#LSTM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.rnn.LSTM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://keras.io/layers/recurrent/">Long Short Term Memory</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</p></li>
+<li><p><strong>test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</p></li>
+<li><p><strong>hm_epochs</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – maximum number of epoches</p></li>
+<li><p><strong>batch_size</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – size of minibatches for stochastic optimizers</p></li>
+<li><p><strong>cell</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – number of LSTM cells in the hidden layer</p></li>
+<li><p><strong>learn_rate</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – the initial learning rate used. It controls the step-size in updating the weights</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.rnn.LSTM.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/rnn.html#LSTM.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.rnn.LSTM.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.model.snmf">
+<span id="odtoolkit-model-snmf-module"></span><h2>odtoolkit.model.snmf module<a class="headerlink" href="#module-odtoolkit.model.snmf" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.model.snmf.NMF">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.snmf.</code><code class="sig-name descname">NMF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/snmf.html#NMF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.snmf.NMF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="http://membres-timc.imag.fr/Olivier.Francois/snmf/index.htm">Sparse Non-negative Matrix Factorization</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</p></li>
+<li><p><strong>test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – constant that multiplies the regularization terms</p></li>
+<li><p><strong>beta</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – constant that multiplies the regularization terms</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.snmf.NMF.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/snmf.html#NMF.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.snmf.NMF.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.model.superclass">
+<span id="odtoolkit-model-superclass-module"></span><h2>odtoolkit.model.superclass module<a class="headerlink" href="#module-odtoolkit.model.superclass" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.model.superclass.DomainAdaptiveModel">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.superclass.</code><code class="sig-name descname">DomainAdaptiveModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em>, <em class="sig-param"><span class="n">target_retrain</span></em>, <em class="sig-param"><span class="n">target_test</span></em>, <em class="sig-param"><span class="n">thread_num</span><span class="o">=</span><span class="default_value">4</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/superclass.html#DomainAdaptiveModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.superclass.DomainAdaptiveModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Use all domain-adaptive semi-supervised learning model to train and test the given Datasets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the source domain with full knowledge for training the model</p></li>
+<li><p><strong>target_retrain</strong> (<code class="docutils literal notranslate"><span class="pre">None</span></code> or odtoolkit.data.dataset.Dataset) – the labelled ground truth Dataset in the target domain for re-training the model</p></li>
+<li><p><strong>target_test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset in the rest of the target domain for testing by using sensor data only</p></li>
+<li><p><strong>thread_num</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the maximum number of threads can use to speed up</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>odtoolkit.evaluation.superclass.DomainAdaptiveModel</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.superclass.DomainAdaptiveModel.add_model">
+<code class="sig-name descname">add_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_model</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/superclass.html#DomainAdaptiveModel.add_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.superclass.DomainAdaptiveModel.add_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add one or multiple models into the modelling queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_model</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple models that additionally add to the modelling queue</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.model.superclass.DomainAdaptiveModel.get_all_model">
+<code class="sig-name descname">get_all_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/superclass.html#DomainAdaptiveModel.get_all_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.superclass.DomainAdaptiveModel.get_all_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all subclasses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.model.superclass.DomainAdaptiveModel.remove_model">
+<code class="sig-name descname">remove_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_model</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/superclass.html#DomainAdaptiveModel.remove_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.superclass.DomainAdaptiveModel.remove_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove one or multiple mdoels from the modelling queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_model</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple models that want to remove from the modelling queue</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.model.superclass.DomainAdaptiveModel.run_all_model">
+<code class="sig-name descname">run_all_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/superclass.html#DomainAdaptiveModel.run_all_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.superclass.DomainAdaptiveModel.run_all_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run all models that currently in the queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)">dict</a>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)">str</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the predicted occupancy level data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.model.superclass.NormalModel">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.superclass.</code><code class="sig-name descname">NormalModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">test</span></em>, <em class="sig-param"><span class="n">thread_num</span><span class="o">=</span><span class="default_value">4</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/superclass.html#NormalModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.superclass.NormalModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Use all normal supervised learning model to train and test the given Datasets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</p></li>
+<li><p><strong>test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</p></li>
+<li><p><strong>thread_num</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the maximum number of threads can use to speed up</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel">odtoolkit.model.superclass.NormalModel</a></p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.superclass.NormalModel.add_model">
+<code class="sig-name descname">add_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_model</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/superclass.html#NormalModel.add_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.superclass.NormalModel.add_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add one or multiple models into the modelling queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_model</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple models that additionally add to the modelling queue</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.model.superclass.NormalModel.get_all_model">
+<code class="sig-name descname">get_all_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/superclass.html#NormalModel.get_all_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.superclass.NormalModel.get_all_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all subclasses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.model.superclass.NormalModel.remove_model">
+<code class="sig-name descname">remove_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_model</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/superclass.html#NormalModel.remove_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.superclass.NormalModel.remove_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove one or multiple mdoels from the modelling queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_model</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple models that want to remove from the modelling queue</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.model.superclass.NormalModel.run_all_model">
+<code class="sig-name descname">run_all_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/superclass.html#NormalModel.run_all_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.superclass.NormalModel.run_all_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run all models that currently in the queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)">dict</a>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)">str</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a>)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the predicted occupancy level data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.model.support_vector_machine">
+<span id="odtoolkit-model-support-vector-machine-module"></span><h2>odtoolkit.model.support_vector_machine module<a class="headerlink" href="#module-odtoolkit.model.support_vector_machine" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.model.support_vector_machine.SVM">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.support_vector_machine.</code><code class="sig-name descname">SVM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/support_vector_machine.html#SVM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.support_vector_machine.SVM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html">Support Vector Machine</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</p></li>
+<li><p><strong>test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</p></li>
+<li><p><strong>gamma</strong> (float or <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>) – kernel coefficient for <code class="docutils literal notranslate"><span class="pre">'rbf'</span></code>, <code class="docutils literal notranslate"><span class="pre">'poly'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'sigmoid'</span></code></p></li>
+<li><p><strong>kernel</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – specifies the kernel type to be used in the algorithm.
+It must be one of <code class="docutils literal notranslate"><span class="pre">'linear'</span></code>, <code class="docutils literal notranslate"><span class="pre">'poly'</span></code>, <code class="docutils literal notranslate"><span class="pre">'rbf'</span></code>, <code class="docutils literal notranslate"><span class="pre">'sigmoid'</span></code>, <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code></p></li>
+<li><p><strong>penalty_error</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – penalty parameter C of the error term.</p></li>
+<li><p><strong>n_estimators</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – estimators used for predictions.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.support_vector_machine.SVM.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/support_vector_machine.html#SVM.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.support_vector_machine.SVM.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.model.support_vector_machine.SVR">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.model.support_vector_machine.</code><code class="sig-name descname">SVR</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train</span></em>, <em class="sig-param"><span class="n">test</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/support_vector_machine.html#SVR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.support_vector_machine.SVR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.model.superclass.NormalModel" title="odtoolkit.model.superclass.NormalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.model.superclass.NormalModel</span></code></a></p>
+<p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVR.html">Support Vector Regression</a> model to predict the occupancy level</p>
+<p>This is a normal supervised learning model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the labelled ground truth Dataset for training the model</p></li>
+<li><p><strong>test</strong> (<a class="reference internal" href="odtoolkit.data.html#odtoolkit.data.dataset.Dataset" title="odtoolkit.data.dataset.Dataset"><em>odtoolkit.data.dataset.Dataset</em></a>) – the Dataset for testing by using sensor data only</p></li>
+<li><p><strong>gamma</strong> (float or <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>) – kernel coefficient for <code class="docutils literal notranslate"><span class="pre">'rbf'</span></code>, <code class="docutils literal notranslate"><span class="pre">'poly'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'sigmoid'</span></code></p></li>
+<li><p><strong>kernel</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – specifies the kernel type to be used in the algorithm.
+It must be one of <code class="docutils literal notranslate"><span class="pre">'linear'</span></code>, <code class="docutils literal notranslate"><span class="pre">'poly'</span></code>, <code class="docutils literal notranslate"><span class="pre">'rbf'</span></code>, <code class="docutils literal notranslate"><span class="pre">'sigmoid'</span></code>, <code class="docutils literal notranslate"><span class="pre">'precomputed'</span></code></p></li>
+<li><p><strong>penalty_error</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – penalty parameter C of the error term.</p></li>
+<li><p><strong>n_estimators</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – estimators used for predictions.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)">numpy.ndarray</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Predicted occupancy level corresponding to the test Dataset</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.model.support_vector_machine.SVR.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/model/support_vector_machine.html#SVR.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.model.support_vector_machine.SVR.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.model">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-odtoolkit.model" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="odtoolkit.plot.html" class="btn btn-neutral float-right" title="odtoolkit.plot package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="odtoolkit.evaluation.html" class="btn btn-neutral float-left" title="odtoolkit.evaluation package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, ODToolkit Authors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

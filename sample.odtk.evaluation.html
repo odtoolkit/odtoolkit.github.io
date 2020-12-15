@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,43 +11,47 @@
   
 
   
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="odtk.model package" href="sample.odtk.model.html" />
     <link rel="prev" title="odtk.data package" href="sample.odtk.data.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home"> ODToolkit
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ODToolkit
           
 
           
@@ -71,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -113,6 +117,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -151,7 +156,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="function.html">Examples</a> &raquo;</li>
         
@@ -179,37 +184,37 @@
 <p>This package contains multiple built-in evaluation metrics, and user should drop their metrics in here.</p>
 <div class="section" id="odtk-evaluation-superclass-module">
 <h2>odtk.evaluation.superclass module<a class="headerlink" href="#odtk-evaluation-superclass-module" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="py class">
 <dt>
-<em class="property">class </em><code class="descclassname">odtk.evaluation.superclass.</code><code class="descname">BinaryEvaluation</code><span class="sig-paren">(</span><em>predict</em>, <em>truth</em><span class="sig-paren">)</span></dt>
+<em class="property">class </em><code class="sig-prename descclassname">odtk.evaluation.superclass.</code><code class="sig-name descname">BinaryEvaluation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt>
-<em class="property">class </em><code class="descclassname">odtk.evaluation.superclass.</code><code class="descname">OccupancyEvaluation</code><span class="sig-paren">(</span><em>predict</em>, <em>truth</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.evaluation.html#odtk.evaluation.superclass.BinaryEvaluation" title="odtk.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryEvaluation</span></code></a> and <a class="reference internal" href="odtk.evaluation.html#odtk.evaluation.superclass.OccupancyEvaluation" title="odtk.evaluation.superclass.OccupancyEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">OccupancyEvaluation</span></code></a>
-are the superclasses for all evaluation metrics. <a class="reference internal" href="odtk.evaluation.html#odtk.evaluation.superclass.BinaryEvaluation" title="odtk.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryEvaluation</span></code></a> is the
+<em class="property">class </em><code class="sig-prename descclassname">odtk.evaluation.superclass.</code><code class="sig-name descname">OccupancyEvaluation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryEvaluation</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">OccupancyEvaluation</span></code>
+are the superclasses for all evaluation metrics. <code class="xref py py-class docutils literal notranslate"><span class="pre">BinaryEvaluation</span></code> is the
 superclass for metrics that are designed for evaluating binary estimation
-results. In contrast, <a class="reference internal" href="odtk.evaluation.html#odtk.evaluation.superclass.OccupancyEvaluation" title="odtk.evaluation.superclass.OccupancyEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">OccupancyEvaluation</span></code></a> is the superclass for metrics that
+results. In contrast, <code class="xref py py-class docutils literal notranslate"><span class="pre">OccupancyEvaluation</span></code> is the superclass for metrics that
 are designed for evaluating occupancy count estimation results. They both have four methods:</p>
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">get_all_metrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<code class="sig-name descname">get_all_metrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">add_metrics</code><span class="sig-paren">(</span><em>list_of_metrics</em><span class="sig-paren">)</span></dt>
+<code class="sig-name descname">add_metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_metrics</span></em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">remove_metrics</code><span class="sig-paren">(</span><em>list_of_metrics</em><span class="sig-paren">)</span></dt>
+<code class="sig-name descname">remove_metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_metrics</span></em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">run_all_metrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<code class="sig-name descname">run_all_metrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>These methods can be used to return experiment results and allow the user to modify
 settings for a specific metric at any time.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtk</span>
@@ -242,23 +247,23 @@ settings for a specific metric at any time.</p>
 
 <span class="c1"># Get the result</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt>
-<em class="property">class </em><code class="descclassname">odtk.evaluation.superclass.</code><code class="descname">Result</code></dt>
-<dd><p><a class="reference internal" href="odtk.evaluation.html#odtk.evaluation.superclass.Result" title="odtk.evaluation.superclass.Result"><code class="xref py py-class docutils literal notranslate"><span class="pre">Result</span></code></a> class is for user to extract partial results from all experiment
+<em class="property">class </em><code class="sig-prename descclassname">odtk.evaluation.superclass.</code><code class="sig-name descname">Result</code></dt>
+<dd><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Result</span></code> class is for user to extract partial results from all experiment
 results efficiently.</p>
-<dl class="method">
+<dl class="py method">
 <dt>
-<code class="descname">set_result</code><span class="sig-paren">(</span><em>result</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.evaluation.html#odtk.evaluation.superclass.Result.set_result" title="odtk.evaluation.superclass.Result.set_result"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_result()</span></code></a> method must take the object that has the same structure
-with the result of <a class="reference internal" href="modules.html#odtk.easy_experiment.easy_set_experiment" title="odtk.easy_experiment.easy_set_experiment"><code class="xref py py-func docutils literal notranslate"><span class="pre">easy_set_experiment()</span></code></a> as the parameter.</p>
+<code class="sig-name descname">set_result</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">result</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_result()</span></code> method must take the object that has the same structure
+with the result of <code class="xref py py-func docutils literal notranslate"><span class="pre">easy_set_experiment()</span></code> as the parameter.</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -292,9 +297,9 @@ with the result of <a class="reference internal" href="modules.html#odtk.easy_ex
 <span class="n">result_metric</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
 
 <span class="c1"># Extract result for one data set</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result_metric</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_metric</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">))</span>
 <span class="c1"># Extract result for one data set on two metrics</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result_metric</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_metric</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
                                <span class="n">metric</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Precision&quot;</span><span class="p">,</span> <span class="s2">&quot;F1Score&quot;</span><span class="p">]))</span>
 </pre></div>
 </td></tr></table></div>
@@ -316,7 +321,7 @@ with the result of <a class="reference internal" href="modules.html#odtk.easy_ex
         <a href="sample.odtk.model.html" class="btn btn-neutral float-right" title="odtk.model package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sample.odtk.data.html" class="btn btn-neutral" title="odtk.data package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sample.odtk.data.html" class="btn btn-neutral float-left" title="odtk.data package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -325,11 +330,19 @@ with the result of <a class="reference internal" href="modules.html#odtk.easy_ex
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, ODToolkit Authors
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -341,27 +354,16 @@ with the result of <a class="reference internal" href="modules.html#odtk.easy_ex
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

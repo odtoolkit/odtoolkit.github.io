@@ -1,0 +1,62 @@
+odtoolkit.stats package
+=======================
+
+Submodules
+----------
+
+odtoolkit.stats.analysis module
+-------------------------------
+
+.. automodule:: odtoolkit.stats.analysis
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.stats.dropout\_rate module
+------------------------------------
+
+.. automodule:: odtoolkit.stats.dropout_rate
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.stats.frequency module
+--------------------------------
+
+.. automodule:: odtoolkit.stats.frequency
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.stats.gap\_detect module
+----------------------------------
+
+.. automodule:: odtoolkit.stats.gap_detect
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.stats.occupancy\_evaluation module
+--------------------------------------------
+
+.. automodule:: odtoolkit.stats.occupancy_evaluation
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.stats.uptime module
+-----------------------------
+
+.. automodule:: odtoolkit.stats.uptime
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: odtoolkit.stats
+    :members:
+    :undoc-members:
+    :show-inheritance:

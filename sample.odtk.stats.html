@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,43 +11,47 @@
   
 
   
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Sample Use Cases" href="experiment.html" />
     <link rel="prev" title="odtk.preprocessing package" href="sample.odtk.preprocessing.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home"> ODToolkit
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ODToolkit
           
 
           
@@ -71,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -110,6 +114,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -148,7 +153,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="function.html">Examples</a> &raquo;</li>
         
@@ -174,48 +179,48 @@
   <div class="section" id="odtk-stats-package">
 <h1>odtk.stats package<a class="headerlink" href="#odtk-stats-package" title="Permalink to this headline">¶</a></h1>
 <p>This package contains functions for analyzing <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> and assessing its quality.
-<a class="reference internal" href="odtk.stats.html#odtk.stats.analysis.analysis" title="odtk.stats.analysis.analysis"><code class="xref py py-func docutils literal notranslate"><span class="pre">odtk.stats.analysis.analysis()</span></code></a> runs all sorts of analysis automatically.</p>
-<dl class="function">
+<code class="xref py py-func docutils literal notranslate"><span class="pre">odtk.stats.analysis.analysis()</span></code> runs all sorts of analysis automatically.</p>
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.stats.dropout_rate.</code><code class="descname">dropout_rate</code><span class="sig-paren">(</span><em>dataset</em>, <em>dataset_level=False</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.stats.html#odtk.stats.dropout_rate.dropout_rate" title="odtk.stats.dropout_rate.dropout_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">dropout_rate()</span></code></a> function computes the percentage of data points missing in
+<code class="sig-prename descclassname">odtk.stats.dropout_rate.</code><code class="sig-name descname">dropout_rate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">dataset_level</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">dropout_rate()</span></code> function computes the percentage of data points missing in
 the <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.stats.frequency.</code><code class="descname">frequency</code><span class="sig-paren">(</span><em>dataset</em>, <em>dataset_level=True</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.stats.html#odtk.stats.frequency.frequency" title="odtk.stats.frequency.frequency"><code class="xref py py-func docutils literal notranslate"><span class="pre">frequency()</span></code></a> function computes the average sampling frequency of all
+<code class="sig-prename descclassname">odtk.stats.frequency.</code><code class="sig-name descname">frequency</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">dataset_level</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">frequency()</span></code> function computes the average sampling frequency of all
 features in the <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.stats.gap_detect.</code><code class="descname">gap_detect</code><span class="sig-paren">(</span><em>dataset</em>, <em>threshold</em>, <em>sensor_level=False</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.stats.html#odtk.stats.gap_detect.gap_detect" title="odtk.stats.gap_detect.gap_detect"><code class="xref py py-func docutils literal notranslate"><span class="pre">gap_detect()</span></code></a> function returns all <strong>gaps</strong> in the <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object.</p>
+<code class="sig-prename descclassname">odtk.stats.gap_detect.</code><code class="sig-name descname">gap_detect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">threshold</span></em>, <em class="sig-param"><span class="n">sensor_level</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">gap_detect()</span></code> function returns all <strong>gaps</strong> in the <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object.</p>
 <p>We say that there is a <strong>Gap</strong> when the difference between timestamps of two successive values
 exceeds some <strong>threshold</strong>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.stats.occupancy_evaluation.</code><code class="descname">occupancy_distribution_evaluation</code><span class="sig-paren">(</span><em>dataset</em>, <em>dataset_level=True</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.stats.html#odtk.stats.occupancy_evaluation.occupancy_distribution_evaluation" title="odtk.stats.occupancy_evaluation.occupancy_distribution_evaluation"><code class="xref py py-func docutils literal notranslate"><span class="pre">occupancy_distribution_evaluation()</span></code></a> function computes the distribution of
+<code class="sig-prename descclassname">odtk.stats.occupancy_evaluation.</code><code class="sig-name descname">occupancy_distribution_evaluation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">dataset_level</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">occupancy_distribution_evaluation()</span></code> function computes the distribution of
 different occupancy states in the <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.stats.uptime.</code><code class="descname">uptime</code><span class="sig-paren">(</span><em>dataset</em>, <em>threshold</em>, <em>gaps=None</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.stats.html#odtk.stats.uptime.uptime" title="odtk.stats.uptime.uptime"><code class="xref py py-func docutils literal notranslate"><span class="pre">uptime()</span></code></a> function computes the length of time a sensor reported values. It differs from
-the <a class="reference internal" href="odtk.stats.html#odtk.stats.dropout_rate.dropout_rate" title="odtk.stats.dropout_rate.dropout_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">dropout_rate()</span></code></a> in that it captures the length of the time interval in which
+<code class="sig-prename descclassname">odtk.stats.uptime.</code><code class="sig-name descname">uptime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">threshold</span></em>, <em class="sig-param"><span class="n">gaps</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">uptime()</span></code> function computes the length of time a sensor reported values. It differs from
+the <code class="xref py py-func docutils literal notranslate"><span class="pre">dropout_rate()</span></code> in that it captures the length of the time interval in which
 data points were available in the <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object.</p>
 </dd></dl>
 
 <p>A sample code snippet for using the package is here:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;umons-all&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># ===== Test dropout rate =====</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">odtk</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">dropout_rate</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">dataset_level</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="go">{&#39;datatest&#39;: 0.0, &#39;datatest2&#39;: 0.0, &#39;datatraining&#39;: 0.0}</span>
@@ -298,7 +303,7 @@ data points were available in the <code class="docutils literal notranslate"><sp
         <a href="experiment.html" class="btn btn-neutral float-right" title="Sample Use Cases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sample.odtk.preprocessing.html" class="btn btn-neutral" title="odtk.preprocessing package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sample.odtk.preprocessing.html" class="btn btn-neutral float-left" title="odtk.preprocessing package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -307,11 +312,19 @@ data points were available in the <code class="docutils literal notranslate"><sp
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, ODToolkit Authors
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -323,27 +336,16 @@ data points were available in the <code class="docutils literal notranslate"><sp
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

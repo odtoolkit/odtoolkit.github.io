@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,43 +11,47 @@
   
 
   
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="odtk.stats package" href="sample.odtk.stats.html" />
     <link rel="prev" title="odtk.model package" href="sample.odtk.model.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home"> ODToolkit
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ODToolkit
           
 
           
@@ -71,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -117,6 +121,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -155,7 +160,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="function.html">Examples</a> &raquo;</li>
         
@@ -181,26 +186,26 @@
   <div class="section" id="odtk-preprocessing-package">
 <h1>odtk.preprocessing package<a class="headerlink" href="#odtk-preprocessing-package" title="Permalink to this headline">¶</a></h1>
 <p>This package contains functions that are useful for modifying values in <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code>.
-<a class="reference internal" href="odtk.preprocessing.html#odtk.preprocessing.auto_clean.auto_clean" title="odtk.preprocessing.auto_clean.auto_clean"><code class="xref py py-func docutils literal notranslate"><span class="pre">odtk.preprocessing.auto_clean.auto_clean()</span></code></a> automatically runs all preprocessing functions.</p>
+<code class="xref py py-func docutils literal notranslate"><span class="pre">odtk.preprocessing.auto_clean.auto_clean()</span></code> automatically runs all preprocessing functions.</p>
 <div class="section" id="odtk-preprocessing-change-module">
 <h2>odtk.preprocessing.change module<a class="headerlink" href="#odtk-preprocessing-change-module" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.preprocessing.change.</code><code class="descname">change_to_binary</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">odtk.preprocessing.change.</code><code class="sig-name descname">change_to_binary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.preprocessing.change.</code><code class="descname">change_to_label</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">odtk.preprocessing.change.</code><code class="sig-name descname">change_to_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.preprocessing.change.</code><code class="descname">change_to_one_hot</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.preprocessing.html#odtk.preprocessing.change.change_to_binary" title="odtk.preprocessing.change.change_to_binary"><code class="xref py py-func docutils literal notranslate"><span class="pre">change_to_binary()</span></code></a>, <a class="reference internal" href="odtk.preprocessing.html#odtk.preprocessing.change.change_to_label" title="odtk.preprocessing.change.change_to_label"><code class="xref py py-func docutils literal notranslate"><span class="pre">change_to_label()</span></code></a>
-and <a class="reference internal" href="odtk.preprocessing.html#odtk.preprocessing.change.change_to_one_hot" title="odtk.preprocessing.change.change_to_one_hot"><code class="xref py py-func docutils literal notranslate"><span class="pre">change_to_one_hot()</span></code></a> changes the encoding method for occupancy
+<code class="sig-prename descclassname">odtk.preprocessing.change.</code><code class="sig-name descname">change_to_one_hot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">change_to_binary()</span></code>, <code class="xref py py-func docutils literal notranslate"><span class="pre">change_to_label()</span></code>
+and <code class="xref py py-func docutils literal notranslate"><span class="pre">change_to_one_hot()</span></code> changes the encoding method for occupancy
 in the <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">occupancy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
@@ -228,12 +233,12 @@ in the <code class="docutils literal notranslate"><span class="pre">odtk.data.da
 </div>
 <div class="section" id="odtk-preprocessing-fill-module">
 <h2>odtk.preprocessing.fill module<a class="headerlink" href="#odtk-preprocessing-fill-module" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.preprocessing.fill.</code><code class="descname">fill</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.preprocessing.html#odtk.preprocessing.fill.fill" title="odtk.preprocessing.fill.fill"><code class="xref py py-func docutils literal notranslate"><span class="pre">fill()</span></code></a> function helps impute all missing data
+<code class="sig-prename descclassname">odtk.preprocessing.fill.</code><code class="sig-name descname">fill</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">fill()</span></code> function helps impute all missing data
 in the <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">occupancy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">]])</span>
@@ -257,12 +262,12 @@ in the <code class="docutils literal notranslate"><span class="pre">odtk.data.da
 </div>
 <div class="section" id="odtk-preprocessing-ontology-module">
 <h2>odtk.preprocessing.ontology module<a class="headerlink" href="#odtk-preprocessing-ontology-module" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.preprocessing.ontology.</code><code class="descname">ontology</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.preprocessing.html#odtk.preprocessing.ontology.ontology" title="odtk.preprocessing.ontology.ontology"><code class="xref py py-func docutils literal notranslate"><span class="pre">ontology()</span></code></a> function can be used to change the feature names
+<code class="sig-prename descclassname">odtk.preprocessing.ontology.</code><code class="sig-name descname">ontology</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">ontology()</span></code> function can be used to change the feature names
 in the <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">occupancy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
@@ -279,12 +284,12 @@ in the <code class="docutils literal notranslate"><span class="pre">odtk.data.da
 </div>
 <div class="section" id="odtk-preprocessing-outlier-module">
 <h2>odtk.preprocessing.outlier module<a class="headerlink" href="#odtk-preprocessing-outlier-module" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.preprocessing.outlier.</code><code class="descname">remove_outlier</code><span class="sig-paren">(</span><em>dataset</em>, <em>auto_fill=True</em>, <em>ratio=1.5</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.preprocessing.html#odtk.preprocessing.outlier.remove_outlier" title="odtk.preprocessing.outlier.remove_outlier"><code class="xref py py-func docutils literal notranslate"><span class="pre">remove_outlier()</span></code></a> function removes outliers that exist in
+<code class="sig-prename descclassname">odtk.preprocessing.outlier.</code><code class="sig-name descname">remove_outlier</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">auto_fill</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">ratio</span><span class="o">=</span><span class="default_value">1.5</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">remove_outlier()</span></code> function removes outliers that exist in
 the <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object and fills in the gap that will be produced.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">occupancy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">]])</span>
@@ -308,17 +313,17 @@ the <code class="docutils literal notranslate"><span class="pre">odtk.data.datas
 </div>
 <div class="section" id="odtk-preprocessing-upsample-module">
 <h2>odtk.preprocessing.upsample module<a class="headerlink" href="#odtk-preprocessing-upsample-module" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.preprocessing.upsample.</code><code class="descname">upsample</code><span class="sig-paren">(</span><em>dataset</em>, <em>target_frequency</em>, <em>algorithm='linear'</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">odtk.preprocessing.upsample.</code><code class="sig-name descname">upsample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">target_frequency</span></em>, <em class="sig-param"><span class="n">algorithm</span><span class="o">=</span><span class="default_value">'linear'</span></em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt>
-<code class="descclassname">odtk.preprocessing.downsample.</code><code class="descname">downsample</code><span class="sig-paren">(</span><em>dataset</em>, <em>target_frequency</em>, <em>algorithm='mean'</em><span class="sig-paren">)</span></dt>
-<dd><p><a class="reference internal" href="odtk.preprocessing.html#odtk.preprocessing.upsample.upsample" title="odtk.preprocessing.upsample.upsample"><code class="xref py py-func docutils literal notranslate"><span class="pre">upsample()</span></code></a> and <a class="reference internal" href="odtk.preprocessing.html#odtk.preprocessing.downsample.downsample" title="odtk.preprocessing.downsample.downsample"><code class="xref py py-func docutils literal notranslate"><span class="pre">downsample()</span></code></a> increase and
+<code class="sig-prename descclassname">odtk.preprocessing.downsample.</code><code class="sig-name descname">downsample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">target_frequency</span></em>, <em class="sig-param"><span class="n">algorithm</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span></dt>
+<dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">upsample()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">downsample()</span></code> increase and
 decrease the number of data points (i.e., the number of rows) in the <code class="docutils literal notranslate"><span class="pre">odtk.data.dataset.Dataset</span></code> object.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">odtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">occupancy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">]])</span>
@@ -375,7 +380,7 @@ decrease the number of data points (i.e., the number of rows) in the <code class
         <a href="sample.odtk.stats.html" class="btn btn-neutral float-right" title="odtk.stats package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sample.odtk.model.html" class="btn btn-neutral" title="odtk.model package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sample.odtk.model.html" class="btn btn-neutral float-left" title="odtk.model package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -384,11 +389,19 @@ decrease the number of data points (i.e., the number of rows) in the <code class
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, ODToolkit Authors
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -400,27 +413,16 @@ decrease the number of data points (i.e., the number of rows) in the <code class
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

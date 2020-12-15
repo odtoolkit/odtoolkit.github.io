@@ -1,0 +1,53 @@
+odtoolkit.model package
+=======================
+
+This package contains classes that pertain to the occupancy estimation models.
+All user-defined models should be put here.
+
+odtoolkit.model.superclass module
+---------------------------------
+
+.. py:class:: odtoolkit.model.superclass.NormalModel(train, test, thread_num=4)
+    :noindex:
+.. py:class:: odtoolkit.model.superclass.DomainAdaptiveModel(source, target_retrain, target_test, thread_num=4)
+    :noindex:
+
+    :class:`~odtoolkit.model.superclass.NormalModel` and :class:`~odtoolkit.model.superclass.DomainAdaptiveModel`
+    are the superclasses for all occupancy estimation models. :class:`~odtoolkit.model.superclass.NormalModel` is the
+    superclass for models that are designed for estimating binary occupancy states. In
+    contrast, :class:`~odtoolkit.model.superclass.DomainAdaptiveModel` is the superclass for models that
+    are designed for estimating occupancy counts. They both have four methods:
+
+    .. py:method:: get_all_model()
+        :noindex:
+    .. py:method:: add_model(list_of_model)
+        :noindex:
+    .. py:method:: remove_model(list_of_model)
+        :noindex:
+    .. py:method:: run_all_model()
+        :noindex:
+
+        These methods can be used to return estimations and allow the user to modify settings for a
+        specific model at any time.
+
+        .. code-block:: python
+
+            import odtoolkit
+
+            # Load a sample data set from the package
+            dataset = odtoolkit.data.load_sample("umons-all")
+            # Create train / test sets
+            train, test = dataset.split(0.8)
+
+            # ===== Sample Start Here =====
+            # Select models you want to use
+            model_set = odtoolkit.model.NormalModel(train, test, thread_num=1)
+            model_set.add_model(["YourModelName"])
+
+            # Edit the settings of your model
+            your_model = model_set.models["YourModelName"]
+            your_model.alpha = 0.5
+            # Run model to predict occupancy level
+            model_set_results = model_set.run_all_model()
+
+            print(model_set_results)

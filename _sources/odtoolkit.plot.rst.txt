@@ -1,0 +1,46 @@
+odtoolkit.plot package
+======================
+
+Submodules
+----------
+
+odtoolkit.plot.plot\_feature module
+-----------------------------------
+
+.. automodule:: odtoolkit.plot.plot_feature
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.plot.plot\_occupancy\_perc module
+-------------------------------------------
+
+.. automodule:: odtoolkit.plot.plot_occupancy_perc
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.plot.plot\_result module
+----------------------------------
+
+.. automodule:: odtoolkit.plot.plot_result
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+odtoolkit.plot.plot\_start\_end module
+--------------------------------------
+
+.. automodule:: odtoolkit.plot.plot_start_end
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: odtoolkit.plot
+    :members:
+    :undoc-members:
+    :show-inheritance:

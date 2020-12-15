@@ -1,0 +1,950 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>odtoolkit.evaluation package &mdash; ODToolkit 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="odtoolkit.model package" href="odtoolkit.model.html" />
+    <link rel="prev" title="odtoolkit.data package" href="odtoolkit.data.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ODToolkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">ODToolkit Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="odtoolkit.data.html">odtoolkit.data package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">odtoolkit.evaluation package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.evaluation.f_score">odtoolkit.evaluation.f_score module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.evaluation.mae">odtoolkit.evaluation.mae module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.evaluation.mape">odtoolkit.evaluation.mape module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.evaluation.mase">odtoolkit.evaluation.mase module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.evaluation.nrmse">odtoolkit.evaluation.nrmse module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.evaluation.rmse">odtoolkit.evaluation.rmse module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.evaluation.superclass">odtoolkit.evaluation.superclass module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-odtoolkit.evaluation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="odtoolkit.model.html">odtoolkit.model package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odtoolkit.plot.html">odtoolkit.plot package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odtoolkit.preprocessing.html">odtoolkit.preprocessing package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="odtoolkit.stats.html">odtoolkit.stats package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-odtoolkit.easy_experiment">odtoolkit.easy_experiment module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Sample Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customize.html">Extending the Toolkit</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ODToolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">API documentation</a> &raquo;</li>
+        
+      <li>odtoolkit.evaluation package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/odtoolkit.evaluation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="odtoolkit-evaluation-package">
+<h1>odtoolkit.evaluation package<a class="headerlink" href="#odtoolkit-evaluation-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-odtoolkit.evaluation.f_score">
+<span id="odtoolkit-evaluation-f-score-module"></span><h2>odtoolkit.evaluation.f_score module<a class="headerlink" href="#module-odtoolkit.evaluation.f_score" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.evaluation.f_score.Accuracy">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.f_score.</code><code class="sig-name descname">Accuracy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#Accuracy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.Accuracy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="odtoolkit.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.BinaryEvaluation</span></code></a></p>
+<p>Calculate the Accuracy between prediction and ground truth</p>
+<p>The Accuracy are identified by percentage of correct prediction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Accuracy score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.f_score.Accuracy.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#Accuracy.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.Accuracy.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.f_score.AccuracyTolerance">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.f_score.</code><code class="sig-name descname">AccuracyTolerance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#AccuracyTolerance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.AccuracyTolerance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.OccupancyEvaluation" title="odtoolkit.evaluation.superclass.OccupancyEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.OccupancyEvaluation</span></code></a></p>
+<p>Calculate the AccuracyTolerance between prediction and ground truth</p>
+<p>The AccuracyTolerance are identified same as Accuracy, but with differences smaller than the given tolerance
+will be considered as a correct prediction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+<li><p><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – the maximum differences between prediction and truth to mark as correct</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AccuracyTolerance score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.f_score.AccuracyTolerance.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#AccuracyTolerance.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.AccuracyTolerance.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.f_score.F1Score">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.f_score.</code><code class="sig-name descname">F1Score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#F1Score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.F1Score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="odtoolkit.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.BinaryEvaluation</span></code></a></p>
+<p>Calculate the F1 Score between prediction and ground truth</p>
+<p>The F1 Score are identified by 2 * TP / (2 * TP + FP + FN)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>F1 Score score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.f_score.F1Score.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#F1Score.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.F1Score.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.f_score.Fallout">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.f_score.</code><code class="sig-name descname">Fallout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#Fallout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.Fallout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="odtoolkit.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.BinaryEvaluation</span></code></a></p>
+<p>Calculate the Fallout between prediction and ground truth</p>
+<p>The Fallout are identified by FP/(FP+TN)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Fallout score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.f_score.Fallout.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#Fallout.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.Fallout.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.f_score.FalseNegative">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.f_score.</code><code class="sig-name descname">FalseNegative</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#FalseNegative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.FalseNegative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="odtoolkit.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.BinaryEvaluation</span></code></a></p>
+<p>Calculate the False-Negative between prediction and ground truth</p>
+<p>The False-Negative indicate the proportion of the actual occupied states that are identified as unoccupied</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)">int</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>number of entries that is FN</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.f_score.FalseNegative.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#FalseNegative.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.FalseNegative.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.f_score.FalsePositive">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.f_score.</code><code class="sig-name descname">FalsePositive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#FalsePositive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.FalsePositive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="odtoolkit.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.BinaryEvaluation</span></code></a></p>
+<p>Calculate the False-Positive between prediction and ground truth</p>
+<p>The False-Positive indicate the proportion of the actual unoccupied states that are identified as occupied</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)">int</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>number of entries that is FP</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.f_score.FalsePositive.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#FalsePositive.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.FalsePositive.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.f_score.Missrate">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.f_score.</code><code class="sig-name descname">Missrate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#Missrate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.Missrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="odtoolkit.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.BinaryEvaluation</span></code></a></p>
+<p>Calculate the Missrate between prediction and ground truth</p>
+<p>The Missrate are identified by 1 - Recall</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Missrate score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.f_score.Missrate.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#Missrate.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.Missrate.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.f_score.Precision">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.f_score.</code><code class="sig-name descname">Precision</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#Precision"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.Precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="odtoolkit.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.BinaryEvaluation</span></code></a></p>
+<p>Calculate the Precision between prediction and ground truth</p>
+<p>The Precision indicates the percentage of occupancy predictions which are correct by TP/(TP+FP)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Precision score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.f_score.Precision.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#Precision.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.Precision.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.f_score.Recall">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.f_score.</code><code class="sig-name descname">Recall</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#Recall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.Recall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="odtoolkit.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.BinaryEvaluation</span></code></a></p>
+<p>Calculate the Recall between prediction and ground truth</p>
+<p>Recall is the percentage of the true occupied states which are identified by TP/(TP+FN)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Recall score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.f_score.Recall.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#Recall.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.Recall.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.f_score.Selectivity">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.f_score.</code><code class="sig-name descname">Selectivity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#Selectivity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.Selectivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="odtoolkit.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.BinaryEvaluation</span></code></a></p>
+<p>Calculate the Selectivity between prediction and ground truth</p>
+<p>The Selectivity are identified by 1 - Fallout</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Selectivity score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.f_score.Selectivity.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#Selectivity.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.Selectivity.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.f_score.TrueNegative">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.f_score.</code><code class="sig-name descname">TrueNegative</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#TrueNegative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.TrueNegative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="odtoolkit.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.BinaryEvaluation</span></code></a></p>
+<p>Calculate the True-Negative between prediction and ground truth</p>
+<p>The True-Negative indicate the proportion of the actual unoccupied states that are correctly identified</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)">int</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>number of entries that is TN</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.f_score.TrueNegative.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#TrueNegative.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.TrueNegative.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.f_score.TruePositive">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.f_score.</code><code class="sig-name descname">TruePositive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#TruePositive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.TruePositive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="odtoolkit.evaluation.superclass.BinaryEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.BinaryEvaluation</span></code></a></p>
+<p>Calculate the True-Positive between prediction and ground truth</p>
+<p>The True-Positive indicate the proportion of the actual occupied states that are correctly identified</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)">int</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>number of entries that is TP</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.f_score.TruePositive.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/f_score.html#TruePositive.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.f_score.TruePositive.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.evaluation.mae">
+<span id="odtoolkit-evaluation-mae-module"></span><h2>odtoolkit.evaluation.mae module<a class="headerlink" href="#module-odtoolkit.evaluation.mae" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.evaluation.mae.MAE">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.mae.</code><code class="sig-name descname">MAE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/mae.html#MAE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.mae.MAE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.OccupancyEvaluation" title="odtoolkit.evaluation.superclass.OccupancyEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.OccupancyEvaluation</span></code></a></p>
+<p>Calculate the <a class="reference external" href="https://en.wikipedia.org/wiki/Mean_absolute_error">Mean Absolute Error</a>
+between prediction and ground truth</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>MAE score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.mae.MAE.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/mae.html#MAE.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.mae.MAE.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.evaluation.mape">
+<span id="odtoolkit-evaluation-mape-module"></span><h2>odtoolkit.evaluation.mape module<a class="headerlink" href="#module-odtoolkit.evaluation.mape" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.evaluation.mape.MAPE">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.mape.</code><code class="sig-name descname">MAPE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/mape.html#MAPE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.mape.MAPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.OccupancyEvaluation" title="odtoolkit.evaluation.superclass.OccupancyEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.OccupancyEvaluation</span></code></a></p>
+<p>Calculate the <a class="reference external" href="https://en.wikipedia.org/wiki/Mean_absolute_percentage_error">Mean Absolute Percentage Error</a>
+between prediction and ground truth</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>MAPE score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.mape.MAPE.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/mape.html#MAPE.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.mape.MAPE.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.evaluation.mase">
+<span id="odtoolkit-evaluation-mase-module"></span><h2>odtoolkit.evaluation.mase module<a class="headerlink" href="#module-odtoolkit.evaluation.mase" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.evaluation.mase.MASE">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.mase.</code><code class="sig-name descname">MASE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/mase.html#MASE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.mase.MASE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.OccupancyEvaluation" title="odtoolkit.evaluation.superclass.OccupancyEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.OccupancyEvaluation</span></code></a></p>
+<p>Calculate the <a class="reference external" href="https://en.wikipedia.org/wiki/Mean_absolute_scaled_error">Mean Absolute Scaled Error</a>
+between prediction and ground truth</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>MASE score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.mase.MASE.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/mase.html#MASE.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.mase.MASE.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.evaluation.nrmse">
+<span id="odtoolkit-evaluation-nrmse-module"></span><h2>odtoolkit.evaluation.nrmse module<a class="headerlink" href="#module-odtoolkit.evaluation.nrmse" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.evaluation.nrmse.NRMSE">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.nrmse.</code><code class="sig-name descname">NRMSE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/nrmse.html#NRMSE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.nrmse.NRMSE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.OccupancyEvaluation" title="odtoolkit.evaluation.superclass.OccupancyEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.OccupancyEvaluation</span></code></a></p>
+<p>Calculate the <a class="reference external" href="https://en.wikipedia.org/wiki/Root-mean-square_deviation">Normalized Root Mean Square Error</a>
+between prediction and ground truth</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – the mode of nRMSE. Can select <code class="docutils literal notranslate"><span class="pre">'minmax'</span></code> or <code class="docutils literal notranslate"><span class="pre">'mean'</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>nRMSE score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.nrmse.NRMSE.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/nrmse.html#NRMSE.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.nrmse.NRMSE.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.evaluation.rmse">
+<span id="odtoolkit-evaluation-rmse-module"></span><h2>odtoolkit.evaluation.rmse module<a class="headerlink" href="#module-odtoolkit.evaluation.rmse" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.evaluation.rmse.RMSE">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.rmse.</code><code class="sig-name descname">RMSE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/rmse.html#RMSE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.rmse.RMSE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#odtoolkit.evaluation.superclass.OccupancyEvaluation" title="odtoolkit.evaluation.superclass.OccupancyEvaluation"><code class="xref py py-class docutils literal notranslate"><span class="pre">odtoolkit.evaluation.superclass.OccupancyEvaluation</span></code></a></p>
+<p>Calculate the <a class="reference external" href="https://en.wikipedia.org/wiki/Root-mean-square_deviation">Root Mean Square Error</a>
+between prediction and ground truth</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>RMSE score</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.rmse.RMSE.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/rmse.html#RMSE.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.rmse.RMSE.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.evaluation.superclass">
+<span id="odtoolkit-evaluation-superclass-module"></span><h2>odtoolkit.evaluation.superclass module<a class="headerlink" href="#module-odtoolkit.evaluation.superclass" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="odtoolkit.evaluation.superclass.BinaryEvaluation">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.superclass.</code><code class="sig-name descname">BinaryEvaluation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#BinaryEvaluation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Use all binary occupancy evaluation metrics to evaluate the differences between prediction and ground truth</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#odtoolkit.evaluation.superclass.BinaryEvaluation" title="odtoolkit.evaluation.superclass.BinaryEvaluation">odtoolkit.evaluation.superclass.BinaryEvaluation</a></p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.superclass.BinaryEvaluation.add_metrics">
+<code class="sig-name descname">add_metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_metrics</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#BinaryEvaluation.add_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.BinaryEvaluation.add_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add one or multiple metrics into the evaluation queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_metrics</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple metrics that additionally add to the evaluation queue.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.evaluation.superclass.BinaryEvaluation.get_all_metrics">
+<code class="sig-name descname">get_all_metrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#BinaryEvaluation.get_all_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.BinaryEvaluation.get_all_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all subclasses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.evaluation.superclass.BinaryEvaluation.remove_metrics">
+<code class="sig-name descname">remove_metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_metrics</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#BinaryEvaluation.remove_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.BinaryEvaluation.remove_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove one or multiple metrics from the evaluation queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_metrics</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple metrics that want to remove from the evaluation queue</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.evaluation.superclass.BinaryEvaluation.run_all_metrics">
+<code class="sig-name descname">run_all_metrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#BinaryEvaluation.run_all_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.BinaryEvaluation.run_all_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run all metrics that currently in the queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)">dict</a>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)">str</a>, <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a> or <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)">int</a>)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a dictionary map each metrics and their corresponding result</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.superclass.OccupancyEvaluation">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.superclass.</code><code class="sig-name descname">OccupancyEvaluation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predict</span></em>, <em class="sig-param"><span class="n">truth</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#OccupancyEvaluation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.OccupancyEvaluation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Use all occupancy level estimation metrics to evaluate the differences between prediction and ground truth</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the predicted values from occupancy estimation models</p></li>
+<li><p><strong>truth</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><em>numpy.ndarray</em></a>) – the ground truth value from the Dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#odtoolkit.evaluation.superclass.OccupancyEvaluation" title="odtoolkit.evaluation.superclass.OccupancyEvaluation">odtoolkit.evaluation.superclass.OccupancyEvaluation</a></p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.superclass.OccupancyEvaluation.add_metrics">
+<code class="sig-name descname">add_metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_metrics</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#OccupancyEvaluation.add_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.OccupancyEvaluation.add_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add one or multiple metrics into the evaluation queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_metrics</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple metrics that additionally add to the evaluation queue</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.evaluation.superclass.OccupancyEvaluation.get_all_metrics">
+<code class="sig-name descname">get_all_metrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#OccupancyEvaluation.get_all_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.OccupancyEvaluation.get_all_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all subclasses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.evaluation.superclass.OccupancyEvaluation.remove_metrics">
+<code class="sig-name descname">remove_metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_metrics</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#OccupancyEvaluation.remove_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.OccupancyEvaluation.remove_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove one or multiple metrics from the evaluation queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_metrics</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple metrics that want to remove from the evaluation queue</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.evaluation.superclass.OccupancyEvaluation.run_all_metrics">
+<code class="sig-name descname">run_all_metrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#OccupancyEvaluation.run_all_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.OccupancyEvaluation.run_all_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run all metrics that currently in the queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)">dict</a>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)">str</a>, <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)">float</a> or <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)">int</a>)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a dictionary map each metrics and their corresponding result</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="odtoolkit.evaluation.superclass.Result">
+<em class="property">class </em><code class="sig-prename descclassname">odtoolkit.evaluation.superclass.</code><code class="sig-name descname">Result</code><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#Result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.Result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Create a 3D array to fast select and reshape result</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>odtoolkit.evaluation.superclass.Result</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="odtoolkit.evaluation.superclass.Result.get_result">
+<code class="sig-name descname">get_result</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">metric</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fixed</span><span class="o">=</span><span class="default_value">'auto'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#Result.get_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.Result.get_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shrink, select and reshape result by given require query</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><em>None</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple datasets that user want as result. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then all datasets will
+be selected</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><em>None</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple models that user want as result. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then all models will
+be selected</p></li>
+<li><p><strong>metric</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><em>None</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – one or multiple metrics that user want as result. If <code class="docutils literal notranslate"><span class="pre">None</span></code> then all metrics will
+be selected</p></li>
+<li><p><strong>fixed</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – find which asix only have one value in order to create 2D result. If <code class="docutils literal notranslate"><span class="pre">'auto'</span></code> then it will
+automatically find the dimension with only one value. Value must be <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>, <code class="docutils literal notranslate"><span class="pre">'dataset'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'model'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'metric'</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>numpy.ndarary</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a 2D array contains the data for plotting</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="odtoolkit.evaluation.superclass.Result.set_result">
+<code class="sig-name descname">set_result</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">result</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/odtoolkit/evaluation/superclass.html#Result.set_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#odtoolkit.evaluation.superclass.Result.set_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the data in self</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>result</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)"><em>dict</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)"><em>dict</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)"><em>dict</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a><em>)</em><em>)</em><em>)</em>) – whole result from the experiment</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-odtoolkit.evaluation">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-odtoolkit.evaluation" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="odtoolkit.model.html" class="btn btn-neutral float-right" title="odtoolkit.model package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="odtoolkit.data.html" class="btn btn-neutral float-left" title="odtoolkit.data package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, ODToolkit Authors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

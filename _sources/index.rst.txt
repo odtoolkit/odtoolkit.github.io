@@ -11,7 +11,7 @@ Welcome to the ODToolkit API Documentation Page
 allows for comprehensive evaluation of these models on publicly available data sets collected from residential and
 commercial buildings. ODToolkit's data processing and evaluation pipeline is shown below.
 
-.. image:: graphics/odtk-flow.*
+.. image:: graphics/odtoolkit-flow.*
     :align: center
 
 Pre-request: `Python 3.4+ <https://www.python.org/downloads/>`_.

@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,43 +11,47 @@
   
 
   
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Dependencies" href="dependencies.html" />
     <link rel="prev" title="Sample Use Cases" href="experiment.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home"> ODToolkit
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ODToolkit
           
 
           
@@ -71,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -116,6 +120,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -154,7 +159,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Extending the Toolkit</li>
     
@@ -202,27 +207,27 @@ successive timestamps. The labelled occupancy data should be the last column of 
 14
 15
 16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtk</span>
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtoolkit</span>
 
-<span class="c1"># Load the raw csv file and transform to odtk.data.dataset.Dataset()</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">import_data</span><span class="p">(</span><span class="s2">&quot;./data-room-1.csv&quot;</span><span class="p">,</span>
-                                <span class="n">time_column_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                                <span class="n">room_name</span><span class="o">=</span><span class="s2">&quot;User room 1&quot;</span><span class="p">,</span>
-                                <span class="n">tz</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Load the raw csv file and transform to odtoolkit.data.dataset.Dataset()</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">import_data</span><span class="p">(</span><span class="s2">&quot;./data-room-1.csv&quot;</span><span class="p">,</span>
+                                     <span class="n">time_column_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                     <span class="n">room_name</span><span class="o">=</span><span class="s2">&quot;User room 1&quot;</span><span class="p">,</span>
+                                     <span class="n">tz</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
 <span class="c1"># Add more rooms into the same data set</span>
-<span class="n">dataset</span> <span class="o">+=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">import_data</span><span class="p">(</span><span class="s2">&quot;./data-room-2.csv&quot;</span><span class="p">,</span>
-                                 <span class="n">time_column_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                                 <span class="n">room_name</span><span class="o">=</span><span class="s2">&quot;User room 2&quot;</span><span class="p">,</span>
-                                 <span class="n">tz</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">+=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">import_data</span><span class="p">(</span><span class="s2">&quot;./data-room-2.csv&quot;</span><span class="p">,</span>
+                                      <span class="n">time_column_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                      <span class="n">room_name</span><span class="o">=</span><span class="s2">&quot;User room 2&quot;</span><span class="p">,</span>
+                                      <span class="n">tz</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Preprocess the data set</span>
-<span class="n">odtk</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">auto_clean</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">target_frequency</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">odtoolkit</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">auto_clean</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">target_frequency</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 <span class="c1"># After preprocessing, put the data set into specific folder for data sets</span>
-<span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">save_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="s2">&quot;./odtk/data/binary_dataset/user_room&quot;</span><span class="p">)</span>
+<span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">save_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="s2">&quot;./odtoolkit/data/binary_dataset/user_room&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>Once the data set is added to the toolkit, you may ask the toolkit to load the data as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;user_room&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;user_room&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -248,34 +253,34 @@ successive timestamps. The labelled occupancy data should be the last column of 
 18
 19
 20
-21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtk</span>
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtoolkit</span>
 
 <span class="c1"># Load a user-defined data set from the package, and remove its time feature</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">([</span><span class="s2">&quot;user_room&quot;</span><span class="p">])</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">([</span><span class="s2">&quot;user_room&quot;</span><span class="p">])</span>
 <span class="n">time_column_name</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;user_room&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">feature_mapping</span><span class="p">[</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;user_room&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">time_column_index</span><span class="p">]</span>
 <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;user_room&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">remove_feature</span><span class="p">(</span><span class="n">time_column_name</span><span class="p">)</span>
 
 <span class="c1"># Plot the correlation graph</span>
-<span class="n">odtk</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_feature_correlation</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;user_room&quot;</span><span class="p">])</span>
+<span class="n">odtoolkit</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_feature_correlation</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;user_room&quot;</span><span class="p">])</span>
 
 <span class="c1"># Use Random Forest model to perform occupancy estimation</span>
 <span class="c1"># Use all binary evaluation metrics to evaluate the model</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
-<span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">odtk</span><span class="o">.</span><span class="n">easy_set_experiment</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
-                                           <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">],</span>
-                                           <span class="n">evaluation_metrics</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">odtoolkit</span><span class="o">.</span><span class="n">easy_set_experiment</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
+                                                <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">],</span>
+                                                <span class="n">evaluation_metrics</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Plot the scores in a bar chart</span>
-<span class="n">odtk</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
-                      <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;user_room&quot;</span><span class="p">,</span>
-                      <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">)</span>
+<span class="n">odtoolkit</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
+                           <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;user_room&quot;</span><span class="p">,</span>
+                           <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 </div>
 <div class="section" id="adding-a-new-model">
 <h2>Adding a new model<a class="headerlink" href="#adding-a-new-model" title="Permalink to this headline">¶</a></h2>
-<p>To add a new occupancy estimation model to ODToolkit, you must put its code under the folder <code class="docutils literal notranslate"><span class="pre">./odtk/model/</span></code>.</p>
+<p>To add a new occupancy estimation model to ODToolkit, you must put its code under the folder <code class="docutils literal notranslate"><span class="pre">./odtoolkit/model/</span></code>.</p>
 <div class="section" id="template">
 <h3>Template<a class="headerlink" href="#template" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -332,7 +337,7 @@ successive timestamps. The labelled occupancy data should be the last column of 
 <span class="c1"># If you want to put your model into the ODToolkit folder, use this</span>
 <span class="kn">from</span> <span class="nn">.superclass</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="c1"># If you want to put your model into your own folder, use this</span>
-<span class="kn">from</span> <span class="nn">odtk.model.superclass</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">odtoolkit.model.superclass</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># Sample for supervised-learning model</span>
 <span class="k">class</span> <span class="nc">YourModelName</span><span class="p">(</span><span class="n">NormalModel</span><span class="p">):</span>
@@ -348,7 +353,7 @@ successive timestamps. The labelled occupancy data should be the last column of 
     <span class="c1"># the model must have a method called run, and return the predicted result</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Your model goes here</span>
-        <span class="c1"># Use odtk.data.dataset.Dataset() as data type</span>
+        <span class="c1"># Use odtoolkit.data.dataset.Dataset() as data type</span>
 
         <span class="c1"># ...</span>
 
@@ -371,7 +376,7 @@ successive timestamps. The labelled occupancy data should be the last column of 
     <span class="c1"># the model must have a method called run, and return the predicted result</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Your model goes here</span>
-        <span class="c1"># Use odtk.data.dataset.Dataset() as data type</span>
+        <span class="c1"># Use odtoolkit.data.dataset.Dataset() as data type</span>
 
         <span class="c1"># ...</span>
 
@@ -398,22 +403,22 @@ successive timestamps. The labelled occupancy data should be the last column of 
 13
 14
 15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtk</span>
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtoolkit</span>
 
 <span class="c1"># Load a sample data set from the package</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">([</span><span class="s2">&quot;umons-all&quot;</span><span class="p">])</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">([</span><span class="s2">&quot;umons-all&quot;</span><span class="p">])</span>
 
 <span class="c1"># Use new model to perform occupancy estimation</span>
 <span class="c1"># Use all binary evaluation metrics to evaluate the model</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
-<span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">odtk</span><span class="o">.</span><span class="n">easy_set_experiment</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
-                                           <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;YourModelName&quot;</span><span class="p">],</span>
-                                           <span class="n">evaluation_metrics</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">odtoolkit</span><span class="o">.</span><span class="n">easy_set_experiment</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
+                                                <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;YourModelName&quot;</span><span class="p">],</span>
+                                                <span class="n">evaluation_metrics</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Plot the scores in a bar chart</span>
-<span class="n">odtk</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
-                      <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
-                      <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">)</span>
+<span class="n">odtoolkit</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
+                           <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
+                           <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>To change the default parameters:</p>
@@ -447,15 +452,15 @@ successive timestamps. The labelled occupancy data should be the last column of 
 28
 29
 30
-31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtk</span>
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtoolkit</span>
 
 <span class="c1"># Load a sample data set from the package</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;umons-all&quot;</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;umons-all&quot;</span><span class="p">)</span>
 <span class="c1"># Create train / test sets</span>
 <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
 
 <span class="c1"># Select models you want to use</span>
-<span class="n">model_set</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">NormalModel</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">thread_num</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">model_set</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">NormalModel</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">thread_num</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">model_set</span><span class="o">.</span><span class="n">add_model</span><span class="p">([</span><span class="s2">&quot;YourModelName&quot;</span><span class="p">])</span>
 
 <span class="c1"># Edit the settings of your model</span>
@@ -465,19 +470,19 @@ successive timestamps. The labelled occupancy data should be the last column of 
 <span class="n">model_set_results</span> <span class="o">=</span> <span class="n">model_set</span><span class="o">.</span><span class="n">run_all_model</span><span class="p">()</span>
 
 <span class="c1"># Evaluate the result</span>
-<span class="n">metrics</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">BinaryEvaluation</span><span class="p">(</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">BinaryEvaluation</span><span class="p">(</span>
                           <span class="n">model_set_results</span><span class="p">[</span><span class="s2">&quot;YourModelName&quot;</span><span class="p">],</span> <span class="n">test</span><span class="o">.</span><span class="n">occupancy</span><span class="p">)</span>
 <span class="n">evaluation_score</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 <span class="n">metrics</span><span class="o">.</span><span class="n">get_all_metrics</span><span class="p">()</span>
 <span class="n">evaluation_score</span><span class="p">[</span><span class="s2">&quot;YourModelName&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">run_all_metrics</span><span class="p">()</span>
 
 <span class="c1"># Plot the result</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
 <span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">({</span><span class="s2">&quot;umons-all&quot;</span><span class="p">:</span> <span class="n">evaluation_score</span><span class="p">})</span>
 <span class="c1"># Plot the scores in a bar chart</span>
-<span class="n">odtk</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
-                      <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
-                      <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">)</span>
+<span class="n">odtoolkit</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
+                           <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
+                           <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -519,7 +524,7 @@ successive timestamps. The labelled occupancy data should be the last column of 
 <span class="c1"># If you want to put your model into the ODToolkit folder, use this</span>
 <span class="kn">from</span> <span class="nn">.superclass</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="c1"># If you want to put your model into your own folder, use this</span>
-<span class="kn">from</span> <span class="nn">odtk.evaluation.superclass</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">odtoolkit.evaluation.superclass</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># If evaluate occupancy count estimation, use OccupancyEvaluation as superclass</span>
 <span class="c1"># If evaluate binary estimation, use BinaryEvaluation as superclass</span>
@@ -563,22 +568,22 @@ successive timestamps. The labelled occupancy data should be the last column of 
 13
 14
 15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtk</span>
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtoolkit</span>
 
 <span class="c1"># Load a sample data set from the package</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">([</span><span class="s2">&quot;umons-all&quot;</span><span class="p">])</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">([</span><span class="s2">&quot;umons-all&quot;</span><span class="p">])</span>
 
 <span class="c1"># Use RandomForest model to perform occupancy estimation</span>
 <span class="c1"># Use all binary evaluation metrics to evaluate the model</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
-<span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">odtk</span><span class="o">.</span><span class="n">easy_set_experiment</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
-                                           <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">],</span>
-                                           <span class="n">evaluation_metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;YourMetricName&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">odtoolkit</span><span class="o">.</span><span class="n">easy_set_experiment</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
+                                                <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">],</span>
+                                                <span class="n">evaluation_metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;YourMetricName&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Plot the scores in a bar chart</span>
-<span class="n">odtk</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
-                      <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
-                      <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">)</span>
+<span class="n">odtoolkit</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
+                           <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
+                           <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>To change the default parameters:</p>
@@ -612,22 +617,22 @@ successive timestamps. The labelled occupancy data should be the last column of 
 28
 29
 30
-31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtk</span>
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtoolkit</span>
 
 <span class="c1"># Load a sample data set from the package</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;umons-all&quot;</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;umons-all&quot;</span><span class="p">)</span>
 <span class="c1"># Create train / test sets</span>
 <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
 
 <span class="c1"># Select models you want to use</span>
-<span class="n">model_set</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">NormalModel</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">thread_num</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">model_set</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">NormalModel</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">thread_num</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">model_set</span><span class="o">.</span><span class="n">add_model</span><span class="p">([</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">])</span>
 
 <span class="c1"># Run model to predict occupancy level</span>
 <span class="n">model_set_results</span> <span class="o">=</span> <span class="n">model_set</span><span class="o">.</span><span class="n">run_all_model</span><span class="p">()</span>
 
 <span class="c1"># Evaluate the result</span>
-<span class="n">metrics</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">BinaryEvaluation</span><span class="p">(</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">BinaryEvaluation</span><span class="p">(</span>
                           <span class="n">model_set_results</span><span class="p">[</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">],</span> <span class="n">test</span><span class="o">.</span><span class="n">occupancy</span><span class="p">)</span>
 <span class="n">evaluation_score</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 <span class="n">metrics</span><span class="o">.</span><span class="n">add_metrics</span><span class="p">([</span><span class="s2">&quot;YourMetricName&quot;</span><span class="p">])</span>
@@ -637,12 +642,12 @@ successive timestamps. The labelled occupancy data should be the last column of 
 <span class="n">evaluation_score</span><span class="p">[</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">run_all_metrics</span><span class="p">()</span>
 
 <span class="c1"># Plot the result</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">odtk</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
 <span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">({</span><span class="s2">&quot;umons-all&quot;</span><span class="p">:</span> <span class="n">evaluation_score</span><span class="p">})</span>
 <span class="c1"># Plot the scores in a bar chart</span>
-<span class="n">odtk</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
-                      <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
-                      <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">)</span>
+<span class="n">odtoolkit</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
+                           <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
+                           <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -660,7 +665,7 @@ successive timestamps. The labelled occupancy data should be the last column of 
         <a href="dependencies.html" class="btn btn-neutral float-right" title="Dependencies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="experiment.html" class="btn btn-neutral" title="Sample Use Cases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="experiment.html" class="btn btn-neutral float-left" title="Sample Use Cases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -669,11 +674,19 @@ successive timestamps. The labelled occupancy data should be the last column of 
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, ODToolkit Authors
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -685,27 +698,16 @@ successive timestamps. The labelled occupancy data should be the last column of 
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
