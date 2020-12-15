@@ -1,0 +1,70 @@
+core.evaluation package
+=======================
+
+Submodules
+----------
+
+core.evaluation.f\_score module
+-------------------------------
+
+.. automodule:: core.evaluation.f_score
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.evaluation.mae module
+--------------------------
+
+.. automodule:: core.evaluation.mae
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.evaluation.mape module
+---------------------------
+
+.. automodule:: core.evaluation.mape
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.evaluation.mase module
+---------------------------
+
+.. automodule:: core.evaluation.mase
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.evaluation.nrmse module
+----------------------------
+
+.. automodule:: core.evaluation.nrmse
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.evaluation.rmse module
+---------------------------
+
+.. automodule:: core.evaluation.rmse
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.evaluation.superclass module
+---------------------------------
+
+.. automodule:: core.evaluation.superclass
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: core.evaluation
+    :members:
+    :undoc-members:
+    :show-inheritance:

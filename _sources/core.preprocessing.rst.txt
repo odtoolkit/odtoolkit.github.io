@@ -1,0 +1,70 @@
+core.preprocessing package
+==========================
+
+Submodules
+----------
+
+core.preprocessing.auto\_clean module
+-------------------------------------
+
+.. automodule:: core.preprocessing.auto_clean
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.preprocessing.change module
+--------------------------------
+
+.. automodule:: core.preprocessing.change
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.preprocessing.downsample module
+------------------------------------
+
+.. automodule:: core.preprocessing.downsample
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.preprocessing.fill module
+------------------------------
+
+.. automodule:: core.preprocessing.fill
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.preprocessing.ontology module
+----------------------------------
+
+.. automodule:: core.preprocessing.ontology
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.preprocessing.outlier module
+---------------------------------
+
+.. automodule:: core.preprocessing.outlier
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.preprocessing.upsample module
+----------------------------------
+
+.. automodule:: core.preprocessing.upsample
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: core.preprocessing
+    :members:
+    :undoc-members:
+    :show-inheritance:

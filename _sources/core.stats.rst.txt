@@ -1,0 +1,62 @@
+core.stats package
+==================
+
+Submodules
+----------
+
+core.stats.analysis module
+--------------------------
+
+.. automodule:: core.stats.analysis
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.stats.dropout\_rate module
+-------------------------------
+
+.. automodule:: core.stats.dropout_rate
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.stats.frequency module
+---------------------------
+
+.. automodule:: core.stats.frequency
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.stats.gap\_detect module
+-----------------------------
+
+.. automodule:: core.stats.gap_detect
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.stats.occupancy\_evaluation module
+---------------------------------------
+
+.. automodule:: core.stats.occupancy_evaluation
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.stats.uptime module
+------------------------
+
+.. automodule:: core.stats.uptime
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: core.stats
+    :members:
+    :undoc-members:
+    :show-inheritance:

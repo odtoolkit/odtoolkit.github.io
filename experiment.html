@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Extending the Toolkit" href="customize.html" />
-    <link rel="prev" title="odtoolkit.stats package" href="sample.odtoolkit.stats.html" /> 
+    <link rel="prev" title="core.stats package" href="sample.core.stats.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -198,15 +198,15 @@ function of each feature in the data set.</p>
 6
 7
 8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtoolkit</span>
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">core</span>
 
 <span class="c1"># Load a sample data set from the package, and remove its time feature</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;umons-all&quot;</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">(</span><span class="s2">&quot;umons-all&quot;</span><span class="p">)</span>
 <span class="n">name_for_time_column</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">feature_mapping</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">time_column_index</span><span class="p">]</span>
 <span class="n">dataset</span><span class="o">.</span><span class="n">remove_feature</span><span class="p">(</span><span class="n">name_for_time_column</span><span class="p">)</span>
 
 <span class="c1"># Plot the correlation graph</span>
-<span class="n">odtoolkit</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_feature_correlation</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="n">core</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_feature_correlation</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -237,23 +237,23 @@ occupancy state of a room. We adopt a subset of the evaluation metrics to visual
 14
 15
 16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtoolkit</span>
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">core</span>
 
 <span class="c1"># Load a sample data set from the package</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">([</span><span class="s2">&quot;umons-all&quot;</span><span class="p">])</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">([</span><span class="s2">&quot;umons-all&quot;</span><span class="p">])</span>
 
 <span class="c1"># Use Random Forest model to perform occupancy estimation</span>
 <span class="c1"># Use all binary evaluation metrics to evaluate the model</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
-<span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">odtoolkit</span><span class="o">.</span><span class="n">easy_set_experiment</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
-                                                <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">],</span>
-                                                <span class="n">evaluation_metrics</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">easy_set_experiment</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
+                                           <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">],</span>
+                                           <span class="n">evaluation_metrics</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Plot the scores in a bar chart</span>
-<span class="n">odtoolkit</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
-                           <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
-                           <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">,</span>
-                           <span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;one_dataset_one_model_all_metrics&quot;</span><span class="p">)</span>
+<span class="n">core</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
+                      <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span>
+                      <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">,</span>
+                      <span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;one_dataset_one_model_all_metrics&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -285,24 +285,24 @@ occupancy state of a room. We choose the F1 Score to show the result.</p>
 15
 16
 17
-18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">odtoolkit</span>
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">core</span>
 
 <span class="c1"># Load two sample data sets from the package</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">([</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span> <span class="s2">&quot;sdu-all&quot;</span><span class="p">])</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_sample</span><span class="p">([</span><span class="s2">&quot;umons-all&quot;</span><span class="p">,</span> <span class="s2">&quot;sdu-all&quot;</span><span class="p">])</span>
 
 <span class="c1"># Use two models to perform occupancy estimation</span>
 <span class="c1"># Use all binary evaluation metrics to evaluate the model</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">odtoolkit</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
-<span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">odtoolkit</span><span class="o">.</span><span class="n">easy_set_experiment</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
-                                                <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">,</span> <span class="s2">&quot;NN&quot;</span><span class="p">],</span>
-                                                <span class="n">evaluation_metrics</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
-                                                <span class="n">thread_num</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">evaluation</span><span class="o">.</span><span class="n">Result</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">easy_set_experiment</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
+                                           <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">,</span> <span class="s2">&quot;NN&quot;</span><span class="p">],</span>
+                                           <span class="n">evaluation_metrics</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                                           <span class="n">thread_num</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Plot the scores in a bar chart</span>
-<span class="n">odtoolkit</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
-                           <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;F1Score&quot;</span><span class="p">,</span>
-                           <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">,</span>
-                           <span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;one_dataset_one_model_all_metrics&quot;</span><span class="p">)</span>
+<span class="n">core</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span>
+                      <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;F1Score&quot;</span><span class="p">,</span>
+                      <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;&lt;= 1&quot;</span><span class="p">,</span>
+                      <span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;one_dataset_one_model_all_metrics&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -324,7 +324,7 @@ occupancy state of a room. We choose the F1 Score to show the result.</p>
         <a href="customize.html" class="btn btn-neutral float-right" title="Extending the Toolkit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sample.odtoolkit.stats.html" class="btn btn-neutral float-left" title="odtoolkit.stats package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sample.core.stats.html" class="btn btn-neutral float-left" title="core.stats package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

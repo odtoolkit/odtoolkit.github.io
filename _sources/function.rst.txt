@@ -10,60 +10,60 @@ Subpackages
 
 .. toctree::
 
-   sample.odtoolkit.data
-   sample.odtoolkit.evaluation
-   sample.odtoolkit.model
-   sample.odtoolkit.preprocessing
-   sample.odtoolkit.stats
+   sample.core.data
+   sample.core.evaluation
+   sample.core.model
+   sample.core.preprocessing
+   sample.core.stats
 
 
-odtoolkit.easy\_experiment module
-=================================
-.. py:function:: odtoolkit.easy_experiment.easy_experiment(source, target_test, target_retrain=None, domain_adaptive=False, models='all', binary_evaluation=True, evaluation_metrics='all', thread_num=4, remove_time=True, plot=False)
+core.easy\_experiment module
+============================
+.. py:function:: core.easy_experiment.easy_experiment(source, target_test, target_retrain=None, domain_adaptive=False, models='all', binary_evaluation=True, evaluation_metrics='all', thread_num=4, remove_time=True, plot=False)
     :noindex:
 
-    :func:`~odtoolkit.easy_experiment.easy_experiment` function allows the user to quickly estimate the occupancy state
+    :func:`~core.easy_experiment.easy_experiment` function allows the user to quickly estimate the occupancy state
     of a room leveraging the specified models and evaluation metrics. Refer to the sample code
-    for :func:`~odtoolkit.easy_experiment.easy_set_experiment` for more details.
+    for :func:`~core.easy_experiment.easy_set_experiment` for more details.
 
-.. py:function:: odtoolkit.easy_experiment.easy_set_experiment(source_set, target_test_set=None, split_percentage=0.8, target_retrain=None, domain_adaptive=False, models='all', binary_evaluation=True, evaluation_metrics='all', thread_num=4, remove_time=True, plot=False)
+.. py:function:: core.easy_experiment.easy_set_experiment(source_set, target_test_set=None, split_percentage=0.8, target_retrain=None, domain_adaptive=False, models='all', binary_evaluation=True, evaluation_metrics='all', thread_num=4, remove_time=True, plot=False)
     :noindex:
 
-    :func:`~odtoolkit.easy_experiment.easy_set_experiment` function allows the user to quickly perform occupancy estimation
+    :func:`~core.easy_experiment.easy_set_experiment` function allows the user to quickly perform occupancy estimation
     on multiple data sets using the specified models and evaluation metrics. We recommend the
-    use of :func:`~odtoolkit.easy_experiment.easy_set_experiment` instead of :func:`~odtoolkit.easy_experiment.easy_experiment`
-    to get the formatted return value for :class:`~odtoolkit.evaluation.superclass.Result`, which is essential for plotting.
+    use of :func:`~core.easy_experiment.easy_set_experiment` instead of :func:`~core.easy_experiment.easy_experiment`
+    to get the formatted return value for :class:`~core.evaluation.superclass.Result`, which is essential for plotting.
 
     .. note::
 
-        Always pass a ``list`` as the argument of :func:`~odtoolkit.data.load_sample` function when
-        using :func:`~odtoolkit.easy_experiment.easy_set_experiment` to obtain a dictionary that maps data set names
-        to :class:`~odtoolkit.data.dataset.Dataset` objects.
+        Always pass a ``list`` as the argument of :func:`~core.data.load_sample` function when
+        using :func:`~core.easy_experiment.easy_set_experiment` to obtain a dictionary that maps data set names
+        to :class:`~core.data.dataset.Dataset` objects.
 
     .. code-block:: python
         :linenos:
 
-        import odtoolkit
+        import core
         import pprint
 
         # Load and separate the train and test data set
-        data = odtoolkit.data.load_sample(["umons-all", "aifb-all"])
+        data = core.data.load_sample(["umons-all", "aifb-all"])
 
         # Perform occupancy estimation
-        score, predict_result = odtoolkit.easy_set_experiment(data, models=["RandomForest"])
+        score, predict_result = core.easy_set_experiment(data, models=["RandomForest"])
 
         pprint(score)
         pprint(predict_result)
 
         # Make the scores ready to plot
-        result = odtoolkit.evaluation.Result()
+        result = core.evaluation.Result()
         result.set_result(score)
 
         # If you somehow want to use "easy_experiment", here is the code
         train, test = data["umons-all"].split(0.8)
 
         # Perform occupancy estimation
-        score, predict_result = odtoolkit.easy_experiment(train, test, models=["RandomForest"])
+        score, predict_result = core.easy_experiment(train, test, models=["RandomForest"])
 
         pprint(score)
         pprint(predict_result)

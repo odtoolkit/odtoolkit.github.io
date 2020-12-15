@@ -1,0 +1,46 @@
+core.data package
+=================
+
+Submodules
+----------
+
+core.data.dataset module
+------------------------
+
+.. automodule:: core.data.dataset
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.data.import\_data module
+-----------------------------
+
+.. automodule:: core.data.import_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.data.io module
+-------------------
+
+.. automodule:: core.data.io
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.data.load\_sample module
+-----------------------------
+
+.. automodule:: core.data.load_sample
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: core.data
+    :members:
+    :undoc-members:
+    :show-inheritance:

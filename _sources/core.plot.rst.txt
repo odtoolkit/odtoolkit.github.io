@@ -1,0 +1,46 @@
+core.plot package
+=================
+
+Submodules
+----------
+
+core.plot.plot\_feature module
+------------------------------
+
+.. automodule:: core.plot.plot_feature
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.plot.plot\_occupancy\_perc module
+--------------------------------------
+
+.. automodule:: core.plot.plot_occupancy_perc
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.plot.plot\_result module
+-----------------------------
+
+.. automodule:: core.plot.plot_result
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.plot.plot\_start\_end module
+---------------------------------
+
+.. automodule:: core.plot.plot_start_end
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: core.plot
+    :members:
+    :undoc-members:
+    :show-inheritance:

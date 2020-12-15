@@ -16,15 +16,15 @@ Sample code
 .. code-block:: python
     :linenos:
 
-    import odtoolkit
+    import core
 
     # Load a sample data set from the package, and remove its time feature
-    dataset = odtoolkit.data.load_sample("umons-all")
+    dataset = core.data.load_sample("umons-all")
     name_for_time_column = dataset.feature_mapping[dataset.time_column_index]
     dataset.remove_feature(name_for_time_column)
 
     # Plot the correlation graph
-    odtoolkit.plot.plot_feature_correlation(dataset)
+    core.plot.plot_feature_correlation(dataset)
 
 Result
 ------
@@ -43,23 +43,23 @@ Sample code
 .. code-block:: python
     :linenos:
 
-    import odtoolkit
+    import core
 
     # Load a sample data set from the package
-    dataset = odtoolkit.data.load_sample(["umons-all"])
+    dataset = core.data.load_sample(["umons-all"])
 
     # Use Random Forest model to perform occupancy estimation
     # Use all binary evaluation metrics to evaluate the model
-    result = odtoolkit.evaluation.Result()
-    result.set_result(odtoolkit.easy_set_experiment(dataset,
-                                                    models=["RandomForest"],
-                                                    evaluation_metrics="all")[0])
+    result = core.evaluation.Result()
+    result.set_result(core.easy_set_experiment(dataset,
+                                               models=["RandomForest"],
+                                               evaluation_metrics="all")[0])
 
     # Plot the scores in a bar chart
-    odtoolkit.plot.plot_result(result,
-                               dataset="umons-all",
-                               threshold="<= 1",
-                               file_name="one_dataset_one_model_all_metrics")
+    core.plot.plot_result(result,
+                          dataset="umons-all",
+                          threshold="<= 1",
+                          file_name="one_dataset_one_model_all_metrics")
 
 Result
 ------
@@ -78,24 +78,24 @@ Sample code
 .. code-block:: python
     :linenos:
 
-    import odtoolkit
+    import core
 
     # Load two sample data sets from the package
-    dataset = odtoolkit.data.load_sample(["umons-all", "sdu-all"])
+    dataset = core.data.load_sample(["umons-all", "sdu-all"])
 
     # Use two models to perform occupancy estimation
     # Use all binary evaluation metrics to evaluate the model
-    result = odtoolkit.evaluation.Result()
-    result.set_result(odtoolkit.easy_set_experiment(dataset,
-                                                    models=["RandomForest", "NN"],
-                                                    evaluation_metrics="all",
-                                                    thread_num=1)[0])
+    result = core.evaluation.Result()
+    result.set_result(core.easy_set_experiment(dataset,
+                                               models=["RandomForest", "NN"],
+                                               evaluation_metrics="all",
+                                               thread_num=1)[0])
 
     # Plot the scores in a bar chart
-    odtoolkit.plot.plot_result(result,
-                               metric="F1Score",
-                               threshold="<= 1",
-                               file_name="one_dataset_one_model_all_metrics")
+    core.plot.plot_result(result,
+                          metric="F1Score",
+                          threshold="<= 1",
+                          file_name="one_dataset_one_model_all_metrics")
 
 Result
 ------

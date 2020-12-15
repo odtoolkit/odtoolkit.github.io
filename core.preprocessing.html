@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>core.preprocessing package &mdash; ODToolkit 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="core.stats package" href="core.stats.html" />
+    <link rel="prev" title="core.plot package" href="core.plot.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ODToolkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">ODToolkit Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="core.data.html">core.data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.evaluation.html">core.evaluation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.model.html">core.model package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.plot.html">core.plot package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">core.preprocessing package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.preprocessing.auto_clean">core.preprocessing.auto_clean module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.preprocessing.change">core.preprocessing.change module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.preprocessing.downsample">core.preprocessing.downsample module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.preprocessing.fill">core.preprocessing.fill module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.preprocessing.ontology">core.preprocessing.ontology module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.preprocessing.outlier">core.preprocessing.outlier module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.preprocessing.upsample">core.preprocessing.upsample module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.preprocessing">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.stats.html">core.stats package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-core.easy_experiment">core.easy_experiment module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Sample Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customize.html">Extending the Toolkit</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ODToolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">API documentation</a> &raquo;</li>
+        
+      <li>core.preprocessing package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/core.preprocessing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="core-preprocessing-package">
+<h1>core.preprocessing package<a class="headerlink" href="#core-preprocessing-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-core.preprocessing.auto_clean">
+<span id="core-preprocessing-auto-clean-module"></span><h2>core.preprocessing.auto_clean module<a class="headerlink" href="#module-core.preprocessing.auto_clean" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.preprocessing.auto_clean.auto_clean">
+<code class="sig-prename descclassname">core.preprocessing.auto_clean.</code><code class="sig-name descname">auto_clean</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">target_frequency</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/preprocessing/auto_clean.html#auto_clean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.preprocessing.auto_clean.auto_clean" title="Permalink to this definition">¶</a></dt>
+<dd><p>The full preprocessing for the given core.data.dataset.Dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<a class="reference internal" href="core.data.html#core.data.dataset.Dataset" title="core.data.dataset.Dataset"><em>core.data.dataset.Dataset</em></a>) – Dataset object that wants to perform preprocessing</p></li>
+<li><p><strong>target_frequency</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – sampling frequency in second that the dataset wants to become</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.preprocessing.change">
+<span id="core-preprocessing-change-module"></span><h2>core.preprocessing.change module<a class="headerlink" href="#module-core.preprocessing.change" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.preprocessing.change.change_to_binary">
+<code class="sig-prename descclassname">core.preprocessing.change.</code><code class="sig-name descname">change_to_binary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/preprocessing/change.html#change_to_binary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.preprocessing.change.change_to_binary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the occupancy data in core.data.dataset.Dataset to binary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataset</strong> (<a class="reference internal" href="core.data.html#core.data.dataset.Dataset" title="core.data.dataset.Dataset"><em>core.data.dataset.Dataset</em></a>) – Dataset object that wants to change the occupancy encoding method</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="core.preprocessing.change.change_to_label">
+<code class="sig-prename descclassname">core.preprocessing.change.</code><code class="sig-name descname">change_to_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/preprocessing/change.html#change_to_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.preprocessing.change.change_to_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the occupancy data in core.data.dataset.Dataset to label encoding</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataset</strong> (<a class="reference internal" href="core.data.html#core.data.dataset.Dataset" title="core.data.dataset.Dataset"><em>core.data.dataset.Dataset</em></a>) – Dataset object that wants to change the occupancy encoding method</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="core.preprocessing.change.change_to_one_hot">
+<code class="sig-prename descclassname">core.preprocessing.change.</code><code class="sig-name descname">change_to_one_hot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/preprocessing/change.html#change_to_one_hot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.preprocessing.change.change_to_one_hot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the occupancy data in core.data.dataset.Dataset to one hot encoding</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataset</strong> (<a class="reference internal" href="core.data.html#core.data.dataset.Dataset" title="core.data.dataset.Dataset"><em>core.data.dataset.Dataset</em></a>) – Dataset object that wants to change the occupancy encoding method</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.preprocessing.downsample">
+<span id="core-preprocessing-downsample-module"></span><h2>core.preprocessing.downsample module<a class="headerlink" href="#module-core.preprocessing.downsample" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.preprocessing.downsample.downsample">
+<code class="sig-prename descclassname">core.preprocessing.downsample.</code><code class="sig-name descname">downsample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">target_frequency</span></em>, <em class="sig-param"><span class="n">algorithm</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/preprocessing/downsample.html#downsample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.preprocessing.downsample.downsample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downsampling the sampling frequency (decrease the number of rows) of given core.data.dataset.Dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<a class="reference internal" href="core.data.html#core.data.dataset.Dataset" title="core.data.dataset.Dataset"><em>core.data.dataset.Dataset</em></a>) – Dataset object that wants to downsample</p></li>
+<li><p><strong>target_frequency</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – sampling frequency in second that the dataset wants to become</p></li>
+<li><p><strong>algorithm</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – downsampling algorithm. Only <code class="docutils literal notranslate"><span class="pre">'mean'</span></code> is available for now</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.preprocessing.fill">
+<span id="core-preprocessing-fill-module"></span><h2>core.preprocessing.fill module<a class="headerlink" href="#module-core.preprocessing.fill" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.preprocessing.fill.fill">
+<code class="sig-prename descclassname">core.preprocessing.fill.</code><code class="sig-name descname">fill</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/preprocessing/fill.html#fill"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.preprocessing.fill.fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill all nan value in the sensor data for given core.data.dataset.Dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataset</strong> (<a class="reference internal" href="core.data.html#core.data.dataset.Dataset" title="core.data.dataset.Dataset"><em>core.data.dataset.Dataset</em></a>) – Dataset object that wants to fill in missing values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.preprocessing.ontology">
+<span id="core-preprocessing-ontology-module"></span><h2>core.preprocessing.ontology module<a class="headerlink" href="#module-core.preprocessing.ontology" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.preprocessing.ontology.ontology">
+<code class="sig-prename descclassname">core.preprocessing.ontology.</code><code class="sig-name descname">ontology</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/preprocessing/ontology.html#ontology"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.preprocessing.ontology.ontology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the name of features to standard glossary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataset</strong> (<a class="reference internal" href="core.data.html#core.data.dataset.Dataset" title="core.data.dataset.Dataset"><em>core.data.dataset.Dataset</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – Dataset object or list of features’ name that wants to map to standard glossary</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)">list</a>(<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)">str</a>)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Edited feature_list list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.preprocessing.outlier">
+<span id="core-preprocessing-outlier-module"></span><h2>core.preprocessing.outlier module<a class="headerlink" href="#module-core.preprocessing.outlier" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.preprocessing.outlier.remove_outlier">
+<code class="sig-prename descclassname">core.preprocessing.outlier.</code><code class="sig-name descname">remove_outlier</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">auto_fill</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">ratio</span><span class="o">=</span><span class="default_value">1.5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/preprocessing/outlier.html#remove_outlier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.preprocessing.outlier.remove_outlier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove potential outliers using IQR, and fill with numpy.nan. Outliers are the value that
+less than value at the first quantile - ratio * IOR or
+greater than value at the third quantile + ratio * IOR
+in its corresponding column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<a class="reference internal" href="core.data.html#core.data.dataset.Dataset" title="core.data.dataset.Dataset"><em>core.data.dataset.Dataset</em></a>) – Dataset object that wants to remove outliers</p></li>
+<li><p><strong>auto_fill</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – whether automatically fill the outliers or leave it nan</p></li>
+<li><p><strong>ratio</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – IQR ratio in order to mark value as an outlier</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.preprocessing.upsample">
+<span id="core-preprocessing-upsample-module"></span><h2>core.preprocessing.upsample module<a class="headerlink" href="#module-core.preprocessing.upsample" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.preprocessing.upsample.upsample">
+<code class="sig-prename descclassname">core.preprocessing.upsample.</code><code class="sig-name descname">upsample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">target_frequency</span></em>, <em class="sig-param"><span class="n">algorithm</span><span class="o">=</span><span class="default_value">'linear'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/preprocessing/upsample.html#upsample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.preprocessing.upsample.upsample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upsampling the sampling frequency (increase the number of rows) of given core.data.dataset.Dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<a class="reference internal" href="core.data.html#core.data.dataset.Dataset" title="core.data.dataset.Dataset"><em>core.data.dataset.Dataset</em></a>) – Dataset object that wants to upsample</p></li>
+<li><p><strong>target_frequency</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – sampling frequency in second that the dataset wants to become</p></li>
+<li><p><strong>algorithm</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – upsampling algorithm. Only <code class="docutils literal notranslate"><span class="pre">'linear'</span></code> is available for now</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.preprocessing">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-core.preprocessing" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="core.stats.html" class="btn btn-neutral float-right" title="core.stats package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="core.plot.html" class="btn btn-neutral float-left" title="core.plot package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, ODToolkit Authors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

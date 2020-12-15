@@ -1,0 +1,99 @@
+core.evaluation package
+=======================
+
+This package contains multiple built-in evaluation metrics, and user should drop their metrics in here.
+
+core.evaluation.superclass module
+---------------------------------
+
+.. py:class:: core.evaluation.superclass.BinaryEvaluation(predict, truth)
+    :noindex:
+.. py:class:: core.evaluation.superclass.OccupancyEvaluation(predict, truth)
+    :noindex:
+
+    :class:`~core.evaluation.superclass.BinaryEvaluation` and :class:`~core.evaluation.superclass.OccupancyEvaluation`
+    are the superclasses for all evaluation metrics. :class:`~core.evaluation.superclass.BinaryEvaluation` is the
+    superclass for metrics that are designed for evaluating binary estimation
+    results. In contrast, :class:`~core.evaluation.superclass.OccupancyEvaluation` is the superclass for metrics that
+    are designed for evaluating occupancy count estimation results. They both have four methods:
+
+    .. py:method:: get_all_metrics()
+        :noindex:
+    .. py:method:: add_metrics(list_of_metrics)
+        :noindex:
+    .. py:method:: remove_metrics(list_of_metrics)
+        :noindex:
+    .. py:method:: run_all_metrics()
+        :noindex:
+
+        These methods can be used to return experiment results and allow the user to modify
+        settings for a specific metric at any time.
+
+        .. code-block:: python
+
+            import core
+
+            # Load a sample data set from the package
+            dataset = core.data.load_sample("umons-all")
+            # Create train / test sets
+            train, test = dataset.split(0.8)
+
+            # Select models you want to use
+            model_set = core.model.NormalModel(train, test, thread_num=1)
+            model_set.add_model(["RandomForest"])
+
+            # Run model to predict occupancy level
+            model_set_results = model_set.run_all_model()
+
+            # ===== Sample Start Here =====
+            # Evaluate the result
+            metrics = core.evaluation.BinaryEvaluation(
+                                      model_set_results["RandomForest"], test.occupancy)
+            evaluation_score = dict()
+            metrics.add_metrics(["YourMetricName", "YourSecondMetric", "YourThirdMetric"])
+            metrics.remove_metrics("YourSecondMetric")
+            metrics.remove_metrics(["YourMetricName", "YourThirdMetric"])
+            metrics.get_all_metrics()
+            # Change your metric
+            your_metric = metrics.metrics["YourMetricName"]
+            your_metric.alpha = 0.5
+            evaluation_score["RandomForest"] = metrics.run_all_metrics()
+
+            # Get the result
+            result = core.evaluation.Result()
+            print(result)
+
+.. py:class:: core.evaluation.superclass.Result()
+    :noindex:
+
+    :class:`~core.evaluation.superclass.Result` class is for user to extract partial results from all experiment
+    results efficiently.
+
+    .. py:method:: set_result(result)
+        :noindex:
+
+        :meth:`~core.evaluation.superclass.Result.set_result` method must take the object that has the same structure
+        with the result of :func:`~core.easy_experiment.easy_set_experiment` as the parameter.
+
+        .. code-block:: python
+            :linenos:
+
+            import core
+            import pprint
+
+            # Load and separate the train and test data set
+            data = core.data.load_sample(["umons-all", "aifb-all"])
+
+            # Perform occupancy estimation
+            score, predict_result = core.easy_set_experiment(data,
+                                                             models=["RandomForest", "NN", "SVM"])
+
+            # Create Result class
+            result_metric = core.evaluation.Result()
+            result_metric.set_result(score)
+
+            # Extract result for one data set
+            print(result_metric.get_result(dataset="umons-all"))
+            # Extract result for one data set on two metrics
+            print(result_metric.get_result(dataset="umons-all",
+                                           metric=["Precision", "F1Score"]))

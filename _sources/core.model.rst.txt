@@ -1,0 +1,102 @@
+core.model package
+==================
+
+Submodules
+----------
+
+core.model.gaussian\_process\_classifier module
+-----------------------------------------------
+
+.. automodule:: core.model.gaussian_process_classifier
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.model.gaussian\_process\_regression module
+-----------------------------------------------
+
+.. automodule:: core.model.gaussian_process_regression
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.model.hidden\_markov\_model module
+---------------------------------------
+
+.. automodule:: core.model.hidden_markov_model
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.model.hmm\_core module
+---------------------------
+
+.. automodule:: core.model.hmm_core
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.model.nn module
+--------------------
+
+.. automodule:: core.model.nn
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.model.particle\_filtering module
+-------------------------------------
+
+.. automodule:: core.model.particle_filtering
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.model.random\_forest module
+--------------------------------
+
+.. automodule:: core.model.random_forest
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.model.rnn module
+---------------------
+
+.. automodule:: core.model.rnn
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.model.snmf module
+----------------------
+
+.. automodule:: core.model.snmf
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.model.superclass module
+----------------------------
+
+.. automodule:: core.model.superclass
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+core.model.support\_vector\_machine module
+------------------------------------------
+
+.. automodule:: core.model.support_vector_machine
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: core.model
+    :members:
+    :undoc-members:
+    :show-inheritance:

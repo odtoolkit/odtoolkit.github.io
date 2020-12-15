@@ -11,17 +11,17 @@ Subpackages
 
 .. toctree::
 
-    odtoolkit.data
-    odtoolkit.evaluation
-    odtoolkit.model
-    odtoolkit.plot
-    odtoolkit.preprocessing
-    odtoolkit.stats
+    core.data
+    core.evaluation
+    core.model
+    core.plot
+    core.preprocessing
+    core.stats
 
-odtoolkit.easy\_experiment module
-=================================
+core.easy\_experiment module
+============================
 
-.. automodule:: odtoolkit.easy_experiment
+.. automodule:: core.easy_experiment
     :members:
     :undoc-members:
     :show-inheritance:

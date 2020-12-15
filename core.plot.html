@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>core.plot package &mdash; ODToolkit 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="core.preprocessing package" href="core.preprocessing.html" />
+    <link rel="prev" title="core.model package" href="core.model.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ODToolkit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">ODToolkit Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="core.data.html">core.data package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.evaluation.html">core.evaluation package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.model.html">core.model package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">core.plot package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.plot.plot_feature">core.plot.plot_feature module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.plot.plot_occupancy_perc">core.plot.plot_occupancy_perc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.plot.plot_result">core.plot.plot_result module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.plot.plot_start_end">core.plot.plot_start_end module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-core.plot">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.preprocessing.html">core.preprocessing package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.stats.html">core.stats package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-core.easy_experiment">core.easy_experiment module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demo Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiment.html">Sample Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customize.html">Extending the Toolkit</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Credits</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ODToolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">API documentation</a> &raquo;</li>
+        
+      <li>core.plot package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/core.plot.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="core-plot-package">
+<h1>core.plot package<a class="headerlink" href="#core-plot-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-core.plot.plot_feature">
+<span id="core-plot-plot-feature-module"></span><h2>core.plot.plot_feature module<a class="headerlink" href="#module-core.plot.plot_feature" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.plot.plot_feature.plot_feature_correlation">
+<code class="sig-prename descclassname">core.plot.plot_feature.</code><code class="sig-name descname">plot_feature_correlation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">occupied_color</span><span class="o">=</span><span class="default_value">'#009250'</span></em>, <em class="sig-param"><span class="n">unoccupied_color</span><span class="o">=</span><span class="default_value">'#920000'</span></em>, <em class="sig-param"><span class="n">density_color</span><span class="o">=</span><span class="default_value">'#00009250'</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">file_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/plot/plot_feature.html#plot_feature_correlation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.plot.plot_feature.plot_feature_correlation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the correlation figure for each features in dataset across all rooms.
+The plot will only identify two clusters, one for zero occupancy, and one for
+more than zero occupancy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<a class="reference internal" href="core.data.html#core.data.dataset.Dataset" title="core.data.dataset.Dataset"><em>core.data.dataset.Dataset</em></a>) – Dataset object that wants to show correlations</p></li>
+<li><p><strong>occupied_color</strong> (<em>#rgba</em>) – the color for more than zero occupancy data</p></li>
+<li><p><strong>unoccupied_color</strong> (<em>#rgba</em>) – the color for zero occupancy data</p></li>
+<li><p><strong>density_color</strong> (<em>#rgba</em>) – the color for density distribution plot</p></li>
+<li><p><strong>unit</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)"><em>dict</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – a dictionary that have feature name correspond to user-defined unit</p></li>
+<li><p><strong>file_name</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – the file name of function’s figure.
+if None, then do not write figure to a file.
+Otherwise, write figure to file_name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.plot.plot_occupancy_perc">
+<span id="core-plot-plot-occupancy-perc-module"></span><h2>core.plot.plot_occupancy_perc module<a class="headerlink" href="#module-core.plot.plot_occupancy_perc" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.plot.plot_occupancy_perc.plot_occupancy_distribution">
+<code class="sig-prename descclassname">core.plot.plot_occupancy_perc.</code><code class="sig-name descname">plot_occupancy_distribution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datasets</span></em>, <em class="sig-param"><span class="n">bin_size</span><span class="o">=</span><span class="default_value">600</span></em>, <em class="sig-param"><span class="n">orientation</span><span class="o">=</span><span class="default_value">'horizontal'</span></em>, <em class="sig-param"><span class="n">room_level</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">file_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">skip_calculation</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">1.5</span></em>, <em class="sig-param"><span class="n">x_label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">y_label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">swarm</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/plot/plot_occupancy_perc.html#plot_occupancy_distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.plot.plot_occupancy_perc.plot_occupancy_distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the distribution of when the room is occupied over a day (averaged) using histogram or swarmplot.
+Each Dataset in datasets have one distribution plot, and are shown in the same figure</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datasets</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#dict" title="(in Python v3.5)"><em>dict</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>, </em><a class="reference internal" href="core.data.html#core.data.dataset.Dataset" title="core.data.dataset.Dataset"><em>core.data.dataset.Dataset</em></a><em>)</em>) – a set of Dataset corresponds to its name</p></li>
+<li><p><strong>bin_size</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – number of seconds for each bin</p></li>
+<li><p><strong>orientation</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – the direction or the plot. Selection of <code class="docutils literal notranslate"><span class="pre">'vertical'</span></code> or <code class="docutils literal notranslate"><span class="pre">'horizontal'</span></code></p></li>
+<li><p><strong>room_level</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – decide the result is separate for each room in each Dataset or
+combine each dataset together</p></li>
+<li><p><strong>skip_calculation</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – if datasets is a set of list contains only times,
+then function can skip calculation</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – the size of the dot in swarmplot</p></li>
+<li><p><strong>x_label</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – text label on x_axis</p></li>
+<li><p><strong>y_label</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – text label on y_axis</p></li>
+<li><p><strong>swarm</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – decide whether use histogram or swarmplot</p></li>
+<li><p><strong>file_name</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – the file name of function’s figure.
+if None, then do not write figure to a file.
+Otherwise, write figure to file_name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.plot.plot_result">
+<span id="core-plot-plot-result-module"></span><h2>core.plot.plot_result module<a class="headerlink" href="#module-core.plot.plot_result" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.plot.plot_result.plot_result">
+<code class="sig-prename descclassname">core.plot.plot_result.</code><code class="sig-name descname">plot_result</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">result</span></em>, <em class="sig-param"><span class="n">threshold</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">group_by</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">dataset</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">metric</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fixed_category</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">x_label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">y_label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">y_range</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">add_label</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">font_size</span><span class="o">=</span><span class="default_value">12</span></em>, <em class="sig-param"><span class="n">file_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bar_size</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">add_line</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/plot/plot_result.html#plot_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.plot.plot_result.plot_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the 2D result bar plot for the experimental result. The dimension with only one selected name
+is the dimension to flat</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>result</strong> (<a class="reference internal" href="core.evaluation.html#core.evaluation.superclass.Result" title="core.evaluation.superclass.Result"><em>core.evaluation.superclass.Result</em></a>) – the 3D result from the experiments</p></li>
+<li><p><strong>threshold</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – maximum score show in this figure</p></li>
+<li><p><strong>group_by</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) – indicate using which dimension as the x-axis. Selection of <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p><strong>dataset</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – select the name of datasets want to present in this figure</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – select the name of models want to present in this figure</p></li>
+<li><p><strong>metric</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a><em>)</em>) – select the name of metrics want to present in this figure</p></li>
+<li><p><strong>fixed_category</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – find which asix only have one value in order to create 2D result. If <code class="docutils literal notranslate"><span class="pre">'auto'</span></code> then
+it will automatically find the dimension with only one value. Value must be <code class="docutils literal notranslate"><span class="pre">'auto'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'dataset'</span></code>, <code class="docutils literal notranslate"><span class="pre">'model'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'metric'</span></code></p></li>
+<li><p><strong>y_range</strong> (<code class="docutils literal notranslate"><span class="pre">None</span></code> or list(float)) – the range of the y-axis. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, then use best fit range</p></li>
+<li><p><strong>x_label</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – text label on x_axis</p></li>
+<li><p><strong>y_label</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – text label on y_axis</p></li>
+<li><p><strong>add_label</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – decide whether add labels to the x-axis</p></li>
+<li><p><strong>font_size</strong> – the font size for all elements in the figure</p></li>
+<li><p><strong>bar_size</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – the width of the bar</p></li>
+<li><p><strong>add_line</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – decide whether add trend line on histogram</p></li>
+<li><p><strong>file_name</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – the file name of function’s figure.
+if None, then do not write figure to a file.
+Otherwise, write figure to file_name</p></li>
+<li><p><strong>**kwarg</strong> – other arguments for the matplotlib.pyplot.bar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.plot.plot_start_end">
+<span id="core-plot-plot-start-end-module"></span><h2>core.plot.plot_start_end module<a class="headerlink" href="#module-core.plot.plot_start_end" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="core.plot.plot_start_end.plot_start_end_distribution">
+<code class="sig-prename descclassname">core.plot.plot_start_end.</code><code class="sig-name descname">plot_start_end_distribution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">end</span></em>, <em class="sig-param"><span class="n">bin_size</span><span class="o">=</span><span class="default_value">600</span></em>, <em class="sig-param"><span class="n">orientation</span><span class="o">=</span><span class="default_value">'horizontal'</span></em>, <em class="sig-param"><span class="n">file_name</span><span class="o">=</span><span class="default_value">'output.png'</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">1.5</span></em>, <em class="sig-param"><span class="n">x_label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">y_label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">swarm</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/core/plot/plot_start_end.html#plot_start_end_distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#core.plot.plot_start_end.plot_start_end_distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the distribution of when the room becomes occupied at the first time over a day (averaged)
+and the distribution of when the room starts unoccupied at the last time over a day (averaged)
+using histogram or swarmplot. Each Dataset in datasets have one distribution plot,
+and are shown in the same figure</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a><em>)</em>) – a set of list contains only the time of first occupied in seconds</p></li>
+<li><p><strong>end</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#list" title="(in Python v3.5)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a><em>)</em>) – a set of list contains only the time of last unoccupied in seconds</p></li>
+<li><p><strong>orientation</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – the direction or the plot. Selection of <code class="docutils literal notranslate"><span class="pre">'vertical'</span></code> or <code class="docutils literal notranslate"><span class="pre">'horizontal'</span></code></p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#float" title="(in Python v3.5)"><em>float</em></a>) – the size of the dot in swarmplot</p></li>
+<li><p><strong>x_label</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – text label on x_axis</p></li>
+<li><p><strong>y_label</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – text label on y_axis</p></li>
+<li><p><strong>swarm</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) – decide whether use histogram or swarmplot</p></li>
+<li><p><strong>file_name</strong> (<a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) – the file name of function’s figure.
+if None, then do not write figure to a file.
+Otherwise, write figure to file_name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-core.plot">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-core.plot" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="core.preprocessing.html" class="btn btn-neutral float-right" title="core.preprocessing package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="core.model.html" class="btn btn-neutral float-left" title="core.model package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, ODToolkit Authors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

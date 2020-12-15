@@ -1,0 +1,166 @@
+core.preprocessing package
+==========================
+
+This package contains functions that are useful for modifying values in ``core.data.dataset.Dataset``.
+:func:`core.preprocessing.auto_clean.auto_clean` automatically runs all preprocessing functions.
+
+core.preprocessing.change module
+--------------------------------
+
+.. py:function:: core.preprocessing.change.change_to_binary(dataset)
+    :noindex:
+.. py:function:: core.preprocessing.change.change_to_label(dataset)
+    :noindex:
+.. py:function:: core.preprocessing.change.change_to_one_hot(dataset)
+    :noindex:
+
+    :func:`~core.preprocessing.change.change_to_binary`, :func:`~core.preprocessing.change.change_to_label`
+    and :func:`~core.preprocessing.change.change_to_one_hot` changes the encoding method for occupancy
+    in the ``core.data.dataset.Dataset`` object.:
+
+        >>> import core
+        >>> import numpy as np
+        >>> data = np.array([[1, 2], [3, 4]])
+        >>> occupancy = np.array([[0], [3]])
+        >>> dataset = core.data.Dataset()
+        >>> dataset.add_room(data, occupancy=occupancy, room_name="test", header=["name 1", "name 2"])
+        >>> dataset.occupancy
+        array([[0.],
+               [3.]])
+        >>> core.preprocessing.change_to_one_hot(dataset)
+        >>> dataset.occupancy
+        array([[1., 0., 0., 0.],
+               [0., 0., 0., 1.]])
+        >>> core.preprocessing.change_to_label(dataset)
+        >>> dataset.occupancy
+        array([[0],
+               [3]], dtype=int64)
+        >>> core.preprocessing.change_to_binary(dataset)
+        >>> dataset.occupancy
+        array([[0],
+               [1]], dtype=int64)
+
+core.preprocessing.fill module
+------------------------------
+
+.. py:function:: core.preprocessing.fill.fill(dataset)
+    :noindex:
+
+    :func:`~core.preprocessing.fill.fill` function helps impute all missing data
+    in the ``core.data.dataset.Dataset`` object.:
+
+        >>> import core
+        >>> import numpy as np
+        >>> data = np.array([[1, np.nan], [100, 4], [200, np.nan], [20, np.nan]])
+        >>> occupancy = np.array([[0], [3], [4], [7]])
+        >>> dataset = core.data.Dataset()
+        >>> dataset.add_room(data, occupancy=occupancy, room_name="test", header=["name 1", "name 2"])
+        >>> dataset.data
+        array([[  1.,  nan],
+               [100.,   4.],
+               [200.,  nan],
+               [ 20.,  nan]])
+        >>> core.preprocessing.fill(dataset)
+        >>> dataset.data
+        array([[  1.,   4.],
+               [100.,   4.],
+               [200.,   4.],
+               [ 20.,   4.]])
+
+core.preprocessing.ontology module
+----------------------------------
+
+.. py:function:: core.preprocessing.ontology.ontology(dataset)
+    :noindex:
+
+    :func:`~core.preprocessing.ontology.ontology` function can be used to change the feature names
+    in the ``core.data.dataset.Dataset`` object.:
+
+        >>> import core
+        >>> import numpy as np
+        >>> data = np.array([[1, 1], [2, 4]])
+        >>> occupancy = np.array([[0], [3]])
+        >>> dataset = core.data.Dataset()
+        >>> dataset.add_room(data, occupancy=occupancy, room_name="test", header=["Tem.", "damp"])
+        >>> core.preprocessing.ontology(dataset)
+        ['temperature', 'damper']
+        >>> dataset.feature_list
+        ['temperature', 'damper']
+
+core.preprocessing.outlier module
+---------------------------------
+
+.. py:function:: core.preprocessing.outlier.remove_outlier(dataset, auto_fill=True, ratio=1.5)
+    :noindex:
+
+    :func:`~core.preprocessing.outlier.remove_outlier` function removes outliers that exist in
+    the ``core.data.dataset.Dataset`` object and fills in the gap that will be produced.:
+
+        >>> import core
+        >>> import numpy as np
+        >>> data = np.array([[1, 1], [2, 4], [200, 4], [3, 7]])
+        >>> occupancy = np.array([[0], [3], [4], [7]])
+        >>> dataset = core.data.Dataset()
+        >>> dataset.add_room(data, occupancy=occupancy, room_name="test", header=["name 1", "name 2"])
+        >>> dataset.data
+        array([[  1.,   1.],
+               [  2.,   4.],
+               [200.,   4.],
+               [  3.,   7.]])
+        >>> core.preprocessing.remove_outlier(dataset)
+        >>> dataset.data
+        array([[1., 1.],
+               [2., 4.],
+               [2., 4.],
+               [3., 7.]])
+
+core.preprocessing.upsample module
+----------------------------------
+
+.. py:function:: core.preprocessing.upsample.upsample(dataset, target_frequency, algorithm='linear')
+    :noindex:
+.. py:function:: core.preprocessing.downsample.downsample(dataset, target_frequency, algorithm='mean')
+    :noindex:
+
+    :func:`~core.preprocessing.upsample.upsample` and :func:`~core.preprocessing.downsample.downsample` increase and
+    decrease the number of data points (i.e., the number of rows) in the ``core.data.dataset.Dataset`` object.:
+
+        >>> import core
+        >>> import numpy as np
+        >>> data = np.array([[1, 2], [100, 4], [200, 6]])
+        >>> occupancy = np.array([[0], [3], [4]])
+        >>> dataset = core.data.Dataset()
+        >>> dataset.add_room(data, occupancy=occupancy, room_name="test", header=["name 1", "name 2"])
+        >>> dataset.data
+        array([[  1.,   2.],
+               [100.,   4.],
+               [200.,   6.]])
+        >>> dataset.time_column_index = 0
+        >>> core.preprocessing.upsample(dataset, 10)
+        >>> dataset.data
+        array([[  1.        ,   2.        ],
+               [ 11.        ,   2.22222222],
+               [ 21.        ,   2.44444444],
+               [ 31.        ,   2.66666667],
+               [ 41.        ,   2.88888889],
+               [ 51.        ,   3.11111111],
+               [ 61.        ,   3.33333333],
+               [ 71.        ,   3.55555556],
+               [ 81.        ,   3.77777778],
+               [ 91.        ,   4.        ],
+               [101.        ,   4.2       ],
+               [111.        ,   4.4       ],
+               [121.        ,   4.6       ],
+               [131.        ,   4.8       ],
+               [141.        ,   5.        ],
+               [151.        ,   5.2       ],
+               [161.        ,   5.4       ],
+               [171.        ,   5.6       ],
+               [181.        ,   5.8       ],
+               [191.        ,   6.        ]])
+        >>> core.preprocessing.downsample(dataset, 60)
+        >>> dataset.data
+        array([[  1.        ,   2.        ],
+               [ 61.        ,   3.33333333],
+               [121.        ,   4.6       ],
+               [181.        ,   5.8       ]])
